@@ -1,0 +1,72 @@
+[gd_resource type="Resource" script_class="Lesson" format=3 uid="uid://has872dn6tka"]
+
+[ext_resource type="Script" uid="uid://dadne10e1geqd" path="res://Lessons/lesson_item.gd" id="1_vno7v"]
+[ext_resource type="Script" uid="uid://7kxviye2bk4p" path="res://Lessons/lesson.gd" id="2_lesson"]
+
+[sub_resource type="Resource" id="Resource_web1"]
+script = ExtResource("1_vno7v")
+id = "WEB1"
+term = "HTML"
+keyword = "structure"
+definition = "is the standard language used to create the structure of web pages."
+simple_terms = "builds the skeleton of a website."
+examples = ["<h1>", "<p>", "<div>", "<img>"]
+difficulty = 1
+related_to = ["frontend"]
+tof_statement = {
+"false": "HTML is used to style web pages.",
+"true": "HTML is used to structure web pages."
+}
+type_of_information = ["definition", "list", "explain"]
+
+[sub_resource type="Resource" id="Resource_web2"]
+script = ExtResource("1_vno7v")
+id = "WEB2"
+term = "CSS"
+keyword = "style"
+definition = "Used to design and style web pages."
+simple_terms = "It makes websites look beautiful."
+examples = ["color", "margin", "padding", "font-size"]
+difficulty = 1
+related_to = ["frontend"]
+tof_statement = {
+"false": "CSS creates database connections.",
+"true": "CSS controls the appearance of web pages."
+}
+type_of_information = ["definition", "explain", "apply"]
+
+[sub_resource type="Resource" id="Resource_web3"]
+script = ExtResource("1_vno7v")
+id = "WEB3"
+term = "JavaScript"
+keyword = "interactive"
+definition = "It makes web pages interactive and dynamic."
+simple_terms = "It makes buttons and animations work."
+examples = ["onclick", "alert()", "functions"]
+related_to = ["frontend", "programming"]
+tof_statement = {
+"false": "JavaScript is only used for styling.",
+"true": "JavaScript adds interactivity to websites."
+}
+type_of_information = ["definition", "apply", "explain"]
+
+[sub_resource type="Resource" id="Resource_web4"]
+script = ExtResource("1_vno7v")
+id = "WEB4"
+term = "HTTP"
+keyword = "protocol"
+definition = "HTTP is the protocol used for communication between web browsers and servers."
+simple_terms = "rules for sending web data."
+examples = ["GET", "POST"]
+related_to = ["backend", "internet"]
+tof_statement = {
+"false": "HTTP is a programming language.",
+"true": "HTTP is a communication protocol used on the web."
+}
+type_of_information = ["definition", "explain"]
+
+[resource]
+script = ExtResource("2_lesson")
+lesson_title = "Web Development"
+lesson_items = Array[ExtResource("1_vno7v")]([SubResource("Resource_web1"), SubResource("Resource_web2"), SubResource("Resource_web3"), SubResource("Resource_web4")])
+metadata/_custom_type_script = "uid://dadne10e1geqd"

@@ -65,8 +65,8 @@ def write_tres(topic: str, items: list, out_path: str):
     lines = []
     lines.append(f'[gd_resource type="Resource" script_class="Lesson" load_steps={load_steps} format=3]')
     lines.append('')
-    lines.append('[ext_resource type="Script" uid="uid://dadne10e1geqd" path="res://Lessons/lesson_item.gd" id="1_7hrog"]')
-    lines.append('[ext_resource type="Script" uid="uid://7kxviye2bk4p" path="res://Lessons/lesson.gd" id="2_bkryn"]')
+    lines.append('[ext_resource type="Script" uid="uid://dadne10e1geqd" path="res://adapto/Lessons/lesson_item.gd" id="1_7hrog"]')
+    lines.append('[ext_resource type="Script" uid="uid://7kxviye2bk4p" path="res://adapto/Lessons/lesson.gd" id="2_bkryn"]')
     lines.append('')
 
     resource_ids = []

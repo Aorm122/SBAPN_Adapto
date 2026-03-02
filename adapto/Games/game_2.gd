@@ -62,8 +62,15 @@ func _on_button_pressed(key: String) -> void:
 	$QuestionBackground.visible = true
 	$QuestionDialog.text = questions[key].question
 	$AnswerInput.text = ""
+	#lock other buttons while question is active
+	for btn_key in button_by_key.keys():
+		if btn_key != key:
+			button_by_key[btn_key].disabled = true
+
 
 func check_answer() -> void:
+	if current_key != "":
+		return
 	var user_answer = $AnswerInput.text.strip_edges().to_lower()
 	var correct_answer = questions[current_key].answer.strip_edges().to_lower()
 	if user_answer == correct_answer:
@@ -75,6 +82,11 @@ func check_answer() -> void:
 	$QuestionBackground.visible = false
 	$QuestionDialog.text = ""
 	button_by_key[current_key].disabled = true
+	current_key = ""
+	#re-enable buttons that haven't been answered yet
+	for btn_key in button_by_key.keys():
+		if not answered.has(btn_key):
+			button_by_key[btn_key].disabled = false
 	_check_game_end()
 
 
