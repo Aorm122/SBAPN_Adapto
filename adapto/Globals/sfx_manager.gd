@@ -20,3 +20,11 @@ func play_fail() -> void:
 	# Fail always plays at standard pitch
 	fail_sound.pitch_scale = 1.0
 	fail_sound.play()
+
+func get_volume() -> float:
+	return db_to_linear(success_sound.volume_db)
+
+func set_volume(volume: float) -> void:
+	var db = -80.0 if volume <= 0.01 else linear_to_db(volume)
+	success_sound.volume_db = db
+	fail_sound.volume_db = db

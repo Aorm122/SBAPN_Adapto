@@ -462,6 +462,13 @@ func _ready():
 		main_menu_control.visible = false
 
 	_show_main_menu_for_user()
+	
+	if has_node("Control/SettingsBtn"):
+		$Control/SettingsBtn.pressed.connect(_on_settings_pressed)
+
+func _on_settings_pressed() -> void:
+	var settings_scene = preload("res://Menus/settings_menu.tscn").instantiate()
+	add_child(settings_scene)
 
 func _on_login_successful():
 	login_screen.visible = false
