@@ -1,0 +1,170 @@
+[gd_resource type="Resource" script_class="Lesson" load_steps=10 format=3 uid="uid://kqgqcjkbz23w0"]
+
+[ext_resource type="Script" uid="uid://dadne10e1geqd" path="res://Lessons/lesson_item.gd" id="1_7hrog"]
+[ext_resource type="Script" uid="uid://7kxviye2bk4p" path="res://Lessons/lesson.gd" id="2_bkryn"]
+
+[sub_resource type="Resource" id="Resource_hlp_01"]
+script = ExtResource("1_7hrog")
+id = "HLP_01"
+term = "Help Flag"
+keyword = "Information"
+definition = "Provides a concise summary of a command's usage, available options, and common arguments to guide users on how to operate it correctly."
+simple_terms = "Shows how to use a program or command effectively."
+examples = ["ls --help", "git --help", "man --help"]
+accepted_terms = ["-h", "help option"]
+difficulty = 1
+related_to = ["Command Line Interface", "Tool Usage", "User Guidance", "System Information"]
+tof_statement = {
+"false": "The help flag executes a command with its default parameters without user input.", 
+"true": "The help flag displays a brief guide on command syntax and available options."
+}
+type_of_information = ["definition", "explain", "apply"]
+clues = ["What do you type when you're unsure how to use a new utility?", "It's often the first thing you try to get usage information for a command.", "This flag is used to print usage instructions and parameters to standard output."]
+distractors = ["Executes a demo of the command's primary function.", "Opens a web browser to an online manual page.", "Runs the command with no arguments and shows its output."]
+metadata/_custom_type_script = "uid://dadne10e1geqd"
+
+[sub_resource type="Resource" id="Resource_hlp_02"]
+script = ExtResource("1_7hrog")
+id = "HLP_02"
+term = "Short Help Flag"
+keyword = "Shorthand"
+definition = "Many command-line tools offer a shorter, single-hyphen version of the help flag to provide quicker access to essential usage information."
+simple_terms = "A faster way to get command guidance without typing much."
+examples = ["grep -h", "cp -h", "mv -h"]
+accepted_terms = ["-h"]
+difficulty = 1
+related_to = ["Command Line Interface", "Tool Usage", "User Guidance", "System Information"]
+tof_statement = {
+"false": "The '-h' flag is primarily used to hide or suppress a command's output.", 
+"true": "The '-h' flag serves the same purpose as '--help' for many command-line utilities."
+}
+type_of_information = ["definition", "explain", "apply"]
+clues = ["Some commands have abbreviations for common options.", "It's a common, more concise alternative to the longer help flag.", "This single-character flag often precedes a command to display its usage summary."]
+distractors = ["A flag to run a command in the background or silently.", "Used for specifying a host or hostname in network commands.", "Hides the output of the command temporarily from the terminal."]
+metadata/_custom_type_script = "uid://dadne10e1geqd"
+
+[sub_resource type="Resource" id="Resource_hlp_03"]
+script = ExtResource("1_7hrog")
+id = "HLP_03"
+term = "Debugging Assistant"
+keyword = "Troubleshoot"
+definition = "Serves as a primary resource for debugging by revealing expected syntax and available options when a command fails or behaves unexpectedly, helping identify the error source."
+simple_terms = "Helps users figure out what went wrong with command input."
+examples = ["cmd --help", "tool --help", "app -h"]
+accepted_terms = ["error guide"]
+difficulty = 1
+related_to = ["Command Line Interface", "Tool Usage", "User Guidance", "System Information"]
+tof_statement = {
+"false": "The help flag automatically corrects command line errors without user intervention.", 
+"true": "Using the help flag can quickly resolve syntax errors or incorrect option usage in command execution"
+}
+type_of_information = ["definition", "explain", "apply"]
+clues = ["When a command returns an 'invalid argument' error, what's your first diagnostic step?", "It provides the 'map' to fix common command usage issues.", "If a command gives an error, checking this flag helps you verify argument formatting and required options."]
+distractors = ["Automatically attempts to fix command syntax errors.", "Reports the command error to the developer or system administrator.", "Clears the terminal screen for a fresh start after an error."]
+metadata/_custom_type_script = "uid://dadne10e1geqd"
+
+[sub_resource type="Resource" id="Resource_hlp_04"]
+script = ExtResource("1_7hrog")
+id = "HLP_04"
+term = "Man Page Overview"
+keyword = "Manual"
+definition = "Offers a quick reference that often directs users to the more comprehensive manual (man) pages for in-depth documentation, detailed examples, and advanced usage scenarios."
+simple_terms = "Points to the full instruction book for extensive details."
+examples = ["man ls", "man grep", "man find"]
+accepted_terms = ["manual link"]
+difficulty = 1
+related_to = ["Command Line Interface", "Tool Usage", "User Guidance", "System Information"]
+tof_statement = {
+"false": "Man pages are a deprecated and outdated form of command documentation.", 
+"true": "The help flag usually provides a brief summary, while man pages offer comprehensive, detailed inform"
+}
+type_of_information = ["definition", "explain", "apply"]
+clues = ["Sometimes a brief overview isn't enough; you need more depth.", "It's like the 'cliff notes' that can lead you to the 'full novel' of documentation.", "This flag provides a concise usage description, often mentioning where to find the complete system manual."]
+distractors = ["Completely replaces the need for separate man pages.", "Opens a graphical user interface (GUI) based help application.", "Only works if the command has no accompanying man page available."]
+metadata/_custom_type_script = "uid://dadne10e1geqd"
+
+[sub_resource type="Resource" id="Resource_hlp_05"]
+script = ExtResource("1_7hrog")
+id = "HLP_05"
+term = "Subcommand Help"
+keyword = "Contextual"
+definition = "Many complex tools with multiple subcommands allow appending the help flag to a specific subcommand to get relevant usage details and options for that particular function."
+simple_terms = "Get guidance for a specific part of a larger, complex tool."
+examples = ["git commit --help", "docker run --help", "npm install --help"]
+accepted_terms = ["context help"]
+difficulty = 1
+related_to = ["Command Line Interface", "Tool Usage", "User Guidance", "System Information"]
+tof_statement = {
+"false": "The help flag only functions on the top-level command name, not its sub-operations.", 
+"true": "For multi-command tools, '--help' can often be used with specific subcommands to narrow the assistan"
+}
+type_of_information = ["definition", "explain", "apply"]
+clues = ["What if you only need help for a specific action within a larger command-line tool?", "Think about how version control systems provide targeted assistance for specific operations.", "To understand options for 'git add', you would place this flag directly after 'git add'."]
+distractors = ["Only available for simple, single-purpose commands without subcommands.", "Requires a special flag like '--subhelp' for subcommand assistance.", "Displays help for all subcommands of a tool simultaneously in one output."]
+metadata/_custom_type_script = "uid://dadne10e1geqd"
+
+[sub_resource type="Resource" id="Resource_hlp_06"]
+script = ExtResource("1_7hrog")
+id = "HLP_06"
+term = "Parseable Output"
+keyword = "Scripting"
+definition = "While primarily for human consumption, the structured nature of help output can sometimes be parsed by scripts to extract command options and arguments programmatically for automation."
+simple_terms = "Can be read by programs to dynamically find command options."
+examples = ["grep --help", "awk --help", "sed --help"]
+accepted_terms = ["script help"]
+difficulty = 1
+related_to = ["Command Line Interface", "Tool Usage", "User Guidance", "System Information"]
+tof_statement = {
+"false": "Help output is strictly for human readability and cannot be processed or interpreted by scripts.", 
+"true": "Automated scripts can sometimes extract information from help output, despite it not being its prima"
+}
+type_of_information = ["definition", "explain", "apply"]
+clues = ["How might a shell script dynamically learn about command options without hardcoding them?", "Consider how a program might build a command line based on available parameters.", "Although not its primary purpose, a script could 'read' this output to find a specific flag like '--verbose' or '--version'."]
+distractors = ["Designed specifically for machine parsing and always returns JSON or XML.", "Cannot be redirected to a file or piped to another command for processing.", "Requires special permissions to be accessed by automated scripts."]
+metadata/_custom_type_script = "uid://dadne10e1geqd"
+
+[sub_resource type="Resource" id="Resource_hlp_07"]
+script = ExtResource("1_7hrog")
+id = "HLP_07"
+term = "Usage Summary"
+keyword = "Brief"
+definition = "Provides a succinct overview of command options and arguments, distinct from verbose output which details command execution steps, expanded information, or debugging logs."
+simple_terms = "Quick guide for options, not a detailed log of activity."
+examples = ["wget --help", "curl --help", "tar --help"]
+accepted_terms = ["command usage"]
+difficulty = 1
+related_to = ["Command Line Interface", "Tool Usage", "User Guidance", "System Information"]
+tof_statement = {
+"false": "The help flag provides a detailed log of the command's internal operations and activities.", 
+"true": "The help flag shows how to use a command, not what the command is currently doing or has done."
+}
+type_of_information = ["definition", "explain", "apply"]
+clues = ["What's the difference between 'how to operate' and 'what's currently happening'?", "It tells you 'what you can do', not 'what the program just did'.", "This flag is about available parameters and syntax, not a step-by-step execution trace like '--verbose' might offer."]
+distractors = ["Generates a comprehensive log of command activity and process details.", "Enables a more detailed or verbose mode of operation for the command.", "Provides a graphical interface for configuring command options."]
+metadata/_custom_type_script = "uid://dadne10e1geqd"
+
+[sub_resource type="Resource" id="Resource_hlp_08"]
+script = ExtResource("1_7hrog")
+id = "HLP_08"
+term = "Non-Executing Flag"
+keyword = "Informational"
+definition = "The help flag is designed to display information about a command without altering system state, modifying files, or executing the primary functional logic of the command it precedes."
+simple_terms = "Shows info about a tool; it does not run the tool's main..."
+examples = ["rm --help", "mkdir --help", "touch --help"]
+accepted_terms = ["info only"]
+difficulty = 1
+related_to = ["Command Line Interface", "Tool Usage", "User Guidance", "System Information"]
+tof_statement = {
+"false": "The help flag executes the command with its default safe options, if available.", 
+"true": "Using the help flag typically prevents the command's main action from occurring, ensuring safety."
+}
+type_of_information = ["definition", "explain", "apply"]
+clues = ["What's the safest way to learn about a potentially destructive command?", "It's a read-only operation for understanding command capabilities.", "If you type 'rm --help', you do not expect any files to be deleted or modified."]
+distractors = ["Executes the command with default parameters, potentially affecting the system.", "Prompts the user for execution confirmation before running the command.", "Only works on commands that inherently do not modify the file system or system state."]
+metadata/_custom_type_script = "uid://dadne10e1geqd"
+
+[resource]
+script = ExtResource("2_bkryn")
+lesson_title = "--help"
+lesson_items = Array[ExtResource("1_7hrog")]([SubResource("Resource_hlp_01"), SubResource("Resource_hlp_02"), SubResource("Resource_hlp_03"), SubResource("Resource_hlp_04"), SubResource("Resource_hlp_05"), SubResource("Resource_hlp_06"), SubResource("Resource_hlp_07"), SubResource("Resource_hlp_08")])
+metadata/_custom_type_script = "uid://7kxviye2bk4p"

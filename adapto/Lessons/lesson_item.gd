@@ -14,3 +14,9 @@ class_name LessonItem
 @export var related_to = ["pillars"]
 @export var tof_statement ={"true": "Encapsulation is the pillar that hides data, preventing users from accessing it.", "false": "Encapsulation is the pillar that allows users to access data."}
 @export var type_of_information = ["list", "defined", "definition", "explain", "apply"] #more or less
+## Three progressive clues: [vague/conceptual, medium, highly specific].
+## Used by Games 2, 3, and 5 for their hint systems.
+@export var clues: Array[String] = []
+## Plausible wrong answers targeting common misconceptions about this term.
+## Used by Games 1 and 4 as distractor options instead of random lesson terms.
+@export var distractors: Array[String] = []

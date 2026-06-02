@@ -21,6 +21,10 @@ var round_started_unix := 0
 var adaptive_recorded := false
 var stats_recorded := false
 var current_streak := 0
+## Tracks how many hints were used per question key (key -> int).
+var hints_by_key: Dictionary = {}
+## Boosted multiplier applied to all Jeopardy values (Game 2 is Very Hard).
+const VALUE_MULTIPLIER := 1.5
 
 @onready var end_dialog: AcceptDialog = $EndDialog
 
@@ -76,26 +80,31 @@ func _ready() -> void:
 			if row >= categories.size() or col >= categories[row].size():
 				btn.visible = false
 				continue
-			var value = int(btn.text.lstrip("$ "))
+			var value = int(round(float(btn.text.lstrip("$ ")) * VALUE_MULTIPLIER))
 			var item = categories[row][col]
 			var qtext = item.definition
 			questions[key] = {
 				"question": qtext,
 				"answer": item.term,
 				"accepted_answers": _build_accepted_answers(item),
-				"value": value
+				"value": value,
+				"lesson_item": item
 			}
 			btn.connect("pressed", Callable(self, "_on_button_pressed").bind(key))
 
 	total_questions = questions.size()
 	$Submit.disabled = true
 	end_dialog.confirmed.connect(_on_end_dialog_confirmed)
+	# Connect the Hint button (added to scene from scratch).
+	if has_node("QuestionBackground/HintBtn"):
+		$QuestionBackground/HintBtn.pressed.connect(_show_hint)
 
 func _on_button_pressed(key: String) -> void:
 	if answered.has(key):
 		return
 	current_key = key
 	$FeedbackLabel.visible = false
+	$QuestionDialog.visible = true
 	$QuestionBackground.visible = true
 	$QuestionDialog.text = questions[key].question
 	$AnswerInput.text = ""
@@ -115,36 +124,46 @@ func check_answer() -> void:
 	var correct_answer = question_data.answer
 	var value = question_data.value
 	$FeedbackLabel.visible = true
-	if accepted_answers.has(user_answer):
+	var exact_match := accepted_answers.has(user_answer)
+	var partial_match := false
+	var best_dist := 9999
+	if not exact_match:
+		for acc in accepted_answers:
+			var dist := _levenshtein(user_answer, acc)
+			if dist < best_dist:
+				best_dist = dist
+		partial_match = best_dist <= 2
+	if exact_match:
 		money += value
 		correct_count += 1
-		# success streak
 		current_streak += 1
 		if SFXManager != null:
 			SFXManager.play_success(current_streak)
 		$QuestionDialog.text = ""
-		# Show feedback: "Correct! The answer is [answer]. +$[value]"
 		$FeedbackLabel.text = "Correct! The answer is %s. +$%d" % [correct_answer, value]
+	elif partial_match:
+		# Typo within 2 chars: award 50% partial credit
+		var partial_value := int(round(float(value) * 0.5))
+		money += partial_value
+		correct_count += 1
+		current_streak += 1
+		if SFXManager != null:
+			SFXManager.play_success(current_streak)
+		$QuestionDialog.text = ""
+		$FeedbackLabel.text = "Close enough! (%s → %s). +$%d (50%% credit)" % [user_answer, correct_answer, partial_value]
 	else:
 		money -= value
 		incorrect_count += 1
-		# reset streak on failure
 		current_streak = 0
 		if SFXManager != null:
 			SFXManager.play_fail()
 		$QuestionDialog.text = ""
-		# Show feedback: "Incorrect. The answer is [answer]. -$[value]"
 		$FeedbackLabel.text = "Incorrect. The answer is %s. -$%d" % [correct_answer, value]
-	
 	answered[current_key] = true
 	$TopBar/TopBarHBox/MoneyLabel.text = "Money: $" + str(money)
 	button_by_key[current_key].disabled = true
 	current_key = ""
-	
-	# Wait before re-enabling buttons so player can read feedback
 	await get_tree().create_timer(1.5).timeout
-	
-	#re-enable buttons that haven't been answered yet
 	for btn_key in button_by_key.keys():
 		if not answered.has(btn_key):
 			button_by_key[btn_key].disabled = false
@@ -262,3 +281,53 @@ func _record_adaptive_performance() -> void:
 		completion_ratio = clampf(float(answered_total) / float(total_questions), 0.0, 1.0)
 
 	UserStats.record_adaptive_result("game2", float(money), accuracy, float(elapsed), completion_ratio)
+
+
+## Reveals the first N letters of the correct answer and applies a 60% point penalty for this question.
+func _show_hint() -> void:
+	if current_key == "" or answered.has(current_key):
+		$FeedbackLabel.visible = true
+		$FeedbackLabel.text = "Select a question first."
+		return
+	# Track hint usage per question
+	hints_by_key[current_key] = hints_by_key.get(current_key, 0) + 1
+	var q_data = questions.get(current_key, {})
+	
+	# Apply penalty to the question value immediately
+	q_data.value = int(round(float(q_data.value) * 0.4))
+	button_by_key[current_key].text = "$" + str(q_data.value)
+	
+	var clue_hint := ""
+	var lesson_item = q_data.get("lesson_item", null)
+	var hint_level: int = hints_by_key[current_key] - 1  # 0-indexed
+	var item_clues = lesson_item.get("clues") if lesson_item != null and lesson_item.has_method("get") else null
+	if typeof(item_clues) == TYPE_ARRAY and item_clues.size() > hint_level:
+		clue_hint = str(item_clues[hint_level])
+	if clue_hint != "":
+		$QuestionDialog.visible = false
+		$FeedbackLabel.visible = true
+		$FeedbackLabel.text = "💡 Hint %d: %s\n(Question value reduced to $%d)" % [hints_by_key[current_key], clue_hint, q_data.value]
+	else:
+		# Fallback: reveal first few letters
+		var answer: String = str(q_data.get("answer", ""))
+		var reveal_count := mini(hints_by_key[current_key] + 1, answer.length())
+		var partial := answer.substr(0, reveal_count) + "*".repeat(answer.length() - reveal_count)
+		$QuestionDialog.visible = false
+		$FeedbackLabel.visible = true
+		$FeedbackLabel.text = "💡 Hint %d: %s\n(Question value reduced to $%d)" % [hints_by_key[current_key], partial, q_data.value]
+
+
+## Levenshtein edit distance between two strings (case-insensitive inputs expected).
+func _levenshtein(a: String, b: String) -> int:
+	var la := a.length()
+	var lb := b.length()
+	if la == 0: return lb
+	if lb == 0: return la
+	var prev: Array = range(lb + 1)
+	for i in range(1, la + 1):
+		var curr: Array = [i]
+		for j in range(1, lb + 1):
+			var cost := 0 if a[i - 1] == b[j - 1] else 1
+			curr.append(mini(mini(curr[j - 1] + 1, prev[j] + 1), prev[j - 1] + cost))
+		prev = curr
+	return prev[lb]

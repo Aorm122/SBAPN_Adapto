@@ -1,0 +1,650 @@
+[gd_resource type="Resource" script_class="Lesson" load_steps=34 format=3 uid="uid://kxvm8inf6jnoh"]
+
+[ext_resource type="Script" uid="uid://dadne10e1geqd" path="res://Lessons/lesson_item.gd" id="1_7hrog"]
+[ext_resource type="Script" uid="uid://7kxviye2bk4p" path="res://Lessons/lesson.gd" id="2_bkryn"]
+
+[sub_resource type="Resource" id="Resource_aut_01"]
+script = ExtResource("1_7hrog")
+id = "AUT_01"
+term = "Context-Free Grammar"
+keyword = "Language Structure"
+definition = "A formal system that uses production rules to specify how strings in a language are formed, allowing for recursive definitions essential for describing nested structures like programming language syntax."
+simple_terms = "Rules defining how words combine to make sentences or code."
+examples = ["S -> AB", "A -> a", "B -> b"]
+accepted_terms = ["CFG"]
+difficulty = 1
+related_to = ["Formal Languages", "Grammar Structures", "Parsing Techniques"]
+tof_statement = {
+"false": "A CFG is primarily used to analyze the runtime behavior of programs, rather than their structure.", 
+"true": "A CFG defines a language by specifying derivation rules for strings, enabling the description of com"
+}
+type_of_information = ["definition", "explain", "apply"]
+clues = ["It's a foundational concept in formal language theory.", "It describes a language's syntax using a set of recursive rules.", "Think about how programming language structures, like nested parentheses, are formally defined."]
+distractors = ["A type of finite automaton used for pattern recognition.", "A machine model that processes languages with a finite memory.", "A set of logical predicates used to prove program correctness."]
+metadata/_custom_type_script = "uid://dadne10e1geqd"
+
+[sub_resource type="Resource" id="Resource_aut_02"]
+script = ExtResource("1_7hrog")
+id = "AUT_02"
+term = "Production Rule"
+keyword = "Transformation"
+definition = "A rule in a grammar that specifies how a non-terminal symbol can be replaced by a sequence of terminals and/or non-terminals, driving the derivation process to generate strings."
+simple_terms = "A substitution instruction for building parts of a sentence."
+examples = ["S -> aS", "A -> b", "B -> ABc"]
+accepted_terms = ["Rule", "Production"]
+difficulty = 1
+related_to = ["Formal Languages", "Grammar Structures", "Parsing Techniques"]
+tof_statement = {
+"false": "Production rules define the memory allocation for a parser.", 
+"true": "Production rules dictate valid transformations of symbols during string generation."
+}
+type_of_information = ["definition", "explain", "apply"]
+clues = ["It's the fundamental unit of transformation within a grammar.", "It shows how one symbol can be expanded into a sequence of others.", "Consider the 'arrow' in a grammar definition; what does it signify?"]
+distractors = ["A condition that must be met for a program to terminate.", "An algorithm for optimizing code execution speed.", "A statement defining a terminal symbol's value."]
+metadata/_custom_type_script = "uid://dadne10e1geqd"
+
+[sub_resource type="Resource" id="Resource_aut_03"]
+script = ExtResource("1_7hrog")
+id = "AUT_03"
+term = "Non-terminal Symbol"
+keyword = "Expandable"
+definition = "A symbol in a grammar that can be replaced by other symbols according to production rules, representing abstract syntactic categories or intermediate stages of derivation."
+simple_terms = "A placeholder that must be expanded until only basic elem..."
+examples = ["S", "Expression", "Statement"]
+accepted_terms = ["Variable"]
+difficulty = 1
+related_to = ["Formal Languages", "Grammar Structures", "Parsing Techniques"]
+tof_statement = {
+"false": "Non-terminal symbols are the final elements in a generated string.", 
+"true": "Non-terminal symbols represent abstract concepts that are further broken down by grammar rules."
+}
+type_of_information = ["definition", "explain", "apply"]
+clues = ["These symbols are typically uppercase letters or descriptive words.", "They appear on the left-hand side of production rules and can be expanded.", "Think of them as categories that need to be defined, like 'Noun Phrase' or 'Verb'."]
+distractors = ["Symbols that appear only in the final generated string.", "Special characters used for commenting in a grammar.", "A type of operator used in arithmetic expressions."]
+metadata/_custom_type_script = "uid://dadne10e1geqd"
+
+[sub_resource type="Resource" id="Resource_aut_04"]
+script = ExtResource("1_7hrog")
+id = "AUT_04"
+term = "Terminal Symbol"
+keyword = "Literal"
+definition = "A basic, indivisible symbol in a grammar that cannot be further broken down, forming the actual characters or words of the language generated."
+simple_terms = "The basic building blocks; they appear in the final output."
+examples = ["a", "id", "+"]
+accepted_terms = ["Lexeme"]
+difficulty = 1
+related_to = ["Formal Languages", "Grammar Structures", "Parsing Techniques"]
+tof_statement = {
+"false": "Terminal symbols are always single characters, never multi-character words.", 
+"true": "Terminal symbols are the fundamental, irreducible components that form the actual strings of the lan"
+}
+type_of_information = ["definition", "explain", "apply"]
+clues = ["These symbols are the 'leaf nodes' in a parse tree.", "They represent the actual tokens or characters of the language.", "Consider what elements cannot be expanded further, such as 'if' or a specific number."]
+distractors = ["Symbols that must always be expanded into other symbols.", "Variables that hold values during program execution.", "Special symbols indicating the end of a production rule."]
+metadata/_custom_type_script = "uid://dadne10e1geqd"
+
+[sub_resource type="Resource" id="Resource_aut_05"]
+script = ExtResource("1_7hrog")
+id = "AUT_05"
+term = "Start Symbol"
+keyword = "Origin"
+definition = "The designated non-terminal symbol from which all derivations in a grammar must begin, serving as the root of any parse tree and defining the complete language structure."
+simple_terms = "The initial point of any valid string or program construc..."
+examples = ["S", "Program", "Goal"]
+accepted_terms = ["Axiom"]
+difficulty = 1
+related_to = ["Formal Languages", "Grammar Structures", "Parsing Techniques"]
+tof_statement = {
+"false": "Any non-terminal can be chosen as the start symbol for a given grammar derivation.", 
+"true": "The start symbol is the unique non-terminal from which all valid strings of the language are derived"
+}
+type_of_information = ["definition", "explain", "apply"]
+clues = ["It's the single entry point for generating a string.", "It represents the highest-level syntactic category.", "Think of the 'main' function in a program or the first sentence of an essay."]
+distractors = ["Any non-terminal that appears on the left side of a production.", "The first terminal symbol encountered in a string.", "A symbol indicating the end of a grammar definition."]
+metadata/_custom_type_script = "uid://dadne10e1geqd"
+
+[sub_resource type="Resource" id="Resource_aut_06"]
+script = ExtResource("1_7hrog")
+id = "AUT_06"
+term = "Derivation"
+keyword = "Generation Steps"
+definition = "The process of applying production rules iteratively to transform the start symbol into a string of terminal symbols, demonstrating how a particular string is generated by the grammar."
+simple_terms = "Step-by-step application of rules to build a final sentence."
+examples = ["S => aS => abS", "E => E+E", "A => xyz"]
+accepted_terms = ["Parse"]
+difficulty = 2
+related_to = ["Formal Languages", "Grammar Structures", "Parsing Techniques"]
+tof_statement = {
+"false": "Derivation is the process of converting a CFG into an equivalent PDA.", 
+"true": "Derivation shows the sequence of rule applications used to generate a string from the start symbol."
+}
+type_of_information = ["definition", "explain", "apply"]
+clues = ["It's a sequence of rule applications.", "It shows how a string is built up from the start symbol.", "Consider the transformation from an abstract concept to a concrete sentence, step by step."]
+distractors = ["The process of simplifying a grammar to remove redundancy.", "A method for evaluating the semantic meaning of a string.", "The final string of terminals produced by a grammar."]
+metadata/_custom_type_script = "uid://dadne10e1geqd"
+
+[sub_resource type="Resource" id="Resource_aut_07"]
+script = ExtResource("1_7hrog")
+id = "AUT_07"
+term = "Parse Tree"
+keyword = "Syntactic Structure"
+definition = "A graphical representation of a derivation that illustrates the hierarchical structure of a string according to a grammar, with the start symbol as the root and terminals as leaves."
+simple_terms = "A tree diagram showing how a sentence is built from gramm..."
+examples = ["Root S, leaves a,b", "Binary tree for (a+b)*c", "Tree for if-else stmt"]
+accepted_terms = ["Derivation Tree"]
+difficulty = 2
+related_to = ["Formal Languages", "Grammar Structures", "Parsing Techniques"]
+tof_statement = {
+"false": "A parse tree is primarily used to represent the flow of control in a program.", 
+"true": "A parse tree visually represents the syntactic structure and derivation history of a string."
+}
+type_of_information = ["definition", "explain", "apply"]
+clues = ["It's a visual way to show how a string was formed.", "It has a root, internal nodes, and leaf nodes.", "Think of a family tree for a sentence, showing its grammatical ancestry."]
+distractors = ["A data structure used to store tokens during lexical analysis.", "An abstract syntax tree that only shows essential operations.", "A graph representing the state transitions of an automaton."]
+metadata/_custom_type_script = "uid://dadne10e1geqd"
+
+[sub_resource type="Resource" id="Resource_aut_08"]
+script = ExtResource("1_7hrog")
+id = "AUT_08"
+term = "Ambiguity"
+keyword = "Multiple Parse"
+definition = "A property of a grammar where at least one string in its language can have two or more distinct parse trees or leftmost derivations, leading to potential misinterpretations of structure."
+simple_terms = "When a sentence can be understood in more than one gramma..."
+examples = ["a+b*c", "if x then if y else z", "S -> SS | a"]
+accepted_terms = ["Ambiguous Grammar"]
+difficulty = 2
+related_to = ["Formal Languages", "Grammar Structures", "Parsing Techniques"]
+tof_statement = {
+"false": "Ambiguity refers to a grammar containing unreachable or useless symbols.", 
+"true": "Ambiguity occurs when a grammar allows multiple distinct parse trees for the same string, causing st"
+}
+type_of_information = ["definition", "explain", "apply"]
+clues = ["It's a problem that can arise in grammar design.", "It means a single input string could be interpreted in multiple ways.", "Consider an arithmetic expression like '3+4*5'; how can operator precedence resolve this issue?"]
+distractors = ["When a grammar contains infinitely many production rules.", "A grammar that cannot generate any strings.", "When a non-terminal cannot be reached from the start symbol."]
+metadata/_custom_type_script = "uid://dadne10e1geqd"
+
+[sub_resource type="Resource" id="Resource_aut_09"]
+script = ExtResource("1_7hrog")
+id = "AUT_09"
+term = "Leftmost Derivation"
+keyword = "Leftmost Expand"
+definition = "A specific type of derivation where, at each step, the leftmost non-terminal symbol in the current sentential form is chosen for expansion using a production rule."
+simple_terms = "Always expanding the leftmost non-terminal first in a seq..."
+examples = ["S => aSb => aaSbb", "E => E+T => T+T", "A => Bc => DEc"]
+accepted_terms = ["LMD"]
+difficulty = 2
+related_to = ["Formal Languages", "Grammar Structures", "Parsing Techniques"]
+tof_statement = {
+"false": "Leftmost derivation refers to a grammar where all productions are left-recursive.", 
+"true": "In a leftmost derivation, the next non-terminal to be expanded is always the one furthest to the lef"
+}
+type_of_information = ["definition", "explain", "apply"]
+clues = ["It's a systematic way to perform a derivation.", "The choice of which non-terminal to expand is fixed by its position.", "Imagine reading a sentence from left to right and expanding the first unknown word you encounter."]
+distractors = ["A derivation where the rightmost non-terminal is always expanded.", "A derivation that uses only left-recursive production rules.", "A derivation that results in a left-associative expression."]
+metadata/_custom_type_script = "uid://dadne10e1geqd"
+
+[sub_resource type="Resource" id="Resource_aut_10"]
+script = ExtResource("1_7hrog")
+id = "AUT_10"
+term = "Rightmost Derivation"
+keyword = "Rightmost Expand"
+definition = "A specific type of derivation where, at each step, the rightmost non-terminal symbol in the current sentential form is chosen for expansion using a production rule."
+simple_terms = "Always expanding the rightmost non-terminal first in a se..."
+examples = ["S => aSb => abSbb", "E => T+E => T+T", "A => Bc => BDE"]
+accepted_terms = ["RMD"]
+difficulty = 2
+related_to = ["Formal Languages", "Grammar Structures", "Parsing Techniques"]
+tof_statement = {
+"false": "Rightmost derivation implies that the grammar generates strings from right to left.", 
+"true": "In a rightmost derivation, the next non-terminal to be expanded is always the one furthest to the ri"
+}
+type_of_information = ["definition", "explain", "apply"]
+clues = ["It's another systematic way to perform a derivation.", "The choice of which non-terminal to expand is based on its position at the end.", "Consider building a sentence, but always focusing on defining the last undefined part first."]
+distractors = ["A derivation where the leftmost non-terminal is always expanded.", "A derivation that only uses right-recursive production rules.", "A derivation that results in a right-associative expression."]
+metadata/_custom_type_script = "uid://dadne10e1geqd"
+
+[sub_resource type="Resource" id="Resource_aut_11"]
+script = ExtResource("1_7hrog")
+id = "AUT_11"
+term = "Chomsky Normal Form"
+keyword = "CNF"
+definition = "A simplified form for context-free grammars where all production rules are restricted to either a non-terminal deriving two non-terminals, or a non-terminal deriving a single terminal, simplifying parsing algorithms."
+simple_terms = "A standardized, simplified structure for grammar rules, l..."
+examples = ["A -> BC", "A -> a", "S -> AB"]
+accepted_terms = ["CNF"]
+difficulty = 2
+related_to = ["Formal Languages", "Grammar Structures", "Parsing Techniques"]
+tof_statement = {
+"false": "Chomsky Normal Form is a method for removing all epsilon productions from a grammar.", 
+"true": "Chomsky Normal Form simplifies grammar rules into specific binary or terminal forms, aiding in parsi"
+}
+type_of_information = ["definition", "explain", "apply"]
+clues = ["It's a standardized structure for production rules.", "All right-hand sides of rules follow one of two very strict patterns.", "Think about transforming any grammar into a form where non-terminals always expand to exactly two non-terminals or exactly one terminal."]
+distractors = ["A grammar that only generates regular languages.", "A form where all non-terminals derive a single terminal or the empty string.", "A technique for optimizing the number of states in a finite automaton."]
+metadata/_custom_type_script = "uid://dadne10e1geqd"
+
+[sub_resource type="Resource" id="Resource_aut_12"]
+script = ExtResource("1_7hrog")
+id = "AUT_12"
+term = "Greibach Normal Form"
+keyword = "GNF"
+definition = "A standardized form for context-free grammars where every production rule has a non-terminal deriving a terminal followed by zero or more non-terminals, which is useful for top-down parsing."
+simple_terms = "A grammar structure where every rule starts with a termin..."
+examples = ["A -> aBC", "A -> b", "S -> cD"]
+accepted_terms = ["GNF"]
+difficulty = 2
+related_to = ["Formal Languages", "Grammar Structures", "Parsing Techniques"]
+tof_statement = {
+"false": "Greibach Normal Form is primarily used to eliminate all forms of recursion from a grammar.", 
+"true": "Greibach Normal Form requires every production to begin with a terminal, which is beneficial for cer"
+}
+type_of_information = ["definition", "explain", "apply"]
+clues = ["It's another standardized structure for production rules.", "Every rule's right-hand side must begin with a specific type of symbol.", "Consider transforming a grammar so that when you expand any non-terminal, the first thing you see is always a concrete, final character."]
+distractors = ["A form where all non-terminals derive exactly two other non-terminals.", "A method for converting a regular grammar into a context-free grammar.", "A grammar that has no left recursion."]
+metadata/_custom_type_script = "uid://dadne10e1geqd"
+
+[sub_resource type="Resource" id="Resource_aut_13"]
+script = ExtResource("1_7hrog")
+id = "AUT_13"
+term = "Pushdown Automaton"
+keyword = "PDA"
+definition = "A computational model that recognizes context-free languages by extending a finite automaton with a stack, allowing it to store and retrieve information, which is crucial for handling nested structures."
+simple_terms = "A machine that uses a stack to process languages with nes..."
+examples = ["Recognizing (())", "Matching if-else", "Validating XML tags"]
+accepted_terms = ["PDA"]
+difficulty = 2
+related_to = ["Formal Languages", "Grammar Structures", "Parsing Techniques"]
+tof_statement = {
+"false": "A Pushdown Automaton is a finite state machine that can only recognize regular languages.", 
+"true": "A Pushdown Automaton uses a stack to recognize context-free languages, enabling it to handle nested "
+}
+type_of_information = ["definition", "explain", "apply"]
+clues = ["It's a type of abstract machine.", "It has a memory structure that operates on a LIFO principle.", "Think about a machine that needs to remember opening parentheses to match them with closing ones; how would it store that temporary information?"]
+distractors = ["A simpler machine model without any memory.", "A more powerful machine equivalent to a Turing machine.", "A type of grammar used to define regular expressions."]
+metadata/_custom_type_script = "uid://dadne10e1geqd"
+
+[sub_resource type="Resource" id="Resource_aut_14"]
+script = ExtResource("1_7hrog")
+id = "AUT_14"
+term = "Context-Free Language"
+keyword = "CFL"
+definition = "A language that can be generated by a context-free grammar or recognized by a pushdown automaton, characterized by its ability to describe nested and recursive structures."
+simple_terms = "A set of strings whose structure can be described by CFG..."
+examples = ["a^n b^n", "Palindrome", "Balanced Parentheses"]
+accepted_terms = ["CFL"]
+difficulty = 1
+related_to = ["Formal Languages", "Grammar Structures", "Parsing Techniques"]
+tof_statement = {
+"false": "A Context-Free Language is a language where the meaning of a word depends on its surrounding context", 
+"true": "A Context-Free Language is any language that can be defined by a CFG or recognized by a PDA."
+}
+type_of_information = ["definition", "explain", "apply"]
+clues = ["It's a category of formal languages.", "It corresponds to a specific type of grammar and automaton.", "Consider languages with features like balanced parentheses or nested blocks of code; what class do they fall into?"]
+distractors = ["A language that can only be generated by a regular grammar.", "A language whose strings are always finite in length.", "A language recognized by a Turing machine but not a PDA."]
+metadata/_custom_type_script = "uid://dadne10e1geqd"
+
+[sub_resource type="Resource" id="Resource_aut_15"]
+script = ExtResource("1_7hrog")
+id = "AUT_15"
+term = "Useless Symbols"
+keyword = "Irrelevant"
+definition = "Non-terminal symbols in a grammar that cannot participate in any derivation of a terminal string, either because they cannot be reached from the start symbol or cannot derive any terminals."
+simple_terms = "Parts of the grammar that never contribute to a final sen..."
+examples = ["A -> B, B -> C", "S -> A, B -> b", "X -> Y, Y -> Y"]
+accepted_terms = ["Dead Symbols"]
+difficulty = 2
+related_to = ["Formal Languages", "Grammar Structures", "Parsing Techniques"]
+tof_statement = {
+"false": "Useless symbols are terminal symbols that are not part of any production rule.", 
+"true": "Useless symbols are non-terminals that either cannot be reached from the start symbol or cannot prod"
+}
+type_of_information = ["definition", "explain", "apply"]
+clues = ["These symbols are redundant in a grammar.", "They either cannot be reached or cannot complete a derivation.", "Imagine a character in a story who never appears and never affects the plot; what role do they play?"]
+distractors = ["Terminal symbols that are rarely used in the language.", "Symbols that cause ambiguity in the grammar.", "Symbols that represent an empty string."]
+metadata/_custom_type_script = "uid://dadne10e1geqd"
+
+[sub_resource type="Resource" id="Resource_aut_16"]
+script = ExtResource("1_7hrog")
+id = "AUT_16"
+term = "Nullable Non-terminals"
+keyword = "Empty String"
+definition = "Non-terminal symbols that can derive the empty string (epsilon) through one or more applications of production rules, which is important for grammar simplification and parsing."
+simple_terms = "A non-terminal that can eventually disappear, becoming no..."
+examples = ["A -> epsilon", "S -> AB, A -> epsilon", "X -> Y, Y -> epsilon"]
+accepted_terms = ["Epsilon Non-terminals"]
+difficulty = 2
+related_to = ["Formal Languages", "Grammar Structures", "Parsing Techniques"]
+tof_statement = {
+"false": "A nullable non-terminal is a symbol that can be replaced by any terminal symbol.", 
+"true": "A nullable non-terminal is one that can derive the empty string, which affects grammar simplificatio"
+}
+type_of_information = ["definition", "explain", "apply"]
+clues = ["These non-terminals can effectively vanish.", "They can derive a string with zero length.", "Think of an optional element in a sentence structure that can simply be omitted."]
+distractors = ["Non-terminals that always derive a single terminal symbol.", "Symbols that are never used in any derivation.", "Terminal symbols that represent a space character."]
+metadata/_custom_type_script = "uid://dadne10e1geqd"
+
+[sub_resource type="Resource" id="Resource_aut_17"]
+script = ExtResource("1_7hrog")
+id = "AUT_17"
+term = "Unit Productions"
+keyword = "Single Non-terminal"
+definition = "Production rules where a non-terminal derives exactly one other non-terminal (e.g., A -> B), which can often be eliminated to simplify the grammar without changing the language."
+simple_terms = "A rule that just renames one non-terminal to another."
+examples = ["A -> B", "S -> A", "X -> Y"]
+accepted_terms = ["Unit Rules"]
+difficulty = 2
+related_to = ["Formal Languages", "Grammar Structures", "Parsing Techniques"]
+tof_statement = {
+"false": "Unit productions are rules where a non-terminal derives a single terminal symbol.", 
+"true": "Unit productions are rules like A -> B, which can be removed to simplify a grammar while preserving "
+}
+type_of_information = ["definition", "explain", "apply"]
+clues = ["These rules act like direct reassignments between non-terminals.", "The right-hand side consists of only one non-terminal.", "Consider a rule that just says 'a Phrase is a Noun Phrase' \u2013 how could you integrate the Noun Phrase rules directly into Phrase?"]
+distractors = ["Productions that derive the empty string.", "Productions that derive a single terminal symbol.", "Productions that involve infinite recursion."]
+metadata/_custom_type_script = "uid://dadne10e1geqd"
+
+[sub_resource type="Resource" id="Resource_aut_18"]
+script = ExtResource("1_7hrog")
+id = "AUT_18"
+term = "Left Recursion"
+keyword = "Immediate Loop"
+definition = "A property of a production rule where a non-terminal directly or indirectly derives itself as its leftmost symbol (e.g., A -> Aalpha), causing infinite loops in top-down parsers."
+simple_terms = "A rule where a non-terminal directly calls itself on its..."
+examples = ["E -> E+T", "A -> Ab", "S -> S | a"]
+accepted_terms = ["Direct Left Recursion"]
+difficulty = 2
+related_to = ["Formal Languages", "Grammar Structures", "Parsing Techniques"]
+tof_statement = {
+"false": "Left recursion is a desirable feature in grammars for efficient bottom-up parsing.", 
+"true": "Left recursion causes infinite loops in top-down parsers because a non-terminal immediately calls it"
+}
+type_of_information = ["definition", "explain", "apply"]
+clues = ["It's a specific pattern in production rules that can be problematic.", "The non-terminal on the left-hand side reappears at the beginning of the right-hand side.", "Imagine a function calling itself as its very first operation \u2013 what would happen?"]
+distractors = ["A grammar where all derivations proceed from left to right.", "When a non-terminal derives itself as its rightmost symbol.", "A type of recursion that is always beneficial for parsing."]
+metadata/_custom_type_script = "uid://dadne10e1geqd"
+
+[sub_resource type="Resource" id="Resource_aut_19"]
+script = ExtResource("1_7hrog")
+id = "AUT_19"
+term = "Right Recursion"
+keyword = "Trailing Loop"
+definition = "A property of a production rule where a non-terminal derives itself as its rightmost symbol (e.g., A -> alphaA), which is useful for defining right-associative operators and handling sequences in parsing."
+simple_terms = "A rule where a non-terminal calls itself on its right side."
+examples = ["E -> T+E", "A -> bA", "S -> a | bS"]
+accepted_terms = ["Direct Right Recursion"]
+difficulty = 1
+related_to = ["Formal Languages", "Grammar Structures", "Parsing Techniques"]
+tof_statement = {
+"false": "Right recursion is always problematic and must be eliminated from all grammars.", 
+"true": "Right recursion, where a non-terminal calls itself on the right, is important for right-associativit"
+}
+type_of_information = ["definition", "explain", "apply"]
+clues = ["It's a specific pattern in production rules that is generally not problematic for top-down parsing.", "The non-terminal on the left-hand side reappears at the end of the right-hand side.", "Consider a rule for a list of items where the list can extend by adding more items at the end."]
+distractors = ["When a non-terminal derives itself as its leftmost symbol.", "A grammar where all derivations proceed from right to left.", "A type of recursion that always leads to ambiguity."]
+metadata/_custom_type_script = "uid://dadne10e1geqd"
+
+[sub_resource type="Resource" id="Resource_aut_20"]
+script = ExtResource("1_7hrog")
+id = "AUT_20"
+term = "Sentential Form"
+keyword = "Intermediate String"
+definition = "Any string of terminal and/or non-terminal symbols that can be derived from the start symbol of a grammar through one or more applications of production rules, before it becomes a fully terminal string."
+simple_terms = "An incomplete string of symbols during a grammar's deriva..."
+examples = ["aSb", "E+T", "id * T"]
+accepted_terms = ["Partial String"]
+difficulty = 1
+related_to = ["Formal Languages", "Grammar Structures", "Parsing Techniques"]
+tof_statement = {
+"false": "A sentential form is the final string of terminals generated by a grammar.", 
+"true": "A sentential form is an intermediate string containing both terminals and non-terminals, derived fro"
+}
+type_of_information = ["definition", "explain", "apply"]
+clues = ["It's a temporary state during string generation.", "It can contain both expandable and unexpandable symbols.", "Think of a partially completed sentence where some words are still placeholders."]
+distractors = ["A string composed solely of terminal symbols.", "A sequence of production rules used in a derivation.", "The set of all possible strings generated by a grammar."]
+metadata/_custom_type_script = "uid://dadne10e1geqd"
+
+[sub_resource type="Resource" id="Resource_aut_21"]
+script = ExtResource("1_7hrog")
+id = "AUT_21"
+term = "Language Generation"
+keyword = "String Output"
+definition = "The process by which a context-free grammar systematically produces all valid strings belonging to the language it defines, starting from the start symbol and applying production rules."
+simple_terms = "The act of creating all possible valid sentences from gra..."
+examples = ["S -> aS | b", "S -> 0S0 | 1", "S -> (S) | epsilon"]
+accepted_terms = ["String Generation"]
+difficulty = 2
+related_to = ["Formal Languages", "Grammar Structures", "Parsing Techniques"]
+tof_statement = {
+"false": "Language generation is the process of converting a natural language into a formal language.", 
+"true": "Language generation describes how a CFG produces all valid terminal strings through rule application"
+}
+type_of_information = ["definition", "explain", "apply"]
+clues = ["It's the core purpose of a grammar.", "It involves applying rules repeatedly until only final symbols remain.", "Consider how a set of grammatical rules allows you to construct any valid sentence in English."]
+distractors = ["The process of analyzing a given string to see if it belongs to a language.", "The act of converting a grammar into a simpler form.", "Defining the semantic meaning of strings in a language."]
+metadata/_custom_type_script = "uid://dadne10e1geqd"
+
+[sub_resource type="Resource" id="Resource_aut_22"]
+script = ExtResource("1_7hrog")
+id = "AUT_22"
+term = "Regular Grammar"
+keyword = "Linear Structure"
+definition = "A restricted type of context-free grammar where all production rules are limited to a non-terminal deriving a terminal followed by at most one non-terminal, or just a terminal, corresponding to regular languages."
+simple_terms = "A simpler grammar that builds strings in a linear, non-ne..."
+examples = ["A -> aB", "A -> a", "S -> 0S | 1"]
+accepted_terms = ["Linear Grammar"]
+difficulty = 1
+related_to = ["Formal Languages", "Grammar Structures", "Parsing Techniques"]
+tof_statement = {
+"false": "A regular grammar can generate any context-free language, including those with nested structures.", 
+"true": "A regular grammar is a restricted CFG that generates regular languages, typically with linear produc"
+}
+type_of_information = ["definition", "explain", "apply"]
+clues = ["It's a subset of context-free grammars.", "Its rules are very simple, typically involving one terminal and one non-terminal.", "Think about languages that can be recognized by finite automata, like simple patterns without nested dependencies."]
+distractors = ["A grammar that can generate any language, regardless of complexity.", "A grammar that only defines arithmetic expressions.", "A type of grammar that requires a stack for recognition."]
+metadata/_custom_type_script = "uid://dadne10e1geqd"
+
+[sub_resource type="Resource" id="Resource_aut_23"]
+script = ExtResource("1_7hrog")
+id = "AUT_23"
+term = "Pumping Lemma for CFLs"
+keyword = "Proof CFL"
+definition = "A theorem used to prove that a language is NOT context-free by demonstrating that any sufficiently long string in the language cannot be 'pumped' (repeatedly extended) while remaining within the language."
+simple_terms = "A test to prove a language isn't context-free by showing..."
+examples = ["a^n b^n c^n", "www", "xyzwx"]
+accepted_terms = ["Pumping Lemma"]
+difficulty = 2
+related_to = ["Formal Languages", "Grammar Structures", "Parsing Techniques"]
+tof_statement = {
+"false": "The Pumping Lemma for CFLs is used to demonstrate that a language *is* context-free.", 
+"true": "The Pumping Lemma for CFLs is a tool to prove that a language is not context-free by analyzing strin"
+}
+type_of_information = ["definition", "explain", "apply"]
+clues = ["It's a powerful theoretical tool in automata theory.", "It helps classify languages by showing what they *cannot* do.", "Think about trying to show that a pattern like 'equal numbers of As, Bs, and Cs' cannot be generated by a simple set of rules that allow repetition."]
+distractors = ["An algorithm for converting any CFG into Chomsky Normal Form.", "A method for proving the correctness of a parsing algorithm.", "A technique for optimizing the size of a grammar."]
+metadata/_custom_type_script = "uid://dadne10e1geqd"
+
+[sub_resource type="Resource" id="Resource_aut_24"]
+script = ExtResource("1_7hrog")
+id = "AUT_24"
+term = "CYK Algorithm"
+keyword = "Parsing Table"
+definition = "A dynamic programming algorithm used to determine if a given string can be generated by a context-free grammar in Chomsky Normal Form, by constructing a parsing table bottom-up."
+simple_terms = "A table-based method to check if a sentence matches a CNF..."
+examples = ["Parse 'baaba'", "Check 'aaabb'", "Test 'baba'"]
+accepted_terms = ["Cocke-Younger-Kasami"]
+difficulty = 2
+related_to = ["Formal Languages", "Grammar Structures", "Parsing Techniques"]
+tof_statement = {
+"false": "The CYK Algorithm is a top-down parsing technique that handles left recursion.", 
+"true": "The CYK Algorithm uses dynamic programming to check if a string belongs to a CFG in CNF by building "
+}
+type_of_information = ["definition", "explain", "apply"]
+clues = ["It's a specific parsing algorithm.", "It works by filling in a table, checking substrings.", "Think about building up knowledge about valid substrings from the smallest parts to the whole string, using a grammar in a very specific format."]
+distractors = ["A method for converting any grammar into Greibach Normal Form.", "An algorithm for finding the shortest path in a graph.", "A lexical analysis tool for tokenizing input strings."]
+metadata/_custom_type_script = "uid://dadne10e1geqd"
+
+[sub_resource type="Resource" id="Resource_aut_25"]
+script = ExtResource("1_7hrog")
+id = "AUT_25"
+term = "LL Parsing"
+keyword = "Left-to-Right"
+definition = "A top-down parsing technique that reads the input from left-to-right, produces a leftmost derivation, and uses one symbol of lookahead to make parsing decisions, requiring a grammar free of left recursion and ambiguity."
+simple_terms = "Parsing from left to right, predicting what comes next ba..."
+examples = ["LL(1) parser", "Predictive parsing", "Recursive descent"]
+accepted_terms = ["LL(k) Parsing"]
+difficulty = 2
+related_to = ["Formal Languages", "Grammar Structures", "Parsing Techniques"]
+tof_statement = {
+"false": "LL parsing is a bottom-up parsing method that uses a stack to shift and reduce symbols.", 
+"true": "LL parsing is a top-down method that builds a leftmost derivation by predicting rules based on the n"
+}
+type_of_information = ["definition", "explain", "apply"]
+clues = ["It's a category of parsing techniques.", "It tries to build the parse tree from the root down.", "Imagine trying to construct a sentence by deciding which grammatical rule to apply next, always looking one word ahead in the input."]
+distractors = ["A bottom-up parsing strategy that uses a stack.", "A method for eliminating ambiguity from a grammar.", "A technique for converting a CFG to a regular grammar."]
+metadata/_custom_type_script = "uid://dadne10e1geqd"
+
+[sub_resource type="Resource" id="Resource_aut_26"]
+script = ExtResource("1_7hrog")
+id = "AUT_26"
+term = "LR Parsing"
+keyword = "Rightmost Derivation"
+definition = "A bottom-up parsing technique that reads the input from left-to-right, constructs a rightmost derivation in reverse, and is generally more powerful than LL parsing, capable of handling a wider range of grammars."
+simple_terms = "Parsing from left to right, building the parse tree from..."
+examples = ["LR(0) parser", "SLR(1) parser", "LALR(1) parser"]
+accepted_terms = ["LR(k) Parsing"]
+difficulty = 2
+related_to = ["Formal Languages", "Grammar Structures", "Parsing Techniques"]
+tof_statement = {
+"false": "LR parsing is a top-down parsing method that requires grammars to be free of right recursion.", 
+"true": "LR parsing is a powerful bottom-up method that builds a rightmost derivation in reverse, by shifting"
+}
+type_of_information = ["definition", "explain", "apply"]
+clues = ["It's another category of parsing techniques, often considered more robust.", "It tries to build the parse tree from the leaves up to the root.", "Imagine recognizing small valid phrases in a sentence and combining them into larger, valid structures until you have the whole sentence."]
+distractors = ["A top-down parsing strategy that uses predictive tables.", "A method for simplifying a grammar by removing useless productions.", "A technique for converting a CFG into Chomsky Normal Form."]
+metadata/_custom_type_script = "uid://dadne10e1geqd"
+
+[sub_resource type="Resource" id="Resource_aut_27"]
+script = ExtResource("1_7hrog")
+id = "AUT_27"
+term = "Backus-Naur Form"
+keyword = "Notation"
+definition = "A metasyntactic notation used to express context-free grammars, defining the syntax of programming languages, where rules are written as non-terminal ::= sequence_of_symbols."
+simple_terms = "A standard way to write down grammar rules for computer l..."
+examples = ["<expr> ::= <term> + <expr>", "digit ::= 0 | 1", "stmt ::= if expr then stmt"]
+accepted_terms = ["BNF"]
+difficulty = 1
+related_to = ["Formal Languages", "Grammar Structures", "Parsing Techniques"]
+tof_statement = {
+"false": "Backus-Naur Form is a formal language itself, not a notation for defining languages.", 
+"true": "Backus-Naur Form is a standard notation for specifying the syntax of programming languages using con"
+}
+type_of_information = ["definition", "explain", "apply"]
+clues = ["It's a way of writing down grammar rules.", "It uses specific symbols like '::=' and '|'.", "Think about how the syntax of a language like Java or Python might be formally described using a concise textual representation."]
+distractors = ["A programming language for defining compilers.", "A type of finite automaton used for lexical analysis.", "A mathematical theorem about context-free languages."]
+metadata/_custom_type_script = "uid://dadne10e1geqd"
+
+[sub_resource type="Resource" id="Resource_aut_28"]
+script = ExtResource("1_7hrog")
+id = "AUT_28"
+term = "Extended BNF"
+keyword = "EBNF"
+definition = "An extension of Backus-Naur Form that includes additional meta-symbols for optional elements, repetition, and grouping, making grammar definitions more concise and readable."
+simple_terms = "An enhanced version of BNF with extra symbols for clarity..."
+examples = ["A ::= (B C)*", "X ::= [Y]", "S ::= {a} b"]
+accepted_terms = ["EBNF"]
+difficulty = 1
+related_to = ["Formal Languages", "Grammar Structures", "Parsing Techniques"]
+tof_statement = {
+"false": "Extended BNF is a completely different formalism from BNF, not an extension.", 
+"true": "Extended BNF adds features like optionality and repetition to standard BNF, making grammars more con"
+}
+type_of_information = ["definition", "explain", "apply"]
+clues = ["It's an improved version of a grammar notation.", "It allows for specifying things like 'zero or one' or 'zero or more' occurrences.", "Consider how you might simplify writing rules for optional parameters or repeated lists of items without writing many separate rules."]
+distractors = ["A programming language that supports object-oriented features.", "A parsing algorithm specifically for ambiguous grammars.", "A method for converting a CFG into a regular expression."]
+metadata/_custom_type_script = "uid://dadne10e1geqd"
+
+[sub_resource type="Resource" id="Resource_aut_29"]
+script = ExtResource("1_7hrog")
+id = "AUT_29"
+term = "Grammar Simplification"
+keyword = "Reduction"
+definition = "The process of transforming a context-free grammar into an equivalent, simpler form by removing useless symbols, epsilon productions, and unit productions, without changing the language it generates."
+simple_terms = "Making a grammar easier to understand and use by removing..."
+examples = ["Remove A -> epsilon", "Remove A -> B", "Remove unreachable rules"]
+accepted_terms = ["Grammar Reduction"]
+difficulty = 2
+related_to = ["Formal Languages", "Grammar Structures", "Parsing Techniques"]
+tof_statement = {
+"false": "Grammar simplification aims to reduce the number of terminal symbols in a language.", 
+"true": "Grammar simplification involves removing redundant elements like useless symbols and epsilon product"
+}
+type_of_information = ["definition", "explain", "apply"]
+clues = ["It's a common step before constructing a parser.", "It involves identifying and removing redundant or ineffective parts.", "Think about optimizing a set of instructions by deleting steps that don't contribute to the final outcome or just rename things."]
+distractors = ["The process of making a grammar more expressive by adding new rules.", "Converting a regular grammar into a context-free grammar.", "Adding new non-terminal symbols to break down complex rules."]
+metadata/_custom_type_script = "uid://dadne10e1geqd"
+
+[sub_resource type="Resource" id="Resource_aut_30"]
+script = ExtResource("1_7hrog")
+id = "AUT_30"
+term = "Epsilon Production"
+keyword = "Empty Rule"
+definition = "A production rule where a non-terminal symbol derives the empty string (epsilon, denoted by ε or λ), indicating that the non-terminal can optionally be omitted in a derivation."
+simple_terms = "A rule that allows a non-terminal to disappear entirely."
+examples = ["A -> \u03b5", "S -> \u03bb", "B ->"]
+accepted_terms = ["Null Production"]
+difficulty = 1
+related_to = ["Formal Languages", "Grammar Structures", "Parsing Techniques"]
+tof_statement = {
+"false": "An epsilon production is a rule that must always be applied in a derivation.", 
+"true": "An epsilon production allows a non-terminal to derive the empty string, representing an optional ele"
+}
+type_of_information = ["definition", "explain", "apply"]
+clues = ["It's a special type of production rule.", "It allows a non-terminal to produce nothing.", "Think about an optional part of a sentence, like an adverb, that can simply be left out without making the sentence invalid."]
+distractors = ["A production that derives a single terminal symbol.", "A production that causes an infinite loop in parsing.", "A rule that specifies the start symbol of a grammar."]
+metadata/_custom_type_script = "uid://dadne10e1geqd"
+
+[sub_resource type="Resource" id="Resource_aut_31"]
+script = ExtResource("1_7hrog")
+id = "AUT_31"
+term = "Top-Down Parsing"
+keyword = "Predictive"
+definition = "A parsing strategy that attempts to build a parse tree from the root (start symbol) down to the leaves (terminal symbols) by repeatedly applying production rules to match the input string."
+simple_terms = "Building a sentence's structure starting from the main id..."
+examples = ["LL parsing", "Recursive descent", "Predictive parsing"]
+accepted_terms = ["Predictive Parsing"]
+difficulty = 2
+related_to = ["Formal Languages", "Grammar Structures", "Parsing Techniques"]
+tof_statement = {
+"false": "Top-down parsing identifies valid phrases in the input and combines them upwards.", 
+"true": "Top-down parsing starts with the start symbol and tries to derive the input string by predicting rul"
+}
+type_of_information = ["definition", "explain", "apply"]
+clues = ["It's a fundamental approach to analyzing syntax.", "It starts from the highest level of abstraction.", "Imagine starting with the concept of a 'program' and breaking it down into 'statements', then 'expressions', until you match the actual code."]
+distractors = ["A parsing strategy that builds the parse tree from leaves to root.", "A method for transforming a grammar into a canonical form.", "A technique for converting a finite automaton into a regular expression."]
+metadata/_custom_type_script = "uid://dadne10e1geqd"
+
+[sub_resource type="Resource" id="Resource_aut_32"]
+script = ExtResource("1_7hrog")
+id = "AUT_32"
+term = "Bottom-Up Parsing"
+keyword = "Shift-Reduce"
+definition = "A parsing strategy that attempts to build a parse tree from the leaves (terminal symbols) up to the root (start symbol) by identifying valid phrases in the input and reducing them according to grammar rules."
+simple_terms = "Building a sentence's structure by finding small phrases..."
+examples = ["LR parsing", "Shift-reduce parsing", "Operator precedence"]
+accepted_terms = ["Shift-Reduce Parsing"]
+difficulty = 2
+related_to = ["Formal Languages", "Grammar Structures", "Parsing Techniques"]
+tof_statement = {
+"false": "Bottom-up parsing starts with the start symbol and recursively predicts the next input token.", 
+"true": "Bottom-up parsing starts with the input string and reduces valid sequences to non-terminals, moving "
+}
+type_of_information = ["definition", "explain", "apply"]
+clues = ["It's another fundamental approach to analyzing syntax.", "It begins with the most concrete parts of the input.", "Imagine identifying individual words, then combining them into phrases, and then combining phrases into sentences, working your way up to the overall structure."]
+distractors = ["A parsing strategy that builds the parse tree from the root down.", "A method for eliminating ambiguity from a grammar.", "A technique for generating all possible strings from a grammar."]
+metadata/_custom_type_script = "uid://dadne10e1geqd"
+
+[resource]
+script = ExtResource("2_bkryn")
+lesson_title = "Automata Theory CFG"
+lesson_items = Array[ExtResource("1_7hrog")]([SubResource("Resource_aut_01"), SubResource("Resource_aut_02"), SubResource("Resource_aut_03"), SubResource("Resource_aut_04"), SubResource("Resource_aut_05"), SubResource("Resource_aut_06"), SubResource("Resource_aut_07"), SubResource("Resource_aut_08"), SubResource("Resource_aut_09"), SubResource("Resource_aut_10"), SubResource("Resource_aut_11"), SubResource("Resource_aut_12"), SubResource("Resource_aut_13"), SubResource("Resource_aut_14"), SubResource("Resource_aut_15"), SubResource("Resource_aut_16"), SubResource("Resource_aut_17"), SubResource("Resource_aut_18"), SubResource("Resource_aut_19"), SubResource("Resource_aut_20"), SubResource("Resource_aut_21"), SubResource("Resource_aut_22"), SubResource("Resource_aut_23"), SubResource("Resource_aut_24"), SubResource("Resource_aut_25"), SubResource("Resource_aut_26"), SubResource("Resource_aut_27"), SubResource("Resource_aut_28"), SubResource("Resource_aut_29"), SubResource("Resource_aut_30"), SubResource("Resource_aut_31"), SubResource("Resource_aut_32")])
+metadata/_custom_type_script = "uid://7kxviye2bk4p"

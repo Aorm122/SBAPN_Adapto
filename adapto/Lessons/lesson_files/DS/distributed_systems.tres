@@ -1,350 +1,650 @@
-[gd_resource type="Resource" script_class="Lesson" load_steps=22 format=3]
+[gd_resource type="Resource" script_class="Lesson" load_steps=34 format=3 uid="uid://9e2440t8t36om"]
 
-[ext_resource type="Script" uid="uid://dadne10e1geqd" path="res://adapto/Lessons/lesson_item.gd" id="1_7hrog"]
-[ext_resource type="Script" uid="uid://7kxviye2bk4p" path="res://adapto/Lessons/lesson.gd" id="2_bkryn"]
+[ext_resource type="Script" uid="uid://dadne10e1geqd" path="res://Lessons/lesson_item.gd" id="1_7hrog"]
+[ext_resource type="Script" uid="uid://7kxviye2bk4p" path="res://Lessons/lesson.gd" id="2_bkryn"]
 
-[sub_resource type="Resource" id="Resource_ai_dis1"]
+[sub_resource type="Resource" id="Resource_dis_01"]
 script = ExtResource("1_7hrog")
-id = "AI_DIS1"
-term = "Distributed System"
-keyword = "multiple computers"
-definition = "A collection of independent computers that appear to its users as a single coherent system."
-simple_terms = "Computers working together as one."
-examples = ["The World Wide Web", "Cloud computing platforms (AWS, Azure, GCP)"]
-difficulty = 1
-related_to = ["Concurrency", "Fault Tolerance"]
-tof_statement = {
-"false": "A distributed system is always a single, powerful computer.", 
-"true": "A distributed system can consist of many geographically dispersed computers."
-}
-type_of_information = ["definition"]
-metadata/_custom_type_script = "uid://dadne10e1geqd"
-
-[sub_resource type="Resource" id="Resource_ai_dis2"]
-script = ExtResource("1_7hrog")
-id = "AI_DIS2"
-term = "Concurrency"
-keyword = "simultaneously"
-definition = "The ability of different parts or units of a program, algorithm, or problem to be executed out-of-order or in parallel with the execution of others."
-simple_terms = "Doing multiple things at the same time."
-examples = ["Multiple users accessing a database concurrently", "Parallel processing in a multi-core CPU"]
+id = "DIS_01"
+term = "Strong Consistency"
+keyword = "Data view"
+definition = "Ensures all clients see the most recent write, even if it means increased latency, by synchronizing updates across all replicas before acknowledging success."
+simple_terms = "Everyone sees the same up-to-date data at all times."
+examples = ["Banking ledger", "Stock trading", "Seat booking"]
+accepted_terms = ["Linearizability", "Atomic Consistency"]
 difficulty = 2
-related_to = ["Distributed System", "Parallelism"]
+related_to = ["Core Concepts", "System Properties", "Data Management", "Reliability & Resilience"]
 tof_statement = {
-"false": "Concurrency means that tasks must execute in a strict sequential order.", 
-"true": "Concurrency in a distributed system can lead to race conditions if not managed properly."
+"false": "Strong consistency allows different replicas to show different data for a short period after a write", 
+"true": "A system demonstrating strong consistency will block reads until all replicas are updated with the l"
 }
-type_of_information = ["definition", "apply"]
+type_of_information = ["definition", "explain", "apply"]
+clues = ["This property is crucial when data integrity is paramount.", "It often requires global agreement before an operation is considered complete.", "Think about systems where seeing stale data could lead to critical errors, like financial transactions."]
+distractors = ["Eventual Consistency", "Availability", "Partition Tolerance"]
 metadata/_custom_type_script = "uid://dadne10e1geqd"
 
-[sub_resource type="Resource" id="Resource_ai_dis3"]
+[sub_resource type="Resource" id="Resource_dis_02"]
 script = ExtResource("1_7hrog")
-id = "AI_DIS3"
-term = "Fault Tolerance"
-keyword = "failures"
-definition = "The ability of a system to continue operating properly in the event of the failure of some of its components."
-simple_terms = "Keeps working even if parts break."
-examples = ["Redundant servers in a web application", "RAID configurations for hard drives"]
-difficulty = 2
-related_to = ["Distributed System", "Reliability"]
-tof_statement = {
-"false": "A fault-tolerant system is designed to avoid all possible failures.", 
-"true": "A fault-tolerant system might use replication to ensure availability."
-}
-type_of_information = ["definition", "apply"]
-metadata/_custom_type_script = "uid://dadne10e1geqd"
-
-[sub_resource type="Resource" id="Resource_ai_dis4"]
-script = ExtResource("1_7hrog")
-id = "AI_DIS4"
-term = "Replication"
-keyword = "copying"
-definition = "The process of storing multiple copies of data on different nodes in a distributed system to improve availability and fault tolerance."
-simple_terms = "Making copies of data."
-examples = ["Database replication (master-slave, multi-master)", "Content Delivery Networks (CDNs)"]
-difficulty = 2
-related_to = ["Fault Tolerance", "Consistency"]
-tof_statement = {
-"false": "Replication always guarantees that all copies of data are immediately identical.", 
-"true": "Replication helps in faster read operations by serving requests from nearby replicas."
-}
-type_of_information = ["definition", "apply"]
-metadata/_custom_type_script = "uid://dadne10e1geqd"
-
-[sub_resource type="Resource" id="Resource_ai_dis5"]
-script = ExtResource("1_7hrog")
-id = "AI_DIS5"
-term = "Consistency"
-keyword = "same data"
-definition = "Ensuring that all nodes in a distributed system have the same view of the data at any given time, or at least a predictable view."
-simple_terms = "Everyone sees the same information."
-examples = ["Strong consistency vs. eventual consistency", "Transactions in a distributed database"]
-difficulty = 3
-related_to = ["Replication", "CAP Theorem"]
-tof_statement = {
-"false": "Eventual consistency means that all nodes will always have the exact same data instantly.", 
-"true": "Strong consistency ensures that any read operation will return the value of the most recent write."
-}
-type_of_information = ["definition", "apply"]
-metadata/_custom_type_script = "uid://dadne10e1geqd"
-
-[sub_resource type="Resource" id="Resource_ai_dis6"]
-script = ExtResource("1_7hrog")
-id = "AI_DIS6"
-term = "CAP Theorem"
-keyword = "trade-offs"
-definition = "A fundamental theorem in distributed systems stating that it is impossible for a distributed data store to simultaneously provide more than two out of the following three guarantees: Consistency, Availability, and Partition Tolerance."
-simple_terms = "Can't have all three: Consistency, Availability, Partition Tolerance."
-examples = ["Choosing between CP and AP systems", "Designing systems for network partitions"]
-difficulty = 4
-related_to = ["Consistency", "Availability", "Partition Tolerance"]
-tof_statement = {
-"false": "The CAP theorem states that a system can always achieve Consistency, Availability, and Partition Tolerance.", 
-"true": "In the presence of a network partition, a system must choose between maintaining consistency or availability."
-}
-type_of_information = ["definition", "apply"]
-metadata/_custom_type_script = "uid://dadne10e1geqd"
-
-[sub_resource type="Resource" id="Resource_ai_dis7"]
-script = ExtResource("1_7hrog")
-id = "AI_DIS7"
+id = "DIS_02"
 term = "Availability"
-keyword = "operational"
-definition = "The measure of the degree to which a system is operational and accessible when required."
-simple_terms = "System is up and running."
-examples = ["Uptime percentages (e.g., 99.999%)", "Load balancers distributing traffic"]
-difficulty = 2
-related_to = ["CAP Theorem", "Fault Tolerance"]
+keyword = "System uptime"
+definition = "Measures how continuously the system remains operational and accessible, even when some components fail, by designing for redundancy and quick recovery."
+simple_terms = "The system is always up and ready to respond to requests."
+examples = ["Web server", "DNS service", "Messaging app"]
+accepted_terms = ["System Uptime"]
+difficulty = 1
+related_to = ["Core Concepts", "System Properties", "Reliability & Resilience"]
 tof_statement = {
-"false": "A system that is highly available can never experience downtime.", 
-"true": "High availability is crucial for services that require continuous operation."
+"false": "Availability means all data across all replicas is always identical.", 
+"true": "A highly available system aims to minimize downtime, even in the face of failures."
 }
-type_of_information = ["definition", "apply"]
+type_of_information = ["definition", "explain", "apply"]
+clues = ["This characteristic is about being ready to serve users.", "It's often measured as a percentage of operational time.", "Think about a service that users expect to work almost constantly, like Google Search."]
+distractors = ["Consistency", "Scalability", "Durability"]
 metadata/_custom_type_script = "uid://dadne10e1geqd"
 
-[sub_resource type="Resource" id="Resource_ai_dis8"]
+[sub_resource type="Resource" id="Resource_dis_03"]
 script = ExtResource("1_7hrog")
-id = "AI_DIS8"
+id = "DIS_03"
 term = "Partition Tolerance"
-keyword = "network failures"
-definition = "The ability of a distributed system to continue operating even when network communication between nodes is interrupted (network partitions)."
-simple_terms = "Works even if network breaks."
-examples = ["Systems that can function with disconnected nodes", "Handling split-brain scenarios"]
-difficulty = 3
-related_to = ["CAP Theorem", "Network"]
-tof_statement = {
-"false": "Partition tolerance means the system can tolerate hardware failures, not network issues.", 
-"true": "Partition tolerance is essential for systems deployed across multiple data centers or geographical regions."
-}
-type_of_information = ["definition", "apply"]
-metadata/_custom_type_script = "uid://dadne10e1geqd"
-
-[sub_resource type="Resource" id="Resource_ai_dis9"]
-script = ExtResource("1_7hrog")
-id = "AI_DIS9"
-term = "Load Balancing"
-keyword = "distributing traffic"
-definition = "The process of distributing incoming network traffic across multiple servers to ensure no single server becomes overwhelmed, improving responsiveness and availability."
-simple_terms = "Sharing the work among servers."
-examples = ["Round-robin load balancing", "Least connections load balancing"]
+keyword = "Network split"
+definition = "The ability of a distributed system to continue operating despite network failures that split the system into isolated sub-systems, by allowing individual nodes to operate independently."
+simple_terms = "System keeps working even if network breaks between parts."
+examples = ["Cloud storage", "Blockchain", "NoSQL DB"]
+accepted_terms = ["Network Partition"]
 difficulty = 2
-related_to = ["Availability", "Scalability"]
+related_to = ["Core Concepts", "System Properties", "Reliability & Resilience"]
 tof_statement = {
-"false": "Load balancing is only used to improve data consistency across servers.", 
-"true": "Load balancing helps prevent server overload and improves overall system performance."
+"false": "Partition tolerance means the system can automatically heal network connections that have failed.", 
+"true": "A partition-tolerant system can continue processing requests even if parts of its network become unr"
 }
-type_of_information = ["definition", "apply"]
+type_of_information = ["definition", "explain", "apply"]
+clues = ["This property addresses communication breakdowns.", "It's one of the three trade-offs in the CAP theorem.", "Consider a scenario where half your data centers go offline but the other half must continue serving requests."]
+distractors = ["Fault Tolerance", "Scalability", "Data Replication"]
 metadata/_custom_type_script = "uid://dadne10e1geqd"
 
-[sub_resource type="Resource" id="Resource_ai_dis10"]
+[sub_resource type="Resource" id="Resource_dis_04"]
 script = ExtResource("1_7hrog")
-id = "AI_DIS10"
-term = "Scalability"
-keyword = "handling growth"
-definition = "The ability of a distributed system to handle a growing amount of work by adding resources (scaling up or out)."
-simple_terms = "Can handle more users/data."
-examples = ["Horizontal scaling (adding more machines)", "Vertical scaling (upgrading existing machines)"]
-difficulty = 2
-related_to = ["Load Balancing", "Distributed System"]
-tof_statement = {
-"false": "Scalability only refers to increasing the processing power of a single machine.", 
-"true": "Horizontal scalability involves adding more instances of a service."
-}
-type_of_information = ["definition", "apply"]
-metadata/_custom_type_script = "uid://dadne10e1geqd"
-
-[sub_resource type="Resource" id="Resource_ai_dis11"]
-script = ExtResource("1_7hrog")
-id = "AI_DIS11"
-term = "Message Queue"
-keyword = "asynchronous communication"
-definition = "A component that enables asynchronous communication between different parts of a distributed system by acting as an intermediary for messages."
-simple_terms = "A waiting line for messages."
-examples = ["RabbitMQ", "Kafka", "AWS SQS"]
-difficulty = 3
-related_to = ["Asynchronous Communication", "Decoupling"]
-tof_statement = {
-"false": "Message queues are primarily used for real-time, synchronous communication.", 
-"true": "Message queues help decouple producers and consumers in a distributed system."
-}
-type_of_information = ["definition", "apply"]
-metadata/_custom_type_script = "uid://dadne10e1geqd"
-
-[sub_resource type="Resource" id="Resource_ai_dis12"]
-script = ExtResource("1_7hrog")
-id = "AI_DIS12"
-term = "Asynchronous Communication"
-keyword = "non-blocking"
-definition = "A communication pattern where the sender does not have to wait for a response from the receiver before continuing its own execution."
-simple_terms = "Send and forget (for now)."
-examples = ["Sending an email without waiting for a reply", "Using a message queue"]
-difficulty = 2
-related_to = ["Message Queue", "Concurrency"]
-tof_statement = {
-"false": "Asynchronous communication requires the sender and receiver to be active at the exact same time.", 
-"true": "Asynchronous communication improves system responsiveness by allowing tasks to proceed without waiting."
-}
-type_of_information = ["definition", "apply"]
-metadata/_custom_type_script = "uid://dadne10e1geqd"
-
-[sub_resource type="Resource" id="Resource_ai_dis13"]
-script = ExtResource("1_7hrog")
-id = "AI_DIS13"
-term = "Decoupling"
-keyword = "independent"
-definition = "Designing system components so they can operate and evolve independently, reducing dependencies between them."
-simple_terms = "Components don't rely heavily on each other."
-examples = ["Using microservices architecture", "Abstracting interfaces"]
-difficulty = 3
-related_to = ["Message Queue", "Microservices"]
-tof_statement = {
-"false": "Decoupling aims to create a tightly integrated system where all parts are highly dependent.", 
-"true": "Decoupling makes it easier to update or replace individual system components."
-}
-type_of_information = ["definition", "apply"]
-metadata/_custom_type_script = "uid://dadne10e1geqd"
-
-[sub_resource type="Resource" id="Resource_ai_dis14"]
-script = ExtResource("1_7hrog")
-id = "AI_DIS14"
-term = "Microservices Architecture"
-keyword = "small services"
-definition = "An architectural style that structures an application as a collection of small, independent, and loosely coupled services."
-simple_terms = "App is a bunch of small, separate programs."
-examples = ["Netflix's architecture", "Amazon's e-commerce platform"]
-difficulty = 3
-related_to = ["Decoupling", "Distributed System"]
-tof_statement = {
-"false": "A monolithic application is an example of microservices architecture.", 
-"true": "Microservices allow for independent deployment and scaling of individual services."
-}
-type_of_information = ["definition", "apply"]
-metadata/_custom_type_script = "uid://dadne10e1geqd"
-
-[sub_resource type="Resource" id="Resource_ai_dis15"]
-script = ExtResource("1_7hrog")
-id = "AI_DIS15"
-term = "Distributed Transaction"
-keyword = "across multiple nodes"
-definition = "A transaction that involves updates to data stored on multiple distinct nodes or resources within a distributed system."
-simple_terms = "A transaction spanning many computers."
-examples = ["Two-Phase Commit (2PC)", "Sagas"]
-difficulty = 4
-related_to = ["Consistency", "Atomicity"]
-tof_statement = {
-"false": "Distributed transactions are simpler to manage than local transactions.", 
-"true": "Ensuring atomicity in distributed transactions is complex due to potential network failures."
-}
-type_of_information = ["definition", "apply"]
-metadata/_custom_type_script = "uid://dadne10e1geqd"
-
-[sub_resource type="Resource" id="Resource_ai_dis16"]
-script = ExtResource("1_7hrog")
-id = "AI_DIS16"
-term = "Atomicity"
-keyword = "all or nothing"
-definition = "The property that a transaction (or a set of operations) is treated as a single, indivisible unit of work; it either completes entirely, or it has no effect."
-simple_terms = "Either everything happens, or nothing happens."
-examples = ["ACID properties in databases", "A bank transfer (debit and credit must both succeed or fail)"]
-difficulty = 3
-related_to = ["Distributed Transaction", "Consistency"]
-tof_statement = {
-"false": "Atomicity guarantees that transactions will always complete quickly.", 
-"true": "Atomicity ensures that partial completion of a transaction is not possible."
-}
-type_of_information = ["definition", "apply"]
-metadata/_custom_type_script = "uid://dadne10e1geqd"
-
-[sub_resource type="Resource" id="Resource_ai_dis17"]
-script = ExtResource("1_7hrog")
-id = "AI_DIS17"
+id = "DIS_04"
 term = "Eventual Consistency"
-keyword = "eventually same"
-definition = "A consistency model where, if no new updates are made to a given data item, eventually all accesses to that item will return the last updated value."
-simple_terms = "Data will be the same after some time."
-examples = ["Social media feeds", "DNS propagation"]
-difficulty = 3
-related_to = ["Consistency", "Availability"]
+keyword = "Data propagation"
+definition = "Achieves high availability and partition tolerance by allowing temporary inconsistencies, but guarantees that all replicas will eventually converge to the same state if no new writes occur."
+simple_terms = "Data might be stale for a bit, but it will catch up later."
+examples = ["DNS updates", "Social media feed", "Shopping cart"]
+accepted_terms = ["Eventual"]
+difficulty = 2
+related_to = ["Core Concepts", "System Properties", "Data Management"]
 tof_statement = {
-"false": "Eventual consistency means that all replicas are updated instantly.", 
-"true": "Systems prioritizing availability often adopt eventual consistency."
+"false": "Eventual consistency means data is never guaranteed to be the same across all nodes.", 
+"true": "A system with eventual consistency prioritizes availability and performance over immediate data cons"
 }
-type_of_information = ["definition", "apply"]
+type_of_information = ["definition", "explain", "apply"]
+clues = ["This model is often chosen when speed and continuous operation are critical.", "It accepts temporary divergence in data views.", "Think about systems where seeing slightly outdated information for a moment is acceptable, like a friend's post count."]
+distractors = ["Strong Consistency", "Atomic Consistency", "Durability"]
 metadata/_custom_type_script = "uid://dadne10e1geqd"
 
-[sub_resource type="Resource" id="Resource_ai_dis18"]
+[sub_resource type="Resource" id="Resource_dis_05"]
 script = ExtResource("1_7hrog")
-id = "AI_DIS18"
+id = "DIS_05"
+term = "Idempotency"
+keyword = "Repeatable ops"
+definition = "A property of an operation where executing it multiple times has the same effect as executing it once, crucial for fault tolerance in unreliable networks."
+simple_terms = "Doing it many times is the same as doing it once."
+examples = ["Set user status", "Update profile", "Delete item"]
+accepted_terms = ["Idempotent"]
+difficulty = 2
+related_to = ["Core Concepts", "Reliability & Resilience"]
+tof_statement = {
+"false": "Idempotency means an operation will always succeed on the first attempt.", 
+"true": "Designing idempotent operations helps prevent unintended side effects when retries occur in distribu"
+}
+type_of_information = ["definition", "explain", "apply"]
+clues = ["This concept is vital when messages might be duplicated or resent.", "It simplifies error handling by making retries safe.", "Imagine a button that, no matter how many times you click it, only performs its action once."]
+distractors = ["Atomicity", "Durability", "Linearizability"]
+metadata/_custom_type_script = "uid://dadne10e1geqd"
+
+[sub_resource type="Resource" id="Resource_dis_06"]
+script = ExtResource("1_7hrog")
+id = "DIS_06"
 term = "Leader Election"
-keyword = "choosing a leader"
-definition = "The process of designating a single process (or node) as the leader among a group of processes in a distributed system, often for coordination or control."
-simple_terms = "Picking one node to be in charge."
-examples = ["Raft consensus algorithm", "ZooKeeper's coordination service"]
-difficulty = 4
-related_to = ["Consensus", "Fault Tolerance"]
-tof_statement = {
-"false": "Leader election is only necessary in systems with a single point of failure.", 
-"true": "Leader election is crucial for maintaining order and coordination in distributed systems."
-}
-type_of_information = ["definition", "apply"]
-metadata/_custom_type_script = "uid://dadne10e1geqd"
-
-[sub_resource type="Resource" id="Resource_ai_dis19"]
-script = ExtResource("1_7hrog")
-id = "AI_DIS19"
-term = "Consensus"
-keyword = "agreement"
-definition = "The process by which a group of distributed nodes agrees on a single value or decision, even in the presence of failures."
-simple_terms = "Getting everyone to agree."
-examples = ["Paxos algorithm", "Raft algorithm", "Blockchain consensus mechanisms"]
-difficulty = 4
-related_to = ["Leader Election", "Consistency"]
-tof_statement = {
-"false": "Consensus algorithms are designed to work only in perfectly reliable networks.", 
-"true": "Achieving consensus in a distributed system is challenging due to network latency and potential node failures."
-}
-type_of_information = ["definition", "apply"]
-metadata/_custom_type_script = "uid://dadne10e1geqd"
-
-[sub_resource type="Resource" id="Resource_ai_dis20"]
-script = ExtResource("1_7hrog")
-id = "AI_DIS20"
-term = "Idempotence"
-keyword = "repeatable"
-definition = "The property of an operation where applying it multiple times has the same effect as applying it once."
-simple_terms = "Doing it again doesn't change the outcome."
-examples = ["HTTP PUT request", "A function that sets a value to a specific state"]
+keyword = "Coordination"
+definition = "A process used by distributed systems to designate a single node as the coordinator or leader, which then manages critical tasks like ordering operations or resource allocation."
+simple_terms = "Nodes pick one node to be in charge of specific tasks."
+examples = ["Raft protocol", "Paxos algorithm", "Zookeeper"]
+accepted_terms = ["Leader selection"]
 difficulty = 3
-related_to = ["Fault Tolerance", "Reliability"]
+related_to = ["Core Concepts", "Inter-process Communication", "Reliability & Resilience"]
 tof_statement = {
-"false": "An idempotent operation must always return the same result value, even if the state changes.", 
-"true": "Idempotent operations are beneficial in distributed systems for handling retries after failures."
+"false": "Leader election ensures that all nodes have an identical copy of the data.", 
+"true": "Leader election mechanisms are critical for ensuring agreement and preventing conflicting operations"
 }
-type_of_information = ["definition", "apply"]
+type_of_information = ["definition", "explain", "apply"]
+clues = ["This mechanism helps avoid conflicts by centralizing decision-making temporarily.", "It's essential for achieving consensus in a group of independent entities.", "Think of a group project where one person is assigned to manage deadlines and task distribution."]
+distractors = ["Load Balancing", "Sharding", "Consensus"]
+metadata/_custom_type_script = "uid://dadne10e1geqd"
+
+[sub_resource type="Resource" id="Resource_dis_07"]
+script = ExtResource("1_7hrog")
+id = "DIS_07"
+term = "Sharding"
+keyword = "Data split"
+definition = "A technique that horizontally partitions a database or dataset into smaller, independent pieces called shards, distributing them across multiple servers to improve scalability and performance."
+simple_terms = "Breaking a big database into smaller, separate parts on d..."
+examples = ["User ID range", "Geographic region", "Hash of key"]
+accepted_terms = ["Database Sharding", "Horizontal Partitioning"]
+difficulty = 2
+related_to = ["Core Concepts", "Data Management", "System Properties"]
+tof_statement = {
+"false": "Sharding increases data consistency across all nodes by replicating data.", 
+"true": "Sharding is primarily used to scale distributed databases beyond the capacity of a single machine."
+}
+type_of_information = ["definition", "explain", "apply"]
+clues = ["This method helps manage very large datasets by dividing them.", "It's a way to spread the load across many machines.", "Imagine splitting a giant phone book into several smaller phone books, each covering a different letter range."]
+distractors = ["Replication", "Vertical Scaling", "Load Balancing"]
+metadata/_custom_type_script = "uid://dadne10e1geqd"
+
+[sub_resource type="Resource" id="Resource_dis_08"]
+script = ExtResource("1_7hrog")
+id = "DIS_08"
+term = "Replication"
+keyword = "Data copies"
+definition = "The process of creating and maintaining multiple copies of data or services across different nodes to enhance availability, fault tolerance, and read scalability."
+simple_terms = "Making multiple copies of data on different machines."
+examples = ["Database backups", "CDN content", "Distributed file system"]
+accepted_terms = ["Data Redundancy"]
+difficulty = 1
+related_to = ["Core Concepts", "Data Management", "Reliability & Resilience"]
+tof_statement = {
+"false": "Replication automatically ensures strong consistency across all data copies.", 
+"true": "Replication is a fundamental technique to ensure data availability and durability in distributed sys"
+}
+type_of_information = ["definition", "explain", "apply"]
+clues = ["This technique is about having backups ready.", "It helps systems survive component failures.", "Think about having multiple identical copies of an important document in different locations."]
+distractors = ["Sharding", "Caching", "Load Balancing"]
+metadata/_custom_type_script = "uid://dadne10e1geqd"
+
+[sub_resource type="Resource" id="Resource_dis_09"]
+script = ExtResource("1_7hrog")
+id = "DIS_09"
+term = "Remote Procedure Call"
+keyword = "Function invocation"
+definition = "A protocol that allows a program on one computer to execute a procedure or function on a remote computer as if it were a local call, simplifying distributed application development."
+simple_terms = "Calling a function on another computer as if it's local."
+examples = ["gRPC", "SOAP", "XML-RPC"]
+accepted_terms = ["RPC"]
+difficulty = 2
+related_to = ["Core Concepts", "Inter-process Communication"]
+tof_statement = {
+"false": "RPC is primarily used for distributing data across multiple storage nodes.", 
+"true": "RPC frameworks abstract away network communication details, making distributed programming more intu"
+}
+type_of_information = ["definition", "explain", "apply"]
+clues = ["This mechanism lets different parts of a system talk to each other like they're in the same program.", "It focuses on calling operations across network boundaries.", "Imagine telling a chef in a different kitchen to 'prepare pasta' without knowing the details of how they'll do it."]
+distractors = ["Message Queue", "REST API", "Shared Memory"]
+metadata/_custom_type_script = "uid://dadne10e1geqd"
+
+[sub_resource type="Resource" id="Resource_dis_10"]
+script = ExtResource("1_7hrog")
+id = "DIS_10"
+term = "Consensus"
+keyword = "Agreement"
+definition = "A fundamental problem in distributed computing where multiple nodes must agree on a single value or decision, even in the presence of failures or unreliable communication."
+simple_terms = "All nodes agree on one decision or value, even if some fail."
+examples = ["Transaction commit", "Leader election", "Distributed lock"]
+accepted_terms = ["Distributed Agreement"]
+difficulty = 3
+related_to = ["Core Concepts", "Inter-process Communication", "Reliability & Resilience"]
+tof_statement = {
+"false": "Consensus protocols primarily aim to speed up data retrieval.", 
+"true": "Achieving consensus is challenging because nodes might fail, messages might be lost, or network part"
+}
+type_of_information = ["definition", "explain", "apply"]
+clues = ["This problem is about ensuring all participants come to the same conclusion.", "Algorithms like Paxos and Raft are designed to solve this.", "Think of a jury needing to reach a unanimous verdict, even if some jurors are unreliable."]
+distractors = ["Load Balancing", "Replication", "Scalability"]
+metadata/_custom_type_script = "uid://dadne10e1geqd"
+
+[sub_resource type="Resource" id="Resource_dis_11"]
+script = ExtResource("1_7hrog")
+id = "DIS_11"
+term = "Fault Tolerance"
+keyword = "Resilience"
+definition = "The ability of a system to continue operating correctly even when some of its components fail, achieved by incorporating redundancy, error detection, and recovery mechanisms."
+simple_terms = "System keeps working even when parts break or fail."
+examples = ["Replicated services", "Checksums", "Retries"]
+accepted_terms = ["Resilience"]
+difficulty = 1
+related_to = ["Core Concepts", "Reliability & Resilience", "System Properties"]
+tof_statement = {
+"false": "Fault tolerance primarily focuses on preventing any errors from ever occurring in the system.", 
+"true": "Implementing fault tolerance increases system reliability and availability by mitigating the impact "
+}
+type_of_information = ["definition", "explain", "apply"]
+clues = ["This property is about enduring unexpected problems.", "It ensures the system can handle breakdowns without stopping entirely.", "Imagine an airplane with multiple engines, designed to keep flying even if one engine fails."]
+distractors = ["Performance", "Security", "Scalability"]
+metadata/_custom_type_script = "uid://dadne10e1geqd"
+
+[sub_resource type="Resource" id="Resource_dis_12"]
+script = ExtResource("1_7hrog")
+id = "DIS_12"
+term = "Distributed Transaction"
+keyword = "Atomic ops"
+definition = "A transaction that involves multiple independent resources or services across different nodes, requiring all operations to either commit successfully or abort entirely to maintain atomicity."
+simple_terms = "One transaction across many systems: all or nothing."
+examples = ["Online purchase", "Bank transfer", "Reservation system"]
+accepted_terms = ["Two-Phase Commit"]
+difficulty = 3
+related_to = ["Core Concepts", "Data Management", "Inter-process Communication", "Reliability & Resilience"]
+tof_statement = {
+"false": "Distributed transactions are designed to increase the read throughput of a database.", 
+"true": "Distributed transactions ensure atomicity across multiple participants, but often introduce signific"
+}
+type_of_information = ["definition", "explain", "apply"]
+clues = ["This concept ensures 'all or nothing' behavior across separate data stores.", "It often involves a coordinator to manage the commit process.", "Think about transferring money between two different banks; both accounts must be updated successfully or neither should be."]
+distractors = ["Local Transaction", "Eventual Consistency", "Idempotency"]
+metadata/_custom_type_script = "uid://dadne10e1geqd"
+
+[sub_resource type="Resource" id="Resource_dis_13"]
+script = ExtResource("1_7hrog")
+id = "DIS_13"
+term = "Message Queue"
+keyword = "Async messages"
+definition = "A component that enables asynchronous communication between different parts of a distributed system by storing messages temporarily until the receiving service is ready to process them."
+simple_terms = "Services send messages to a waiting list for others to pi..."
+examples = ["Kafka", "RabbitMQ", "SQS"]
+accepted_terms = ["MQ", "Message Broker"]
+difficulty = 2
+related_to = ["Core Concepts", "Inter-process Communication", "System Properties"]
+tof_statement = {
+"false": "Message queues are primarily used for real-time, synchronous communication between services.", 
+"true": "Message queues decouple services, improving scalability and fault tolerance by buffering work and ha"
+}
+type_of_information = ["definition", "explain", "apply"]
+clues = ["This system helps components talk without needing to be online simultaneously.", "It acts as a buffer for tasks or data between services.", "Imagine a post office where you drop off a letter, and the recipient picks it up later, without you waiting for them."]
+distractors = ["RPC", "Shared Database", "Load Balancer"]
+metadata/_custom_type_script = "uid://dadne10e1geqd"
+
+[sub_resource type="Resource" id="Resource_dis_14"]
+script = ExtResource("1_7hrog")
+id = "DIS_14"
+term = "Scalability"
+keyword = "Growth handling"
+definition = "The ability of a system to handle an increasing amount of work or users by adding resources, either by upgrading existing hardware or distributing the workload across more machines."
+simple_terms = "System can grow to handle more users or data easily."
+examples = ["Adding servers", "Sharding database", "Caching"]
+accepted_terms = ["System Scaling"]
+difficulty = 1
+related_to = ["Core Concepts", "System Properties"]
+tof_statement = {
+"false": "Scalability is only achieved by making individual servers more powerful.", 
+"true": "A scalable system can maintain performance and availability even as its user base or data volume sig"
+}
+type_of_information = ["definition", "explain", "apply"]
+clues = ["This property is about handling growth gracefully.", "It allows a system to expand its capacity as demand increases.", "Think of a restaurant that can add more tables or open new branches to serve more customers."]
+distractors = ["Availability", "Consistency", "Fault Tolerance"]
+metadata/_custom_type_script = "uid://dadne10e1geqd"
+
+[sub_resource type="Resource" id="Resource_dis_15"]
+script = ExtResource("1_7hrog")
+id = "DIS_15"
+term = "Latency"
+keyword = "Delay"
+definition = "The time delay between a request being sent and the response being received, a critical performance metric in distributed systems affected by network hops and processing time."
+simple_terms = "The time it takes for a request to get a response."
+examples = ["Network delay", "Processing time", "Disk I/O"]
+accepted_terms = ["Response Time"]
+difficulty = 1
+related_to = ["Core Concepts", "System Properties", "Inter-process Communication"]
+tof_statement = {
+"false": "Latency refers to the total amount of data that can be transferred over a network.", 
+"true": "Minimizing latency is crucial for user experience and real-time application responsiveness in distri"
+}
+type_of_information = ["definition", "explain", "apply"]
+clues = ["This measures how long you have to wait for something to happen.", "It's often a trade-off with consistency in distributed systems.", "Imagine the time from pressing a button on a remote control to the TV reacting."]
+distractors = ["Throughput", "Bandwidth", "Jitter"]
+metadata/_custom_type_script = "uid://dadne10e1geqd"
+
+[sub_resource type="Resource" id="Resource_dis_16"]
+script = ExtResource("1_7hrog")
+id = "DIS_16"
+term = "Throughput"
+keyword = "Work rate"
+definition = "The number of operations, requests, or transactions a system can process per unit of time, indicating its capacity and efficiency under load."
+simple_terms = "How much work the system can do in a given time."
+examples = ["Requests per sec", "Transactions per min", "Bytes per hour"]
+accepted_terms = ["Transactions/sec", "QPS"]
+difficulty = 1
+related_to = ["Core Concepts", "System Properties"]
+tof_statement = {
+"false": "Throughput measures the delay between a request and its corresponding response.", 
+"true": "High throughput is desirable for systems handling a large volume of concurrent operations, like e-co"
+}
+type_of_information = ["definition", "explain", "apply"]
+clues = ["This metric tells you how much work a system can get done.", "It's about the volume of successful tasks over time.", "Think of how many cars can pass through a toll booth in an hour."]
+distractors = ["Latency", "Availability", "Reliability"]
+metadata/_custom_type_script = "uid://dadne10e1geqd"
+
+[sub_resource type="Resource" id="Resource_dis_17"]
+script = ExtResource("1_7hrog")
+id = "DIS_17"
+term = "Load Balancing"
+keyword = "Request routing"
+definition = "Distributes incoming network traffic across multiple servers to ensure no single server is overloaded, improving responsiveness and availability of applications."
+simple_terms = "Spreading incoming work evenly among many servers."
+examples = ["Round-robin DNS", "Least connections", "Weighted routing"]
+accepted_terms = ["Traffic Distribution"]
+difficulty = 2
+related_to = ["Core Concepts", "Inter-process Communication", "Reliability & Resilience", "System Properties"]
+tof_statement = {
+"false": "Load balancing is primarily used to store multiple copies of data across different nodes.", 
+"true": "Load balancing enhances system performance and prevents single points of failure by routing requests"
+}
+type_of_information = ["definition", "explain", "apply"]
+clues = ["This technique helps manage traffic efficiently across a pool of resources.", "It's crucial for distributing user requests to available servers.", "Imagine a dispatcher directing taxis to different passengers to avoid overwhelming any single driver."]
+distractors = ["Sharding", "Replication", "Caching"]
+metadata/_custom_type_script = "uid://dadne10e1geqd"
+
+[sub_resource type="Resource" id="Resource_dis_18"]
+script = ExtResource("1_7hrog")
+id = "DIS_18"
+term = "Data Consistency"
+keyword = "Correct data"
+definition = "Ensures that every read operation returns the most recently written data, or a correct, valid state according to the chosen consistency model, crucial for data integrity."
+simple_terms = "All users see correct and up-to-date data."
+examples = ["Strong consistency", "Eventual consistency", "Causal consistency"]
+accepted_terms = ["Consistency"]
+difficulty = 1
+related_to = ["Core Concepts", "System Properties", "Data Management"]
+tof_statement = {
+"false": "Data consistency is solely about making sure data is never lost, even in a system crash.", 
+"true": "Data consistency defines the guarantees about the visibility of data updates across a distributed sy"
+}
+type_of_information = ["definition", "explain", "list"]
+clues = ["This property is about the correctness and agreement of information.", "It's often contrasted with availability in distributed systems.", "Think about ensuring everyone sees the exact same score in a live multiplayer game."]
+distractors = ["Data Availability", "Data Durability", "Data Integrity"]
+metadata/_custom_type_script = "uid://dadne10e1geqd"
+
+[sub_resource type="Resource" id="Resource_dis_19"]
+script = ExtResource("1_7hrog")
+id = "DIS_19"
+term = "Cache Coherence"
+keyword = "Shared data"
+definition = "Ensures that all processors or nodes in a distributed system see a consistent view of data that is stored in multiple local caches, by invalidating or updating stale copies."
+simple_terms = "Making sure all cached copies of data are up-to-date."
+examples = ["MESI protocol", "Write-through", "Write-back"]
+accepted_terms = ["Cache Consistency"]
+difficulty = 3
+related_to = ["Core Concepts", "System Properties", "Data Management", "Inter-process Communication"]
+tof_statement = {
+"false": "Cache coherence is a technique for storing data permanently in a database.", 
+"true": "Cache coherence protocols are necessary to prevent different nodes from operating on stale data from"
+}
+type_of_information = ["definition", "explain", "apply"]
+clues = ["This problem arises when multiple entities have their own temporary copies of shared information.", "It's about ensuring that changes made by one entity are reflected for others quickly.", "Imagine multiple people editing the same online document; everyone needs to see the latest changes."]
+distractors = ["Data Replication", "Distributed Cache", "Eventual Consistency"]
+metadata/_custom_type_script = "uid://dadne10e1geqd"
+
+[sub_resource type="Resource" id="Resource_dis_20"]
+script = ExtResource("1_7hrog")
+id = "DIS_20"
+term = "Distributed Lock"
+keyword = "Mutual access"
+definition = "A mechanism used to ensure that only one process or node in a distributed system can access a shared resource or critical section at a time, preventing race conditions."
+simple_terms = "Only one system can use a shared thing at any given moment."
+examples = ["ZooKeeper lock", "Redis lock", "Consul lock"]
+accepted_terms = ["Distributed Mutex"]
+difficulty = 3
+related_to = ["Core Concepts", "Inter-process Communication", "Reliability & Resilience"]
+tof_statement = {
+"false": "Distributed locks are primarily used to secure data from unauthorized access.", 
+"true": "Distributed locks are essential for protecting shared resources from concurrent modifications by mul"
+}
+type_of_information = ["definition", "explain", "apply"]
+clues = ["This concept is used to control access to a single shared item or task.", "It's crucial for preventing simultaneous updates that could corrupt data.", "Think of a single-stall restroom in a busy airport; only one person can use it at a time."]
+distractors = ["Semaphore", "Atomic Operation", "Leader Election"]
+metadata/_custom_type_script = "uid://dadne10e1geqd"
+
+[sub_resource type="Resource" id="Resource_dis_21"]
+script = ExtResource("1_7hrog")
+id = "DIS_21"
+term = "Deadlock"
+keyword = "Resource wait"
+definition = "A situation in distributed systems where two or more processes are blocked indefinitely, each waiting for a resource held by another process in the cycle, leading to system stagnation."
+simple_terms = "Processes stuck waiting for each other, nothing moves."
+examples = ["Dining philosophers", "Circular wait", "Resource cycles"]
+accepted_terms = ["System Stalemate"]
+difficulty = 2
+related_to = ["Core Concepts", "Reliability & Resilience", "Inter-process Communication"]
+tof_statement = {
+"false": "Deadlocks are a security feature designed to prevent unauthorized access to critical resources.", 
+"true": "Deadlocks can severely impact the performance and availability of distributed systems by halting pro"
+}
+type_of_information = ["definition", "explain", "apply"]
+clues = ["This problem occurs when multiple entities are all waiting for each other.", "It often involves a circular dependency in resource requests.", "Imagine two cars facing each other on a single-lane bridge, both unwilling to back up."]
+distractors = ["Livelock", "Starvation", "Race Condition"]
+metadata/_custom_type_script = "uid://dadne10e1geqd"
+
+[sub_resource type="Resource" id="Resource_dis_22"]
+script = ExtResource("1_7hrog")
+id = "DIS_22"
+term = "Byzantine Fault Tolerance"
+keyword = "Malicious fault"
+definition = "The ability of a distributed system to reach consensus and continue operating correctly even if some nodes fail arbitrarily or act maliciously by sending false information."
+simple_terms = "System works even if some nodes lie or act bad."
+examples = ["Blockchain consensus", "PBFT algorithm", "Cryptocurrencies"]
+accepted_terms = ["BFT"]
+difficulty = 3
+related_to = ["Core Concepts", "Reliability & Resilience", "Inter-process Communication"]
+tof_statement = {
+"false": "Byzantine fault tolerance only deals with nodes that crash or stop responding.", 
+"true": "Byzantine fault tolerance addresses the most challenging type of failures where nodes can behave arb"
+}
+type_of_information = ["definition", "explain", "apply"]
+clues = ["This concept deals with the most difficult kind of system errors, including intentional sabotage.", "It's crucial in environments where trust cannot be assumed among all participants.", "Think of a group of generals needing to agree on an attack plan, where some generals might be traitors."]
+distractors = ["Crash Fault Tolerance", "High Availability", "Data Encryption"]
+metadata/_custom_type_script = "uid://dadne10e1geqd"
+
+[sub_resource type="Resource" id="Resource_dis_23"]
+script = ExtResource("1_7hrog")
+id = "DIS_23"
+term = "Lamport Timestamps"
+keyword = "Logical clock"
+definition = "A logical clock system that provides a partial ordering of events in a distributed system, where each process maintains a counter that increments with local events and message sending/receiving."
+simple_terms = "Numbers that show the order of events, not real time."
+examples = ["Event ordering", "Concurrency control", "Causal relationships"]
+accepted_terms = ["Lamport Clocks"]
+difficulty = 3
+related_to = ["Core Concepts", "Inter-process Communication", "Data Management"]
+tof_statement = {
+"false": "Lamport timestamps provide an accurate measure of real-time differences between events on different ", 
+"true": "Lamport timestamps allow us to determine the 'happened-before' relationship between events across di"
+}
+type_of_information = ["definition", "explain", "apply"]
+clues = ["This mechanism helps establish a sequence of events without needing perfectly synchronized physical clocks.", "It's about understanding causality in a distributed environment.", "Imagine numbering every action in a conversation to understand who said what before whom, regardless of actual wall-clock time."]
+distractors = ["Vector Clocks", "Physical Clocks", "Distributed Locks"]
+metadata/_custom_type_script = "uid://dadne10e1geqd"
+
+[sub_resource type="Resource" id="Resource_dis_24"]
+script = ExtResource("1_7hrog")
+id = "DIS_24"
+term = "Vector Clocks"
+keyword = "Causal ordering"
+definition = "A logical clock system that captures causal relationships between events in a distributed system, allowing determination of concurrent events and providing a total ordering of causally related events."
+simple_terms = "Lists of numbers showing what caused what in a system."
+examples = ["Conflict detection", "Casual consistency", "Data versioning"]
+accepted_terms = ["Vector Timestamps"]
+difficulty = 3
+related_to = ["Core Concepts", "Inter-process Communication", "Data Management"]
+tof_statement = {
+"false": "Vector clocks are used to synchronize physical time across all nodes in a distributed system.", 
+"true": "Vector clocks can detect concurrent events and establish a total causal ordering, unlike simpler Lam"
+}
+type_of_information = ["definition", "explain", "apply"]
+clues = ["This system provides a more complete picture of event dependencies than a simple counter.", "It can tell you if two events happened independently or if one influenced the other.", "Think of a version control system that tracks the lineage of changes across multiple branches simultaneously."]
+distractors = ["Lamport Timestamps", "Physical Clocks", "Distributed Tracing"]
+metadata/_custom_type_script = "uid://dadne10e1geqd"
+
+[sub_resource type="Resource" id="Resource_dis_25"]
+script = ExtResource("1_7hrog")
+id = "DIS_25"
+term = "Two-Phase Commit"
+keyword = "Atomic commit"
+definition = "A distributed algorithm that ensures all participating nodes in a distributed transaction either commit or abort the transaction together, maintaining atomicity across multiple resources."
+simple_terms = "All systems agree to do or undo a change completely."
+examples = ["XA transactions", "Distributed databases", "Enterprise systems"]
+accepted_terms = ["2PC"]
+difficulty = 3
+related_to = ["Core Concepts", "Inter-process Communication", "Reliability & Resilience", "Data Management"]
+tof_statement = {
+"false": "Two-Phase Commit is primarily designed to improve the read performance of a distributed database.", 
+"true": "Two-Phase Commit is commonly used to achieve atomicity for distributed transactions but is blocking "
+}
+type_of_information = ["definition", "explain", "apply"]
+clues = ["This protocol involves a 'prepare' and a 'commit' stage.", "It's a way to get all involved parties to agree on a single outcome for a complex operation.", "Imagine a marriage proposal where both parties must agree before the wedding can proceed, or it's called off."]
+distractors = ["Three-Phase Commit", "Paxos", "Eventual Consistency"]
+metadata/_custom_type_script = "uid://dadne10e1geqd"
+
+[sub_resource type="Resource" id="Resource_dis_26"]
+script = ExtResource("1_7hrog")
+id = "DIS_26"
+term = "Gossip Protocol"
+keyword = "Peer data"
+definition = "A decentralized communication mechanism where nodes periodically exchange information about their state with a few randomly chosen neighbors, eventually propagating information throughout the system."
+simple_terms = "Nodes randomly share info with neighbors, spreading news..."
+examples = ["Cassandra", "DynamoDB", "Service discovery"]
+accepted_terms = ["Epidemic Protocol"]
+difficulty = 2
+related_to = ["Core Concepts", "Inter-process Communication", "Reliability & Resilience"]
+tof_statement = {
+"false": "Gossip protocols are primarily used for real-time, strong consistency updates across all nodes.", 
+"true": "Gossip protocols are highly fault-tolerant and scalable but provide only eventual consistency for in"
+}
+type_of_information = ["definition", "explain", "apply"]
+clues = ["This communication method mimics how rumors spread in a social network.", "It relies on probabilistic dissemination of information.", "Think of a secret being shared randomly among friends until everyone eventually knows it, without a central announcement."]
+distractors = ["Broadcast Protocol", "RPC", "Message Queue"]
+metadata/_custom_type_script = "uid://dadne10e1geqd"
+
+[sub_resource type="Resource" id="Resource_dis_27"]
+script = ExtResource("1_7hrog")
+id = "DIS_27"
+term = "Circuit Breaker"
+keyword = "Failure guard"
+definition = "A design pattern that prevents a distributed service from repeatedly trying to invoke a failing remote service, thus preventing cascading failures and allowing the failing service to recover."
+simple_terms = "Stops trying a broken service to prevent system collapse."
+examples = ["Hystrix", "Polly", "Resilience4j"]
+accepted_terms = ["Fault Isolation"]
+difficulty = 2
+related_to = ["Core Concepts", "Reliability & Resilience", "System Properties"]
+tof_statement = {
+"false": "A circuit breaker is a security mechanism that encrypts communication between services.", 
+"true": "A circuit breaker helps maintain system stability by quickly failing calls to services that are expe"
+}
+type_of_information = ["definition", "explain", "apply"]
+clues = ["This pattern acts like an electrical safety device in software.", "It's designed to protect a system from a malfunctioning dependency.", "Imagine a fuse box that trips to prevent an electrical surge from damaging your entire house."]
+distractors = ["Retry Pattern", "Bulkhead Pattern", "Load Balancer"]
+metadata/_custom_type_script = "uid://dadne10e1geqd"
+
+[sub_resource type="Resource" id="Resource_dis_28"]
+script = ExtResource("1_7hrog")
+id = "DIS_28"
+term = "Distributed Tracing"
+keyword = "Request flow"
+definition = "A method to monitor requests as they propagate through various services in a distributed system, providing visibility into latency, errors, and the overall flow of operations."
+simple_terms = "Following a request's journey through many services."
+examples = ["OpenTelemetry", "Zipkin", "Jaeger"]
+accepted_terms = ["Request Tracing"]
+difficulty = 2
+related_to = ["Core Concepts", "Inter-process Communication", "System Properties"]
+tof_statement = {
+"false": "Distributed tracing is primarily used for logging individual events within a single service.", 
+"true": "Distributed tracing is essential for debugging and performance profiling in complex microservices ar"
+}
+type_of_information = ["definition", "explain", "apply"]
+clues = ["This helps you understand the path a single user action takes across multiple systems.", "It's about seeing the 'story' of a request from start to finish.", "Imagine tracking a package as it moves through different warehouses and delivery trucks until it reaches its destination."]
+distractors = ["Log Aggregation", "Metrics Monitoring", "Event Logging"]
+metadata/_custom_type_script = "uid://dadne10e1geqd"
+
+[sub_resource type="Resource" id="Resource_dis_29"]
+script = ExtResource("1_7hrog")
+id = "DIS_29"
+term = "Transactional Outbox"
+keyword = "Atomic message"
+definition = "A pattern used to reliably publish messages to a message broker as part of a local database transaction, ensuring atomicity between database changes and message sending."
+simple_terms = "Database change and message send happen together, or neit..."
+examples = ["Service bus integration", "Event-driven arch", "Microservices"]
+accepted_terms = ["Outbox Pattern"]
+difficulty = 3
+related_to = ["Core Concepts", "Data Management", "Inter-process Communication", "Reliability & Resilience"]
+tof_statement = {
+"false": "The transactional outbox is used to improve the speed of message delivery to consumers.", 
+"true": "The transactional outbox pattern prevents data inconsistencies that can arise when publishing messag"
+}
+type_of_information = ["definition", "explain", "apply"]
+clues = ["This pattern solves the problem of ensuring a database update and a message publication are an 'all or nothing' operation.", "It bridges the gap between local database transactions and distributed messaging.", "Imagine writing a check and mailing it; you want to ensure the money is deducted from your account only if the check is actually sent."]
+distractors = ["Two-Phase Commit", "Idempotency", "Message Queue"]
+metadata/_custom_type_script = "uid://dadne10e1geqd"
+
+[sub_resource type="Resource" id="Resource_dis_30"]
+script = ExtResource("1_7hrog")
+id = "DIS_30"
+term = "Saga Pattern"
+keyword = "Long process"
+definition = "A pattern that manages long-running business transactions in a distributed system by sequencing a series of local transactions, each with a corresponding compensating transaction to handle failures."
+simple_terms = "Complex process done in steps; can undo steps if somethin..."
+examples = ["Order fulfillment", "Travel booking", "Payment processing"]
+accepted_terms = ["Distributed Saga"]
+difficulty = 3
+related_to = ["Core Concepts", "Reliability & Resilience", "Data Management", "Inter-process Communication"]
+tof_statement = {
+"false": "The Saga pattern ensures strong, immediate consistency across all participating services.", 
+"true": "The Saga pattern provides eventual consistency for distributed business processes without requiring "
+}
+type_of_information = ["definition", "explain", "apply"]
+clues = ["This approach breaks down a large, multi-service operation into smaller, manageable parts.", "It's often used when a traditional distributed transaction (like 2PC) is too slow or risky.", "Think of planning a multi-city trip; if one flight is canceled, you need a way to undo the hotel bookings and other flights."]
+distractors = ["Two-Phase Commit", "Eventual Consistency", "Microservices"]
+metadata/_custom_type_script = "uid://dadne10e1geqd"
+
+[sub_resource type="Resource" id="Resource_dis_31"]
+script = ExtResource("1_7hrog")
+id = "DIS_31"
+term = "Quorum"
+keyword = "Minimum vote"
+definition = "The minimum number of replicas or nodes that must agree on a decision or respond to an operation for it to be considered successful, used to achieve consistency and fault tolerance."
+simple_terms = "Minimum number of nodes needed to agree for action to count."
+examples = ["Read quorum", "Write quorum", "Voting system"]
+accepted_terms = ["Majority Vote"]
+difficulty = 2
+related_to = ["Core Concepts", "Reliability & Resilience", "System Properties", "Data Management"]
+tof_statement = {
+"false": "Quorums are primarily used to encrypt data during transmission between nodes.", 
+"true": "Using quorums helps ensure data consistency and system availability even when some nodes are unreach"
+}
+type_of_information = ["definition", "explain", "apply"]
+clues = ["This concept is about reaching a sufficient level of agreement or participation.", "It often involves a majority rule to make decisions in a distributed setting.", "Think of a committee meeting where a certain number of members must vote yes for a proposal to pass."]
+distractors = ["Leader Election", "Replication Factor", "Sharding"]
+metadata/_custom_type_script = "uid://dadne10e1geqd"
+
+[sub_resource type="Resource" id="Resource_dis_32"]
+script = ExtResource("1_7hrog")
+id = "DIS_32"
+term = "Distributed File System"
+keyword = "Shared storage"
+definition = "A system that allows multiple users on multiple machines to share files and storage resources across a network, providing a unified view of data and managing concurrency."
+simple_terms = "Files stored across many computers, accessible as one."
+examples = ["HDFS", "GlusterFS", "Ceph"]
+accepted_terms = ["DFS"]
+difficulty = 2
+related_to = ["Core Concepts", "Data Management", "System Properties", "Reliability & Resilience"]
+tof_statement = {
+"false": "Distributed file systems primarily focus on accelerating the execution of computational tasks on a s", 
+"true": "Distributed file systems provide high availability and fault tolerance for data storage by distribut"
+}
+type_of_information = ["definition", "explain", "apply"]
+clues = ["This system makes storage appear as one large pool, even if it's spread across many physical devices.", "It's designed for sharing and managing files in a network environment.", "Imagine a giant library where books are stored in many different rooms, but you access them through a single catalog system."]
+distractors = ["Local File System", "Database Management System", "Content Delivery Network"]
 metadata/_custom_type_script = "uid://dadne10e1geqd"
 
 [resource]
 script = ExtResource("2_bkryn")
 lesson_title = "Distributed Systems"
-lesson_items = Array[ExtResource("1_7hrog")]([SubResource("Resource_ai_dis1"), SubResource("Resource_ai_dis2"), SubResource("Resource_ai_dis3"), SubResource("Resource_ai_dis4"), SubResource("Resource_ai_dis5"), SubResource("Resource_ai_dis6"), SubResource("Resource_ai_dis7"), SubResource("Resource_ai_dis8"), SubResource("Resource_ai_dis9"), SubResource("Resource_ai_dis10"), SubResource("Resource_ai_dis11"), SubResource("Resource_ai_dis12"), SubResource("Resource_ai_dis13"), SubResource("Resource_ai_dis14"), SubResource("Resource_ai_dis15"), SubResource("Resource_ai_dis16"), SubResource("Resource_ai_dis17"), SubResource("Resource_ai_dis18"), SubResource("Resource_ai_dis19"), SubResource("Resource_ai_dis20")])
+lesson_items = Array[ExtResource("1_7hrog")]([SubResource("Resource_dis_01"), SubResource("Resource_dis_02"), SubResource("Resource_dis_03"), SubResource("Resource_dis_04"), SubResource("Resource_dis_05"), SubResource("Resource_dis_06"), SubResource("Resource_dis_07"), SubResource("Resource_dis_08"), SubResource("Resource_dis_09"), SubResource("Resource_dis_10"), SubResource("Resource_dis_11"), SubResource("Resource_dis_12"), SubResource("Resource_dis_13"), SubResource("Resource_dis_14"), SubResource("Resource_dis_15"), SubResource("Resource_dis_16"), SubResource("Resource_dis_17"), SubResource("Resource_dis_18"), SubResource("Resource_dis_19"), SubResource("Resource_dis_20"), SubResource("Resource_dis_21"), SubResource("Resource_dis_22"), SubResource("Resource_dis_23"), SubResource("Resource_dis_24"), SubResource("Resource_dis_25"), SubResource("Resource_dis_26"), SubResource("Resource_dis_27"), SubResource("Resource_dis_28"), SubResource("Resource_dis_29"), SubResource("Resource_dis_30"), SubResource("Resource_dis_31"), SubResource("Resource_dis_32")])
 metadata/_custom_type_script = "uid://7kxviye2bk4p"

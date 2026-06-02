@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="Lesson" load_steps=17 format=3 uid="uid://hnftgsx7mkmbj"]
+[gd_resource type="Resource" script_class="Lesson" load_steps=34 format=3 uid="uid://ja510q851e5ed"]
 
 [ext_resource type="Script" uid="uid://dadne10e1geqd" path="res://Lessons/lesson_item.gd" id="1_7hrog"]
 [ext_resource type="Script" uid="uid://7kxviye2bk4p" path="res://Lessons/lesson.gd" id="2_bkryn"]
@@ -6,275 +6,645 @@
 [sub_resource type="Resource" id="Resource_eng_01"]
 script = ExtResource("1_7hrog")
 id = "ENG_01"
-term = "The Canterbury Tales"
-keyword = "pilgrimage"
-definition = "A collection of stories told by a group of pilgrims on their way to Canterbury Cathedral."
-simple_terms = "Medieval stories on a journey to a shrine."
-examples = ["General Prologue", "Wife of Bath's Tale", "Pardoner's Tale"]
-accepted_terms = ["Canterbury Tales"]
+term = "Metaphor"
+keyword = "Comparison"
+definition = "A figure of speech that directly compares two unlike things by stating one IS the other, revealing a deeper conceptual connection without using \"like\" or \"as.\""
+simple_terms = "Saying one thing is another to show similarity."
+examples = ["Heart of stone", "Life's a journey", "Time is money"]
+accepted_terms = []
 difficulty = 1
-related_to = ["medieval", "narrative", "poetry", "prose"]
+related_to = ["Literary Devices", "Textual Analysis"]
 tof_statement = {
-"false": "The Canterbury Tales are a single epic poem about a knight.", 
-"true": "The Canterbury Tales are a set of stories from a medieval pilgrimage."
+"false": "Metaphors always use 'like' or 'as' to draw a comparison between two distinct entities.", 
+"true": "A metaphor asserts an identity between two dissimilar things to illuminate a hidden quality."
 }
-type_of_information = ["definition", "explain", "list"]
+type_of_information = ["definition", "explain", "apply"]
+clues = ["It connects two different ideas.", "It speaks of one thing as if it were another.", "You might say 'the world is a stage'."]
+distractors = ["Simile (uses 'like' or 'as')", "Personification (gives human traits)", "Alliteration (repeats initial sounds)"]
 metadata/_custom_type_script = "uid://dadne10e1geqd"
 
 [sub_resource type="Resource" id="Resource_eng_02"]
 script = ExtResource("1_7hrog")
 id = "ENG_02"
-term = "Shakespearean Sonnet"
-keyword = "poem"
-definition = "A poem of fourteen lines, typically in iambic pentameter, with a specific rhyme scheme."
-simple_terms = "14-line poem with rhyming pattern."
-examples = ["Sonnet 18", "Sonnet 116", "Sonnet 130"]
-accepted_terms = ["sonnet"]
+term = "Simile"
+keyword = "Likeness"
+definition = "A figure of speech that directly compares two different things using \"like\" or \"as,\" drawing an explicit parallel to enhance description or understanding."
+simple_terms = "Comparing two unlike things using \"like\" or \"as.\""
+examples = ["Brave as a lion", "Shines like a diamond", "Quiet as a mouse"]
+accepted_terms = []
 difficulty = 1
-related_to = ["poetry", "renaissance", "verse", "rhyme"]
+related_to = ["Literary Devices", "Textual Analysis"]
 tof_statement = {
-"false": "A Shakespearean sonnet is a play with three acts.", 
-"true": "A Shakespearean sonnet has 14 lines and a specific rhyme scheme."
+"false": "Similes imply a direct identity between two objects without stating the comparison explicitly.", 
+"true": "A simile helps readers visualize or understand an abstract concept by linking it to something more f"
 }
 type_of_information = ["definition", "explain", "apply"]
+clues = ["It shows how two things are similar.", "You often see words like 'as' or 'like' in this comparison.", "Think about describing someone 'as strong as an ox'."]
+distractors = ["Metaphor (direct equivalence)", "Hyperbole (exaggeration)", "Onomatopoeia (sound words)"]
 metadata/_custom_type_script = "uid://dadne10e1geqd"
 
 [sub_resource type="Resource" id="Resource_eng_03"]
 script = ExtResource("1_7hrog")
 id = "ENG_03"
-term = "Iambic Pentameter"
-keyword = "rhythm"
-definition = "A line of verse with five metrical feet, each consisting of one short (or unstressed) syllable followed by one long (or stressed) syllable."
-simple_terms = "Ten syllables per line, alternating unstressed/stressed."
-examples = ["da-DUM da-DUM da-DUM", "To be or not to be", "Shall I compare thee"]
+term = "Alliteration"
+keyword = "Sound"
+definition = "The repetition of initial consonant sounds in words that are close together, used to create musicality, emphasize certain words, or establish a mood."
+simple_terms = "Repeating the same first letter sound in nearby words."
+examples = ["Peter Piper", "Silent snakes", "Wild wind"]
 accepted_terms = []
-difficulty = 2
-related_to = ["poetry", "meter", "verse", "rhythm"]
+difficulty = 1
+related_to = ["Literary Devices", "Poetic Forms", "Textual Analysis"]
 tof_statement = {
-"false": "Iambic pentameter is a type of prose writing style.", 
-"true": "Iambic pentameter has ten syllables with an alternating stress pattern."
+"false": "Alliteration involves repeating vowel sounds at the beginning of words for a similar effect.", 
+"true": "Alliteration contributes to the rhythm and flow of a text, making it more memorable or impactful."
 }
 type_of_information = ["definition", "explain", "apply"]
+clues = ["It deals with repeating sounds.", "Look for the same consonant sound at the start of words.", "Consider 'fuzzy, furry, friendly animals'."]
+distractors = ["Assonance (vowel sound repetition)", "Consonance (consonant sound repetition within/end words)", "Rhyme (end word sound similarity)"]
 metadata/_custom_type_script = "uid://dadne10e1geqd"
 
 [sub_resource type="Resource" id="Resource_eng_04"]
 script = ExtResource("1_7hrog")
 id = "ENG_04"
-term = "Gothic Literature"
-keyword = "dark"
-definition = "A genre characterized by mystery, horror, suspense, and supernatural elements, often set in desolate locations."
-simple_terms = "Scary stories with old castles and ghosts."
-examples = ["Frankenstein", "Dracula", "The Raven"]
-accepted_terms = ["Gothic novel"]
+term = "Personification"
+keyword = "Human traits"
+definition = "A literary device where human qualities, feelings, or actions are attributed to inanimate objects, animals, or abstract ideas, making descriptions more vivid."
+simple_terms = "Giving human characteristics to non-human things."
+examples = ["Wind whispered", "Sun smiled", "Clock ran"]
+accepted_terms = []
 difficulty = 1
-related_to = ["romanticism", "horror", "suspense", "genre"]
+related_to = ["Literary Devices", "Textual Analysis"]
 tof_statement = {
-"false": "Gothic literature is always a comedy set in a modern city.", 
-"true": "Gothic literature often features dark settings and supernatural themes."
+"false": "Personification compares two unlike things using 'like' or 'as' to describe an object.", 
+"true": "Personification allows writers to connect with readers on an emotional level by making abstract conc"
 }
-type_of_information = ["definition", "explain", "list"]
+type_of_information = ["definition", "explain", "apply"]
+clues = ["It gives life to non-living things.", "Think about objects doing human actions.", "Imagine 'the angry storm' or 'the dancing leaves'."]
+distractors = ["Anthropomorphism (animals acting human)", "Metaphor (direct comparison without humanization)", "Pathetic Fallacy (nature reflecting human emotion)"]
 metadata/_custom_type_script = "uid://dadne10e1geqd"
 
 [sub_resource type="Resource" id="Resource_eng_05"]
 script = ExtResource("1_7hrog")
 id = "ENG_05"
-term = "Modernism"
-keyword = "change"
-definition = "A literary movement that rejected traditional forms and embraced experimentation in response to rapid societal changes."
-simple_terms = "New writing styles after WWI."
-examples = ["Ulysses", "The Waste Land", "Mrs. Dalloway"]
+term = "Imagery"
+keyword = "Sensory details"
+definition = "The use of descriptive language that appeals to one or more of the five senses (sight, sound, touch, taste, smell), creating vivid mental pictures for the reader."
+simple_terms = "Using words to create pictures or feelings in the mind."
+examples = ["Crimson sunset", "Salty air", "Velvet touch"]
 accepted_terms = []
-difficulty = 2
-related_to = ["experimental", "prose", "poetry", "20th century"]
+difficulty = 1
+related_to = ["Literary Devices", "Textual Analysis"]
 tof_statement = {
-"false": "Modernism was a return to classical forms of writing.", 
-"true": "Modernism involved breaking from traditional literary styles."
+"false": "Imagery primarily focuses on repeating consonant sounds to create a musical effect.", 
+"true": "Effective imagery immerses the reader in the story's setting and mood, making the experience more ta"
 }
 type_of_information = ["definition", "explain", "apply"]
+clues = ["It engages your senses.", "Think about how words make you see, hear, or feel things.", "Consider descriptions like 'the bitter coffee' or 'the howling wind'."]
+distractors = ["Symbolism (objects representing ideas)", "Theme (underlying message)", "Plot (sequence of events)"]
 metadata/_custom_type_script = "uid://dadne10e1geqd"
 
 [sub_resource type="Resource" id="Resource_eng_06"]
 script = ExtResource("1_7hrog")
 id = "ENG_06"
-term = "Stream of Consciousness"
-keyword = "thoughts"
-definition = "A narrative mode that depicts the multitudinous thoughts and feelings which pass through the mind."
-simple_terms = "Writing like unfiltered thoughts."
-examples = ["Faulkner", "Joyce", "Woolf"]
-accepted_terms = ["SOC"]
+term = "Irony"
+keyword = "Expectation"
+definition = "A literary device involving a contrast between what is said or expected and what actually happens or is meant, often creating a humorous or emphatic effect."
+simple_terms = "When reality is different from what you expect or say."
+examples = ["Fire station burns", "Huge dog named Tiny", "Rain on wedding day"]
+accepted_terms = ["Dramatic Irony", "Situational Irony", "Verbal Irony"]
 difficulty = 2
-related_to = ["modernism", "experimental", "prose", "psychology"]
+related_to = ["Literary Devices", "Narrative Techniques", "Textual Analysis"]
 tof_statement = {
-"false": "Stream of consciousness is a formal dialogue between characters.", 
-"true": "Stream of consciousness mimics the flow of inner thoughts."
+"false": "Irony is simply saying the opposite of what you mean without any underlying layers of meaning or exp", 
+"true": "Irony challenges a reader's assumptions, prompting deeper thought about the discrepancy between appe"
 }
 type_of_information = ["definition", "explain", "apply"]
+clues = ["It involves a twist or a surprise.", "What is stated or happens is not what you'd anticipate.", "Think about a character confidently walking into a trap the audience knows about."]
+distractors = ["Sarcasm (direct mocking)", "Paradox (seemingly contradictory statement)", "Understatement (minimizing significance)"]
 metadata/_custom_type_script = "uid://dadne10e1geqd"
 
 [sub_resource type="Resource" id="Resource_eng_07"]
 script = ExtResource("1_7hrog")
 id = "ENG_07"
-term = "Tragedy"
-keyword = "downfall"
-definition = "A genre of drama based on human suffering that invokes catharsis or pleasure in audiences through pity and fear."
-simple_terms = "A story with a sad ending and a fall."
-examples = ["Hamlet", "Oedipus Rex", "Macbeth"]
+term = "Symbolism"
+keyword = "Representation"
+definition = "The use of objects, people, or ideas to represent something else, often a deeper or more abstract concept, enriching the text with multiple layers of meaning."
+simple_terms = "When one thing stands for another, deeper idea."
+examples = ["Dove for peace", "Red rose for love", "Cross for faith"]
 accepted_terms = []
-difficulty = 1
-related_to = ["drama", "greek", "shakespeare", "genre"]
+difficulty = 2
+related_to = ["Literary Devices", "Textual Analysis"]
 tof_statement = {
-"false": "Tragedy is a genre focused on happy endings and celebration.", 
-"true": "Tragedy involves a protagonist's downfall and evokes strong emotions."
+"false": "Symbolism is primarily concerned with the literal depiction of objects as they appear in the real wo", 
+"true": "Symbolism invites readers to interpret and analyze the text, revealing thematic complexities beyond "
 }
-type_of_information = ["definition", "explain", "list"]
+type_of_information = ["definition", "explain", "apply"]
+clues = ["It adds hidden meanings.", "An object or action takes on a greater significance.", "Consider how a journey might represent life itself."]
+distractors = ["Imagery (sensory description)", "Allegory (extended metaphor with moral)", "Motif (recurring element without fixed meaning)"]
 metadata/_custom_type_script = "uid://dadne10e1geqd"
 
 [sub_resource type="Resource" id="Resource_eng_08"]
 script = ExtResource("1_7hrog")
 id = "ENG_08"
-term = "Satire"
-keyword = "ridicule"
-definition = "The use of humor, irony, exaggeration, or ridicule to expose and criticize people's stupidity or vices."
-simple_terms = "Making fun of flaws with humor."
-examples = ["Gulliver's Travels", "Animal Farm", "The Simpsons"]
+term = "Foreshadowing"
+keyword = "Hint"
+definition = "A literary device where an author subtly suggests or hints at future events in a story, building suspense and preparing the reader for what is to come."
+simple_terms = "Giving clues about what will happen later."
+examples = ["Storm brewing", "Strange dream", "Ominous music"]
 accepted_terms = []
 difficulty = 1
-related_to = ["irony", "humor", "criticism", "genre"]
+related_to = ["Narrative Techniques", "Textual Analysis"]
 tof_statement = {
-"false": "Satire is a genre that always ends with a moral lesson.", 
-"true": "Satire uses humor to criticize societal flaws."
+"false": "Foreshadowing explicitly reveals the entire plot twist or ending of a story.", 
+"true": "Foreshadowing enhances reader engagement by creating anticipation and adding layers of meaning to la"
 }
 type_of_information = ["definition", "explain", "apply"]
+clues = ["It gives a peek into the future.", "Look for subtle hints about upcoming events.", "Think about a character's uneasy feeling before a bad event."]
+distractors = ["Flashback (past event)", "Red Herring (misleading clue)", "Plot Twist (sudden, unexpected turn)"]
 metadata/_custom_type_script = "uid://dadne10e1geqd"
 
 [sub_resource type="Resource" id="Resource_eng_09"]
 script = ExtResource("1_7hrog")
 id = "ENG_09"
-term = "Metaphor"
-keyword = "comparison"
-definition = "A figure of speech in which a word or phrase is applied to an object or action to which it is not literally applicable."
-simple_terms = "Saying something IS something else."
-examples = ["The world's a stage", "He's a shining star", "Her eyes were pools"]
+term = "Motif"
+keyword = "Recurring element"
+definition = "A recurring image, idea, symbol, or theme that appears repeatedly throughout a text, helping to develop the central theme or message."
+simple_terms = "A repeated idea or image that builds meaning."
+examples = ["Light vs. dark", "Water", "Birds"]
 accepted_terms = []
-difficulty = 1
-related_to = ["figurative language", "poetry", "prose", "literary device"]
+difficulty = 2
+related_to = ["Literary Devices", "Textual Analysis"]
 tof_statement = {
-"false": "A metaphor uses 'like' or 'as' to make a comparison.", 
-"true": "A metaphor directly compares two unlike things without using 'like' or 'as'."
+"false": "A motif is a singular, isolated event or image that occurs only once in a story.", 
+"true": "Analyzing a motif's recurrence helps reveal the author's underlying intentions and the deeper themat"
 }
 type_of_information = ["definition", "explain", "apply"]
+clues = ["It's something that keeps coming up.", "Look for patterns in images or concepts throughout the work.", "Consider repeated references to 'eyes' or 'sleep' in a play."]
+distractors = ["Symbol (single, fixed meaning)", "Theme (overarching message)", "Plot (sequence of events)"]
 metadata/_custom_type_script = "uid://dadne10e1geqd"
 
 [sub_resource type="Resource" id="Resource_eng_10"]
 script = ExtResource("1_7hrog")
 id = "ENG_10"
-term = "Allegory"
-keyword = "symbolism"
-definition = "A story, poem, or picture that can be interpreted to reveal a hidden meaning, typically a moral or political one."
-simple_terms = "A story with a hidden, symbolic meaning."
-examples = ["Animal Farm", "Pilgrim's Progress", "The Faerie Queene"]
+term = "Allusion"
+keyword = "Reference"
+definition = "An indirect or passing reference to a person, place, event, or literary work that the author assumes the reader will recognize, adding depth or context."
+simple_terms = "A subtle hint about something famous or known."
+examples = ["Achilles' heel", "Garden of Eden", "Big Brother"]
 accepted_terms = []
 difficulty = 2
-related_to = ["symbolism", "narrative", "meaning", "genre"]
+related_to = ["Literary Devices", "Textual Analysis"]
 tof_statement = {
-"false": "Allegory is a straightforward, literal narrative.", 
-"true": "Allegory uses symbols to convey a deeper meaning."
+"false": "An allusion is a direct quotation from another literary work, explicitly stated by the author.", 
+"true": "Allusions enrich a text by connecting it to a broader cultural or literary context, inviting readers"
 }
-type_of_information = ["definition", "explain", "list"]
+type_of_information = ["definition", "explain", "apply"]
+clues = ["It points to something outside the text.", "It's a brief mention of a well-known story or character.", "Think about a character being called a 'Romeo'."]
+distractors = ["Illusion (false perception)", "Euphemism (mild expression)", "Citation (formal reference)"]
 metadata/_custom_type_script = "uid://dadne10e1geqd"
 
 [sub_resource type="Resource" id="Resource_eng_11"]
 script = ExtResource("1_7hrog")
 id = "ENG_11"
-term = "Romanticism"
-keyword = "emotion"
-definition = "A literary and artistic movement emphasizing emotion, individualism, and glorification of the past and nature."
-simple_terms = "Focus on feelings, nature, and the individual."
-examples = ["Wordsworth", "Coleridge", "Keats"]
+term = "Hyperbole"
+keyword = "Exaggeration"
+definition = "The deliberate exaggeration of a statement or idea for emphasis or effect, not meant to be taken literally, often used for humor or to highlight a point."
+simple_terms = "Overstating something for dramatic or funny effect."
+examples = ["I'm starving!", "Slept for ages", "Cry me a river"]
 accepted_terms = []
 difficulty = 1
-related_to = ["emotion", "nature", "individualism", "movement"]
+related_to = ["Literary Devices", "Textual Analysis"]
 tof_statement = {
-"false": "Romanticism focused on logic and industrial progress.", 
-"true": "Romanticism valued emotion and individual experience highly."
+"false": "Hyperbole is a figure of speech that minimizes the importance of something.", 
+"true": "Hyperbole can effectively convey strong emotions or make a statement more memorable by stretching th"
 }
-type_of_information = ["definition", "explain", "list"]
+type_of_information = ["definition", "explain", "apply"]
+clues = ["It makes things seem bigger than they are.", "It's an obvious overstatement.", "Imagine saying 'I've told you a million times!'"]
+distractors = ["Understatement (minimizing)", "Litotes (affirmative by denying opposite)", "Irony (contrast between expectation and reality)"]
 metadata/_custom_type_script = "uid://dadne10e1geqd"
 
 [sub_resource type="Resource" id="Resource_eng_12"]
 script = ExtResource("1_7hrog")
 id = "ENG_12"
-term = "Alliteration"
-keyword = "repetition"
-definition = "The occurrence of the same letter or sound at the beginning of adjacent or closely connected words."
-simple_terms = "Repeating the same starting sound."
-examples = ["Peter Piper picked", "She sells seashells", "Silent, silver stars"]
+term = "Understatement"
+keyword = "Minimizing"
+definition = "A figure of speech in which something is represented as less important, intense, or significant than it actually is, often for ironic or humorous effect."
+simple_terms = "Making something seem less important than it truly is."
+examples = ["Just a scratch", "Bit chilly", "Not bad at all"]
 accepted_terms = []
-difficulty = 1
-related_to = ["poetry", "sound devices", "literary device", "verse"]
+difficulty = 2
+related_to = ["Literary Devices", "Textual Analysis"]
 tof_statement = {
-"false": "Alliteration repeats the vowel sounds within words.", 
-"true": "Alliteration repeats the initial sound in nearby words."
+"false": "Understatement is a form of direct and explicit praise or emphasis.", 
+"true": "Understatement can highlight the severity of a situation by contrasting it with a subdued descriptio"
 }
 type_of_information = ["definition", "explain", "apply"]
+clues = ["It downplays a situation.", "Something significant is described in a very casual way.", "Think about saying 'it's a bit warm' during a heatwave."]
+distractors = ["Hyperbole (exaggeration)", "Irony (contrast of expectation)", "Sarcasm (direct mocking)"]
 metadata/_custom_type_script = "uid://dadne10e1geqd"
 
 [sub_resource type="Resource" id="Resource_eng_13"]
 script = ExtResource("1_7hrog")
 id = "ENG_13"
-term = "Protagonist"
-keyword = "main character"
-definition = "The leading character or one of the major characters in a drama, movie, novel, or other fictional text."
-simple_terms = "The main hero or heroine."
-examples = ["Hamlet", "Elizabeth Bennet", "Harry Potter"]
+term = "Juxtaposition"
+keyword = "Contrast"
+definition = "The act of placing two elements or ideas close together or side by side for comparison or contrast, often to highlight their differences or create an effect."
+simple_terms = "Placing two different things next to each other to show c..."
+examples = ["Light and dark", "Rich and poor", "Youth and age"]
 accepted_terms = []
-difficulty = 1
-related_to = ["character", "narrative", "role", "archetype"]
+difficulty = 2
+related_to = ["Literary Devices", "Narrative Techniques", "Textual Analysis"]
 tof_statement = {
-"false": "The protagonist is always the villain of the story.", 
-"true": "The protagonist is the central character of a story."
+"false": "Juxtaposition is the seamless blending of similar elements to create harmony.", 
+"true": "Juxtaposition compels readers to analyze the relationship between contrasting elements, revealing de"
 }
 type_of_information = ["definition", "explain", "apply"]
+clues = ["It involves placing things side-by-side.", "Look for two very different concepts presented together.", "Consider a scene showing extreme wealth next to abject poverty."]
+distractors = ["Parallelism (similar structure)", "Synthesis (combination of ideas)", "Analogy (extended comparison)"]
 metadata/_custom_type_script = "uid://dadne10e1geqd"
 
 [sub_resource type="Resource" id="Resource_eng_14"]
 script = ExtResource("1_7hrog")
 id = "ENG_14"
-term = "Antagonist"
-keyword = "opposes"
-definition = "A character or force in conflict with the protagonist."
-simple_terms = "The character who opposes the main one."
-examples = ["Iago", "Voldemort", "Sauron"]
+term = "Paradox"
+keyword = "Contradiction"
+definition = "A statement that, despite apparently sound reasoning from acceptable premises, leads to a conclusion that seems senseless, logically unacceptable, or self-contradictory."
+simple_terms = "A statement that seems contradictory but holds truth."
+examples = ["Less is more", "I know one thing, that I know nothing", "Deep down, you're shallow"]
 accepted_terms = []
-difficulty = 1
-related_to = ["character", "conflict", "narrative", "role"]
+difficulty = 2
+related_to = ["Literary Devices", "Textual Analysis"]
 tof_statement = {
-"false": "The antagonist is always the main character's best friend.", 
-"true": "The antagonist actively works against the protagonist."
+"false": "A paradox is simply a statement that is unequivocally false and has no underlying meaning.", 
+"true": "A paradox invites deeper thought by presenting a seeming contradiction that, upon reflection, reveal"
 }
 type_of_information = ["definition", "explain", "apply"]
+clues = ["It sounds contradictory at first.", "It seems impossible but might contain a truth.", "Think about 'the first shall be last'."]
+distractors = ["Oxymoron (two contradictory words)", "Irony (contrast of expectation)", "Dilemma (choice between two bad options)"]
 metadata/_custom_type_script = "uid://dadne10e1geqd"
 
 [sub_resource type="Resource" id="Resource_eng_15"]
 script = ExtResource("1_7hrog")
 id = "ENG_15"
-term = "Victorian Novel"
-keyword = "social issues"
-definition = "Novels written during Queen Victoria's reign, often exploring social issues, class, and morality."
-simple_terms = "Novels from the 1800s about society."
-examples = ["Pride and Prejudice", "Great Expectations", "Jane Eyre"]
+term = "Oxymoron"
+keyword = "Contradictory words"
+definition = "A figure of speech that combines two contradictory terms or elements, creating a surprising and thought-provoking effect, often for emphasis or irony."
+simple_terms = "Two opposite words used together for effect."
+examples = ["Jumbo shrimp", "Silent scream", "Living dead"]
 accepted_terms = []
 difficulty = 1
-related_to = ["realism", "social commentary", "19th century", "prose"]
+related_to = ["Literary Devices", "Textual Analysis"]
 tof_statement = {
-"false": "Victorian novels exclusively focus on fantasy and magic.", 
-"true": "Victorian novels frequently address societal norms and problems."
+"false": "An oxymoron is a lengthy speech that expresses a single, consistent idea.", 
+"true": "An oxymoron forces readers to consider the complex interplay of opposing ideas within a concise phra"
 }
-type_of_information = ["definition", "explain", "list"]
+type_of_information = ["definition", "explain", "apply"]
+clues = ["It's a combination of opposites.", "Look for two words next to each other that conflict.", "Consider phrases like 'bitter-sweet' or 'original copy'."]
+distractors = ["Paradox (contradictory statement)", "Antithesis (contrasting ideas in parallel structure)", "Juxtaposition (placing contrasting elements)"]
+metadata/_custom_type_script = "uid://dadne10e1geqd"
+
+[sub_resource type="Resource" id="Resource_eng_16"]
+script = ExtResource("1_7hrog")
+id = "ENG_16"
+term = "Satire"
+keyword = "Critique"
+definition = "The use of humor, irony, exaggeration, or ridicule to expose and criticize people's stupidity or vices, particularly in the context of contemporary politics and other topical issues."
+simple_terms = "Using humor to criticize society or people."
+examples = ["Animal Farm", "Gulliver's Travels", "The Onion"]
+accepted_terms = []
+difficulty = 2
+related_to = ["Literary Devices", "Narrative Techniques", "Literary Movements", "Textual Analysis"]
+tof_statement = {
+"false": "Satire is a genre of literature purely intended to entertain without any underlying critical purpose", 
+"true": "Satire functions as a powerful tool for social commentary, prompting readers to critically examine s"
+}
+type_of_information = ["definition", "explain", "apply"]
+clues = ["It often uses humor to make a serious point.", "It criticizes society or politics through ridicule.", "Think about a story where animals take over a farm to mock human systems."]
+distractors = ["Parody (imitation for comic effect)", "Allegory (symbolic narrative)", "Fable (moral story with animals)"]
+metadata/_custom_type_script = "uid://dadne10e1geqd"
+
+[sub_resource type="Resource" id="Resource_eng_17"]
+script = ExtResource("1_7hrog")
+id = "ENG_17"
+term = "Sonnet"
+keyword = "14 lines"
+definition = "A lyric poem consisting of 14 lines, typically written in iambic pentameter, with a specific rhyme scheme and often exploring themes of love, beauty, or mortality."
+simple_terms = "A 14-line poem with a set rhythm and rhyme."
+examples = ["Shakespearean Sonnet", "Petrarchan Sonnet", "Modern Sonnet"]
+accepted_terms = []
+difficulty = 1
+related_to = ["Poetic Forms", "Literary Movements", "Textual Analysis"]
+tof_statement = {
+"false": "A sonnet is a long, narrative poem that tells a heroic story without any specific line count.", 
+"true": "Analyzing a sonnet's structure and rhyme scheme helps reveal how the poet develops and resolves a ce"
+}
+type_of_information = ["definition", "explain", "apply"]
+clues = ["It's a specific type of poem.", "It always has exactly fourteen lines.", "Think about poems by Shakespeare that often end with a rhyming couplet."]
+distractors = ["Haiku (3 lines, syllable count)", "Ballad (narrative song-like poem)", "Ode (lyric poem praising something)"]
+metadata/_custom_type_script = "uid://dadne10e1geqd"
+
+[sub_resource type="Resource" id="Resource_eng_18"]
+script = ExtResource("1_7hrog")
+id = "ENG_18"
+term = "Free Verse"
+keyword = "No rhyme"
+definition = "Poetry that does not rhyme or have a regular meter, allowing the poet greater freedom in expressing ideas and emotions through natural speech rhythms."
+simple_terms = "Poetry without strict rules for rhyme or rhythm."
+examples = ["Walt Whitman", "T.S. Eliot", "Ezra Pound"]
+accepted_terms = []
+difficulty = 1
+related_to = ["Poetic Forms", "Literary Movements", "Textual Analysis"]
+tof_statement = {
+"false": "Free verse is characterized by a strict adherence to iambic pentameter and a consistent rhyme scheme", 
+"true": "Free verse allows poets to mimic conversational speech or thought patterns, emphasizing content over"
+}
+type_of_information = ["definition", "explain", "apply"]
+clues = ["It's a type of poetry that breaks tradition.", "It doesn't follow a strict rhythm or rhyme pattern.", "Imagine a poem that sounds like spoken language, not a song."]
+distractors = ["Blank Verse (unrhymed iambic pentameter)", "Sonnet (strict form)", "Rhyming Couplet (two rhyming lines)"]
+metadata/_custom_type_script = "uid://dadne10e1geqd"
+
+[sub_resource type="Resource" id="Resource_eng_19"]
+script = ExtResource("1_7hrog")
+id = "ENG_19"
+term = "Blank Verse"
+keyword = "Unrhymed iambic"
+definition = "Poetry written in unrhymed iambic pentameter, often used in dramatic works, providing a natural speech rhythm while maintaining a formal poetic structure."
+simple_terms = "Unrhymed lines with a specific ten-syllable rhythm."
+examples = ["Shakespeare's plays", "Paradise Lost", "The Prelude"]
+accepted_terms = []
+difficulty = 2
+related_to = ["Poetic Forms", "Literary Movements", "Textual Analysis"]
+tof_statement = {
+"false": "Blank verse is defined by its consistent use of end rhymes throughout the entire poem.", 
+"true": "Blank verse creates a serious and elevated tone suitable for epic or dramatic narratives while still"
+}
+type_of_information = ["definition", "explain", "apply"]
+clues = ["It's a poetic form with a specific rhythm.", "The lines don't rhyme, but they have a regular beat.", "Think of a speech in a Shakespeare play that sounds natural but has a measured pace."]
+distractors = ["Free Verse (no meter or rhyme)", "Heroic Couplet (rhyming iambic pentameter)", "Prose (ordinary language)"]
+metadata/_custom_type_script = "uid://dadne10e1geqd"
+
+[sub_resource type="Resource" id="Resource_eng_20"]
+script = ExtResource("1_7hrog")
+id = "ENG_20"
+term = "Haiku"
+keyword = "Syllable count"
+definition = "A Japanese poetic form consisting of three lines with a 5, 7, 5 syllable structure, typically focusing on nature and a single moment or observation."
+simple_terms = "A short, three-line poem about nature, with fixed syllables."
+examples = ["Old pond, frog jumps", "Silent winter", "Green mountains"]
+accepted_terms = []
+difficulty = 1
+related_to = ["Poetic Forms", "Textual Analysis"]
+tof_statement = {
+"false": "A haiku is a long, narrative poem designed to tell an elaborate story.", 
+"true": "Haiku teaches conciseness and the power of observation, distilling complex ideas into a brief, impac"
+}
+type_of_information = ["definition", "explain", "apply"]
+clues = ["It's a very short poem.", "It has a specific number of syllables per line.", "Think of a poem with lines like 5-7-5 about a natural scene."]
+distractors = ["Limerick (five-line, AABBA rhyme)", "Sonnet (14 lines)", "Tanka (five-line Japanese poem)"]
+metadata/_custom_type_script = "uid://dadne10e1geqd"
+
+[sub_resource type="Resource" id="Resource_eng_21"]
+script = ExtResource("1_7hrog")
+id = "ENG_21"
+term = "Ballad"
+keyword = "Narrative song"
+definition = "A poem or song narrating a story in short stanzas, often with a refrain, passed down orally and typically dealing with dramatic or romantic themes."
+simple_terms = "A story-telling poem, often sung, with repeated lines."
+examples = ["Rime of Ancient Mariner", "La Belle Dame", "John Henry"]
+accepted_terms = []
+difficulty = 1
+related_to = ["Poetic Forms", "Narrative Techniques", "Literary Movements", "Textual Analysis"]
+tof_statement = {
+"false": "A ballad is a short, descriptive poem focused on a single, static image.", 
+"true": "Analyzing a ballad helps understand how narrative can be conveyed through song-like structure and re"
+}
+type_of_information = ["definition", "explain", "apply"]
+clues = ["It tells a story.", "It's often sung and has a repetitive element.", "Think of traditional folk songs that recount adventures or tragedies."]
+distractors = ["Lyric (expresses emotion)", "Elegy (mournful poem)", "Epic Poem (long heroic narrative)"]
+metadata/_custom_type_script = "uid://dadne10e1geqd"
+
+[sub_resource type="Resource" id="Resource_eng_22"]
+script = ExtResource("1_7hrog")
+id = "ENG_22"
+term = "Epic Poem"
+keyword = "Heroic narrative"
+definition = "A long, narrative poem recounting the heroic deeds and adventures of a legendary or historical figure, often central to a nation's identity, written in an elevated style."
+simple_terms = "A very long poem about a hero's grand adventures."
+examples = ["The Odyssey", "Beowulf", "Paradise Lost"]
+accepted_terms = ["Epic"]
+difficulty = 2
+related_to = ["Poetic Forms", "Narrative Techniques", "Literary Movements", "Textual Analysis"]
+tof_statement = {
+"false": "An epic poem is a brief, intimate lyrical expression of personal feelings.", 
+"true": "Studying epic poems provides insight into the values, myths, and cultural foundations of ancient soc"
+}
+type_of_information = ["definition", "explain", "apply"]
+clues = ["It's a very long poem.", "It features a hero on a grand journey.", "Think about stories of ancient heroes battling gods and monsters."]
+distractors = ["Lyric (expresses emotion)", "Sonnet (14 lines)", "Short Story (prose fiction)"]
+metadata/_custom_type_script = "uid://dadne10e1geqd"
+
+[sub_resource type="Resource" id="Resource_eng_23"]
+script = ExtResource("1_7hrog")
+id = "ENG_23"
+term = "First-Person POV"
+keyword = "Narrator \"I\""
+definition = "A narrative perspective where the story is told by one character involved in the action, using \"I\" and \"me,\" offering a subjective and intimate view of events."
+simple_terms = "The story is told by a character using \"I.\""
+examples = ["To Kill a Mockingbird", "The Catcher in the Rye", "Moby Dick"]
+accepted_terms = ["First-person narrative"]
+difficulty = 1
+related_to = ["Narrative Techniques", "Textual Analysis"]
+tof_statement = {
+"false": "First-person point of view allows the narrator to know the thoughts and feelings of all characters.", 
+"true": "First-person perspective allows readers to deeply empathize with the narrator, but also highlights t"
+}
+type_of_information = ["definition", "explain", "apply"]
+clues = ["The narrator is a character in the story.", "You read words like 'I did' or 'my thoughts'.", "Imagine reading a diary entry."]
+distractors = ["Third-Person Omniscient (all-knowing)", "Third-Person Limited (focus on one character's thoughts)", "Second-Person POV (uses 'you')"]
+metadata/_custom_type_script = "uid://dadne10e1geqd"
+
+[sub_resource type="Resource" id="Resource_eng_24"]
+script = ExtResource("1_7hrog")
+id = "ENG_24"
+term = "Third-Person Omniscient"
+keyword = "All-knowing narrator"
+definition = "A narrative perspective where the storyteller is outside the story and knows everything about all characters, events, and their inner thoughts and feelings."
+simple_terms = "A narrator who knows everyone's thoughts and feelings."
+examples = ["1984", "Lord of the Rings", "Pride and Prejudice"]
+accepted_terms = []
+difficulty = 1
+related_to = ["Narrative Techniques", "Textual Analysis"]
+tof_statement = {
+"false": "Third-person omniscient narration restricts the reader to only one character's internal experience.", 
+"true": "This perspective provides a comprehensive view of the story world, allowing the author to reveal mul"
+}
+type_of_information = ["definition", "explain", "apply"]
+clues = ["The narrator isn't a character.", "You learn what all characters are thinking and feeling.", "Think about a story where the author tells you what's happening everywhere and in everyone's mind."]
+distractors = ["First-Person POV (uses 'I')", "Third-Person Limited (focus on one character)", "Objective POV (external actions only)"]
+metadata/_custom_type_script = "uid://dadne10e1geqd"
+
+[sub_resource type="Resource" id="Resource_eng_25"]
+script = ExtResource("1_7hrog")
+id = "ENG_25"
+term = "Stream of Consciousness"
+keyword = "Inner thoughts"
+definition = "A narrative method that attempts to depict the multitudinous thoughts and feelings that pass through the mind of a narrator, often in a disjointed or associative manner."
+simple_terms = "Writing that mimics the flow of a character's thoughts."
+examples = ["Ulysses", "Mrs Dalloway", "The Sound and the Fury"]
+accepted_terms = []
+difficulty = 2
+related_to = ["Narrative Techniques", "Literary Movements", "Textual Analysis"]
+tof_statement = {
+"false": "Stream of consciousness presents a highly organized and linear account of external events.", 
+"true": "This technique allows deep psychological insight into characters, revealing their unfiltered inner w"
+}
+type_of_information = ["definition", "explain", "apply"]
+clues = ["It mimics how thoughts actually work.", "The writing jumps between ideas, memories, and feelings.", "Imagine reading someone's mind, with all its tangents and unfinished sentences."]
+distractors = ["Internal Monologue (organized inner speech)", "Dialogue (character speech)", "Omniscient Narration (authorial control)"]
+metadata/_custom_type_script = "uid://dadne10e1geqd"
+
+[sub_resource type="Resource" id="Resource_eng_26"]
+script = ExtResource("1_7hrog")
+id = "ENG_26"
+term = "Bildungsroman"
+keyword = "Coming-of-age"
+definition = "A literary genre that focuses on the psychological and moral growth of the protagonist from youth to adulthood, often marked by a quest for identity and purpose."
+simple_terms = "A story about a character growing up and finding themselves."
+examples = ["Great Expectations", "Jane Eyre", "Catcher in the Rye"]
+accepted_terms = ["Coming-of-age novel"]
+difficulty = 2
+related_to = ["Narrative Techniques", "Literary Movements", "Textual Analysis"]
+tof_statement = {
+"false": "A Bildungsroman is a historical novel primarily focused on political events and battles.", 
+"true": "Analyzing a Bildungsroman reveals how personal experiences and societal pressures shape an individua"
+}
+type_of_information = ["definition", "explain", "apply"]
+clues = ["It's a story about personal development.", "The central character grows from childhood into maturity.", "Think about a novel where the main character learns about life through trials and experiences."]
+distractors = ["Picaresque Novel (episodic adventures of a rogue)", "Gothic Novel (supernatural, dark themes)", "Historical Fiction (set in the past)"]
+metadata/_custom_type_script = "uid://dadne10e1geqd"
+
+[sub_resource type="Resource" id="Resource_eng_27"]
+script = ExtResource("1_7hrog")
+id = "ENG_27"
+term = "Allegory"
+keyword = "Symbolic narrative"
+definition = "A story, poem, or picture that can be interpreted to reveal a hidden meaning, typically a moral or political one, where characters and events are symbolic."
+simple_terms = "A story with a hidden, deeper moral or political meaning."
+examples = ["Animal Farm", "Pilgrim's Progress", "The Crucible"]
+accepted_terms = []
+difficulty = 2
+related_to = ["Literary Devices", "Narrative Techniques", "Textual Analysis"]
+tof_statement = {
+"false": "An allegory is a straightforward, literal story with no underlying symbolic meaning.", 
+"true": "Allegory challenges readers to decipher its symbolic layers, offering a critique or commentary on re"
+}
+type_of_information = ["definition", "explain", "apply"]
+clues = ["It's a story that means more than it says.", "Characters and events represent abstract ideas or real situations.", "Think of a tale about talking animals that is actually about a political revolution."]
+distractors = ["Fable (short moral story)", "Parable (simple moral story)", "Symbolism (individual objects represent ideas)"]
+metadata/_custom_type_script = "uid://dadne10e1geqd"
+
+[sub_resource type="Resource" id="Resource_eng_28"]
+script = ExtResource("1_7hrog")
+id = "ENG_28"
+term = "Frame Story"
+keyword = "Story-within-story"
+definition = "A literary technique where a main narrative serves to set the stage for a series of shorter stories, providing context and often a thematic connection for the inner tales."
+simple_terms = "A story that contains other stories inside it."
+examples = ["Canterbury Tales", "1001 Nights", "Wuthering Heights"]
+accepted_terms = ["Frame Narrative"]
+difficulty = 2
+related_to = ["Narrative Techniques", "Textual Analysis"]
+tof_statement = {
+"false": "A frame story is a linear narrative that presents events in strict chronological order.", 
+"true": "A frame story allows authors to explore multiple perspectives or narrative styles, enhancing themati"
+}
+type_of_information = ["definition", "explain", "apply"]
+clues = ["It's a story that holds other stories.", "There's an overarching narrative that introduces smaller tales.", "Imagine travelers telling each other stories on a journey."]
+distractors = ["Episodic Narrative (sequence of loosely connected events)", "Linear Narrative (straightforward plot)", "Flashback (past event)"]
+metadata/_custom_type_script = "uid://dadne10e1geqd"
+
+[sub_resource type="Resource" id="Resource_eng_29"]
+script = ExtResource("1_7hrog")
+id = "ENG_29"
+term = "Romanticism"
+keyword = "Emotion, nature"
+definition = "An artistic and literary movement emphasizing emotion, individualism, glorification of the past and nature, and often a sense of the sublime, reacting against Enlightenment rationalism."
+simple_terms = "An era focusing on feelings, nature, and individual exper..."
+examples = ["Wordsworth", "Keats", "Shelley"]
+accepted_terms = []
+difficulty = 2
+related_to = ["Literary Movements", "Textual Analysis"]
+tof_statement = {
+"false": "Romanticism was a literary movement that advocated for strict adherence to classical forms and ratio", 
+"true": "Understanding Romanticism helps explain how literature shifted to prioritize individual experience, "
+}
+type_of_information = ["definition", "explain", "apply"]
+clues = ["It's an artistic period.", "It valued feelings and the beauty of the natural world.", "Think of poets writing about solitary walks in nature and intense emotions."]
+distractors = ["Classicism (reason, order)", "Realism (depicts life as it is)", "Modernism (experimentation, fragmentation)"]
+metadata/_custom_type_script = "uid://dadne10e1geqd"
+
+[sub_resource type="Resource" id="Resource_eng_30"]
+script = ExtResource("1_7hrog")
+id = "ENG_30"
+term = "Modernism"
+keyword = "Experimentation"
+definition = "An early 20th-century artistic and literary movement characterized by a break from traditional forms, experimentation, fragmentation, and a focus on inner consciousness and subjective experience."
+simple_terms = "A literary era that broke rules, focused on inner thought..."
+examples = ["Virginia Woolf", "James Joyce", "T.S. Eliot"]
+accepted_terms = []
+difficulty = 2
+related_to = ["Literary Movements", "Textual Analysis"]
+tof_statement = {
+"false": "Modernism sought to revive and strictly adhere to the established literary traditions of the past.", 
+"true": "Modernism reflects the disillusionment and changing worldview of the early 20th century, prompting n"
+}
+type_of_information = ["definition", "explain", "apply"]
+clues = ["It's a literary period from the early 1900s.", "It challenged old ways of writing and often used fragmented narratives.", "Think about authors trying to capture how people really think, not just what they say."]
+distractors = ["Victorianism (moralism, realism)", "Romanticism (emotion, nature)", "Postmodernism (self-referential, pastiche)"]
+metadata/_custom_type_script = "uid://dadne10e1geqd"
+
+[sub_resource type="Resource" id="Resource_eng_31"]
+script = ExtResource("1_7hrog")
+id = "ENG_31"
+term = "Postmodernism"
+keyword = "Skepticism"
+definition = "A late 20th-century movement characterized by skepticism, irony, rejection of grand narratives, and often self-referential or metafictional elements, questioning objective truth."
+simple_terms = "A literary era questioning truth, playing with forms, and..."
+examples = ["Pynchon", "Borges", "Kurt Vonnegut"]
+accepted_terms = []
+difficulty = 2
+related_to = ["Literary Movements", "Textual Analysis"]
+tof_statement = {
+"false": "Postmodernism is characterized by a strong belief in universal truths and objective reality.", 
+"true": "Postmodernism challenges readers to critically examine the nature of reality and narrative itself, o"
+}
+type_of_information = ["definition", "explain", "apply"]
+clues = ["It's a more recent literary movement.", "It often questions reality and plays with narrative conventions.", "Think about stories that acknowledge they are stories, or mix genres freely."]
+distractors = ["Modernism (fragmentation, inner consciousness)", "Realism (objective depiction)", "Romanticism (emotion, individualism)"]
+metadata/_custom_type_script = "uid://dadne10e1geqd"
+
+[sub_resource type="Resource" id="Resource_eng_32"]
+script = ExtResource("1_7hrog")
+id = "ENG_32"
+term = "Elizabethan Era"
+keyword = "Shakespeare"
+definition = "A period in English history (1558-1603) marked by the reign of Queen Elizabeth I, known for its flourishing of poetry, drama (especially Shakespeare), and a sense of national pride."
+simple_terms = "A golden age of English literature, especially drama, und..."
+examples = ["William Shakespeare", "Christopher Marlowe", "Edmund Spenser"]
+accepted_terms = []
+difficulty = 1
+related_to = ["Literary Movements", "Textual Analysis"]
+tof_statement = {
+"false": "The Elizabethan Era was primarily known for its scientific advancements rather than its literary out", 
+"true": "Understanding the Elizabethan Era's cultural context is crucial for interpreting the themes and lang"
+}
+type_of_information = ["definition", "explain", "apply"]
+clues = ["It's a specific time in English history.", "It's famous for its dramatic works and a powerful queen.", "Think about the time when Shakespeare wrote his greatest plays."]
+distractors = ["Victorian Era (industrialization, moralism)", "Georgian Era (pre-Victorian, regency)", "Restoration Period (comedy of manners)"]
 metadata/_custom_type_script = "uid://dadne10e1geqd"
 
 [resource]
 script = ExtResource("2_bkryn")
-lesson_title = "English literature"
-lesson_items = Array[ExtResource("1_7hrog")]([SubResource("Resource_eng_01"), SubResource("Resource_eng_02"), SubResource("Resource_eng_03"), SubResource("Resource_eng_04"), SubResource("Resource_eng_05"), SubResource("Resource_eng_06"), SubResource("Resource_eng_07"), SubResource("Resource_eng_08"), SubResource("Resource_eng_09"), SubResource("Resource_eng_10"), SubResource("Resource_eng_11"), SubResource("Resource_eng_12"), SubResource("Resource_eng_13"), SubResource("Resource_eng_14"), SubResource("Resource_eng_15")])
+lesson_title = "English Literature"
+lesson_items = Array[ExtResource("1_7hrog")]([SubResource("Resource_eng_01"), SubResource("Resource_eng_02"), SubResource("Resource_eng_03"), SubResource("Resource_eng_04"), SubResource("Resource_eng_05"), SubResource("Resource_eng_06"), SubResource("Resource_eng_07"), SubResource("Resource_eng_08"), SubResource("Resource_eng_09"), SubResource("Resource_eng_10"), SubResource("Resource_eng_11"), SubResource("Resource_eng_12"), SubResource("Resource_eng_13"), SubResource("Resource_eng_14"), SubResource("Resource_eng_15"), SubResource("Resource_eng_16"), SubResource("Resource_eng_17"), SubResource("Resource_eng_18"), SubResource("Resource_eng_19"), SubResource("Resource_eng_20"), SubResource("Resource_eng_21"), SubResource("Resource_eng_22"), SubResource("Resource_eng_23"), SubResource("Resource_eng_24"), SubResource("Resource_eng_25"), SubResource("Resource_eng_26"), SubResource("Resource_eng_27"), SubResource("Resource_eng_28"), SubResource("Resource_eng_29"), SubResource("Resource_eng_30"), SubResource("Resource_eng_31"), SubResource("Resource_eng_32")])
 metadata/_custom_type_script = "uid://7kxviye2bk4p"

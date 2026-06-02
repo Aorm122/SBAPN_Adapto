@@ -13,6 +13,13 @@ content_margin_right = 14.0
 content_margin_bottom = 6.0
 bg_color = Color(0.06, 0.06, 0.11, 0.97)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tedrm"]
+bg_color = Color(0.18, 0.55, 0.85, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_6gmps"]
 atlas = ExtResource("5_tedrm")
 region = Rect2(0, 0, 32, 32)
@@ -86,6 +93,18 @@ offset_top = 75.0
 offset_right = 1208.0
 offset_bottom = 538.0
 texture = ExtResource("3_3pyle")
+
+[node name="HintBtn" type="Button" parent="QuestionBackground" unique_id=1928864551]
+custom_minimum_size = Vector2(130, 0)
+layout_mode = 0
+offset_left = -175.0
+offset_top = 348.0
+offset_right = -45.0
+offset_bottom = 374.0
+theme_override_fonts/font = ExtResource("1_d3qvd")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxFlat_tedrm")
+text = "HINT"
 
 [node name="QuestionDialog" type="Label" parent="." unique_id=1571446086]
 z_index = 1

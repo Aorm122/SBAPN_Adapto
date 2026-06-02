@@ -1,0 +1,650 @@
+[gd_resource type="Resource" script_class="Lesson" load_steps=34 format=3 uid="uid://ekgji1rwzjczf"]
+
+[ext_resource type="Script" uid="uid://dadne10e1geqd" path="res://Lessons/lesson_item.gd" id="1_7hrog"]
+[ext_resource type="Script" uid="uid://7kxviye2bk4p" path="res://Lessons/lesson.gd" id="2_bkryn"]
+
+[sub_resource type="Resource" id="Resource_oop_01"]
+script = ExtResource("1_7hrog")
+id = "OOP_01"
+term = "Class"
+keyword = "Blueprint"
+definition = "Defines the blueprint for creating objects, specifying their attributes (data) and methods (behavior) to structure reusable code."
+simple_terms = "A template for creating similar things."
+examples = ["Car", "User", "Account"]
+accepted_terms = ["Class type"]
+difficulty = 1
+related_to = ["OOP Principles", "Class Design", "Code Structure", "Methodology"]
+tof_statement = {
+"false": "A class is a specific instance of an object, holding unique data.", 
+"true": "A class acts as a blueprint, allowing developers to define the structure and behavior for objects."
+}
+type_of_information = ["definition", "explain", "apply"]
+clues = ["It's like a recipe.", "It describes what an object can be and do.", "You instantiate this to create an object."]
+distractors = ["An actual data entity in memory.", "A function that returns multiple values.", "A simple variable declaration."]
+metadata/_custom_type_script = "uid://dadne10e1geqd"
+
+[sub_resource type="Resource" id="Resource_oop_02"]
+script = ExtResource("1_7hrog")
+id = "OOP_02"
+term = "Object"
+keyword = "Instance"
+definition = "Represents a concrete instance of a class, holding its own unique set of attribute values and able to perform the behaviors defined by its class."
+simple_terms = "A specific, tangible entity created from a template."
+examples = ["myCar", "newUser", "savingsAccount"]
+accepted_terms = ["Instance"]
+difficulty = 1
+related_to = ["OOP Principles", "Class Design", "Code Structure", "Methodology"]
+tof_statement = {
+"false": "An object defines the general structure and behavior for a category of entities.", 
+"true": "An object is a runtime entity created from a class, possessing specific state and behavior."
+}
+type_of_information = ["definition", "explain", "apply"]
+clues = ["It's what you build from a blueprint.", "It has a unique state.", "You create this using a constructor."]
+distractors = ["A definition of data types.", "A static collection of methods.", "The class itself, before instantiation."]
+metadata/_custom_type_script = "uid://dadne10e1geqd"
+
+[sub_resource type="Resource" id="Resource_oop_03"]
+script = ExtResource("1_7hrog")
+id = "OOP_03"
+term = "Encapsulation"
+keyword = "Hiding"
+definition = "The principle of bundling data and methods that operate on the data within a single unit, and restricting direct access to some of the object's components."
+simple_terms = "Keeps data and its operations together, controls access."
+examples = ["Private fields", "Public methods", "Getters/Setters"]
+accepted_terms = ["Information Hiding"]
+difficulty = 2
+related_to = ["OOP Principles", "Class Design", "Code Structure", "Methodology"]
+tof_statement = {
+"false": "Encapsulation means making all object data publicly accessible for easy modification.", 
+"true": "Encapsulation helps protect an object's internal state by restricting direct access to its data."
+}
+type_of_information = ["definition", "explain", "apply"]
+clues = ["It's about packaging and protection.", "Think about a pill's outer shell.", "Access modifiers like private and public are key to this principle."]
+distractors = ["The ability to take many forms.", "Creating new classes from existing ones.", "Defining abstract methods without implementation."]
+metadata/_custom_type_script = "uid://dadne10e1geqd"
+
+[sub_resource type="Resource" id="Resource_oop_04"]
+script = ExtResource("1_7hrog")
+id = "OOP_04"
+term = "Inheritance"
+keyword = "Extension"
+definition = "A mechanism where a new class (derived/child) acquires the properties and behaviors of an existing class (base/parent), promoting code reuse and establishing a hierarchy."
+simple_terms = "New classes reuse behavior from existing ones."
+examples = ["Dog extends Animal", "Car extends Vehicle", "Manager extends Employee"]
+accepted_terms = ["Subclassing"]
+difficulty = 2
+related_to = ["OOP Principles", "Class Design", "Code Structure", "Methodology"]
+tof_statement = {
+"false": "Inheritance is primarily used to define multiple implementations for a single method signature.", 
+"true": "Inheritance allows a subclass to inherit fields and methods from a superclass, fostering code reuse."
+}
+type_of_information = ["definition", "explain", "apply"]
+clues = ["It's about 'is-a' relationships.", "Think about family trees in code.", "A child class can gain functionality from its parent."]
+distractors = ["Defining multiple methods with the same name but different parameters.", "Hiding internal data from external access.", "Implementing a common interface across different classes."]
+metadata/_custom_type_script = "uid://dadne10e1geqd"
+
+[sub_resource type="Resource" id="Resource_oop_05"]
+script = ExtResource("1_7hrog")
+id = "OOP_05"
+term = "Polymorphism"
+keyword = "Many Forms"
+definition = "The ability of objects of different classes to respond to the same method call in their own specific ways, enabling flexibility and dynamic behavior."
+simple_terms = "One interface, many implementations; adapting behavior."
+examples = ["Animal.makeSound()", "Shape.draw()", "Printer.print()"]
+accepted_terms = ["Runtime Polymorphism", "Method Overriding"]
+difficulty = 2
+related_to = ["OOP Principles", "Class Design", "Code Structure", "Methodology"]
+tof_statement = {
+"false": "Polymorphism means that an object can change its class type at runtime.", 
+"true": "Polymorphism allows a single interface to represent different underlying forms or types of objects."
+}
+type_of_information = ["definition", "explain", "apply"]
+clues = ["It means 'many forms'.", "Think about a remote control for different devices.", "Method overriding is a key mechanism for achieving this."]
+distractors = ["Bundling data and methods together.", "Creating new classes from existing ones.", "Restricting access to an object's internal state."]
+metadata/_custom_type_script = "uid://dadne10e1geqd"
+
+[sub_resource type="Resource" id="Resource_oop_06"]
+script = ExtResource("1_7hrog")
+id = "OOP_06"
+term = "Abstraction"
+keyword = "Simplicity"
+definition = "The process of simplifying complex reality by modeling classes based on essential properties and behaviors, hiding unnecessary details from the user."
+simple_terms = "Focus on essential features, hide complexity."
+examples = ["Abstract classes", "Interfaces", "Remote control"]
+accepted_terms = ["Data Abstraction"]
+difficulty = 2
+related_to = ["OOP Principles", "Class Design", "Code Structure", "Methodology"]
+tof_statement = {
+"false": "Abstraction involves making all internal details of an object visible to external users.", 
+"true": "Abstraction focuses on showing only essential information and hiding complex implementation details."
+}
+type_of_information = ["definition", "explain", "apply"]
+clues = ["It's about 'what' something does, not 'how'.", "Think about driving a car without knowing its engine mechanics.", "Interfaces and abstract classes are tools for this."]
+distractors = ["The ability of objects to take on many forms.", "Bundling data and methods into a single unit.", "Creating new classes by extending existing ones."]
+metadata/_custom_type_script = "uid://dadne10e1geqd"
+
+[sub_resource type="Resource" id="Resource_oop_07"]
+script = ExtResource("1_7hrog")
+id = "OOP_07"
+term = "Method"
+keyword = "Behavior"
+definition = "A function associated with an object, defining an action or behavior that the object can perform or a service it can provide."
+simple_terms = "An action or function an object can do."
+examples = ["calculateTotal()", "printReport()", "saveUser()"]
+accepted_terms = ["Function", "Member Function"]
+difficulty = 1
+related_to = ["Class Design", "Code Structure", "Methodology"]
+tof_statement = {
+"false": "A method is primarily used to store data within an object.", 
+"true": "A method defines the behavior or action that an object can perform."
+}
+type_of_information = ["definition", "explain", "apply"]
+clues = ["It's something an object 'does'.", "Think about verbs associated with an object.", "It often manipulates an object's attributes."]
+distractors = ["A piece of data stored in an object.", "A template for creating objects.", "A unique identifier for an object."]
+metadata/_custom_type_script = "uid://dadne10e1geqd"
+
+[sub_resource type="Resource" id="Resource_oop_08"]
+script = ExtResource("1_7hrog")
+id = "OOP_08"
+term = "Attribute"
+keyword = "Data"
+definition = "A variable associated with an object, representing a piece of data or state that the object possesses."
+simple_terms = "A characteristic or piece of data an object holds."
+examples = ["userName", "productPrice", "accountNumber"]
+accepted_terms = ["Field", "Property", "Member Variable"]
+difficulty = 1
+related_to = ["Class Design", "Code Structure", "Methodology"]
+tof_statement = {
+"false": "An attribute defines an action or behavior that an object can perform.", 
+"true": "An attribute represents a piece of data or state that an object holds."
+}
+type_of_information = ["definition", "explain", "apply"]
+clues = ["It's something an object 'has'.", "Think about adjectives describing an object.", "These are often declared as private for encapsulation."]
+distractors = ["A function that performs an action.", "A blueprint for creating objects.", "A way to restrict access to code."]
+metadata/_custom_type_script = "uid://dadne10e1geqd"
+
+[sub_resource type="Resource" id="Resource_oop_09"]
+script = ExtResource("1_7hrog")
+id = "OOP_09"
+term = "Constructor"
+keyword = "Initialize"
+definition = "A special method used to create and initialize new objects of a class, ensuring they are in a valid initial state upon creation."
+simple_terms = "A special function that builds and sets up new objects."
+examples = ["new MyClass()", "MyClass(args)", "default constructor"]
+accepted_terms = ["Ctor"]
+difficulty = 1
+related_to = ["Class Design", "Code Structure", "Methodology"]
+tof_statement = {
+"false": "A constructor is a method that destroys an object when it is no longer needed.", 
+"true": "A constructor is a special method used to initialize a new object when it is created."
+}
+type_of_information = ["definition", "explain", "apply"]
+clues = ["It's called automatically when an object is born.", "It often has the same name as its class.", "Its primary job is to set initial values."]
+distractors = ["A method for deleting objects.", "A regular method that performs calculations.", "A variable that stores a reference to an object."]
+metadata/_custom_type_script = "uid://dadne10e1geqd"
+
+[sub_resource type="Resource" id="Resource_oop_10"]
+script = ExtResource("1_7hrog")
+id = "OOP_10"
+term = "Instance"
+keyword = "Realization"
+definition = "A specific, concrete realization of a class, existing in memory with its own unique set of attribute values."
+simple_terms = "A specific, unique object created from a class definition."
+examples = ["myDog", "yourCar", "customer123"]
+accepted_terms = ["Object"]
+difficulty = 1
+related_to = ["OOP Principles", "Class Design", "Code Structure", "Methodology"]
+tof_statement = {
+"false": "An instance is another name for a class definition.", 
+"true": "An instance refers to a concrete object created from a class, possessing its own state."
+}
+type_of_information = ["definition", "explain", "apply"]
+clues = ["It's a specific example of a general type.", "It has unique data values.", "You create many of these from a single blueprint."]
+distractors = ["The blueprint for an object.", "A method inside a class.", "A variable that holds general data."]
+metadata/_custom_type_script = "uid://dadne10e1geqd"
+
+[sub_resource type="Resource" id="Resource_oop_11"]
+script = ExtResource("1_7hrog")
+id = "OOP_11"
+term = "Public Access"
+keyword = "Global"
+definition = "An access modifier that makes class members (attributes or methods) visible and accessible from any other class or external code."
+simple_terms = "Anyone can see and use this part of the object."
+examples = ["public method", "public field", "public class"]
+accepted_terms = ["Public"]
+difficulty = 1
+related_to = ["Class Design", "Code Structure", "OOP Principles"]
+tof_statement = {
+"false": "Public members are only accessible within the class where they are defined.", 
+"true": "Public members of a class can be accessed directly from outside the class."
+}
+type_of_information = ["definition", "explain", "apply"]
+clues = ["It's fully exposed.", "Think about an open door.", "This level of visibility allows direct interaction from anywhere."]
+distractors = ["Only accessible within the same class.", "Accessible only by subclasses.", "Accessible only by friends of the class."]
+metadata/_custom_type_script = "uid://dadne10e1geqd"
+
+[sub_resource type="Resource" id="Resource_oop_12"]
+script = ExtResource("1_7hrog")
+id = "OOP_12"
+term = "Private Access"
+keyword = "Restricted"
+definition = "An access modifier that makes class members (attributes or methods) visible and accessible only from within the class itself, enforcing encapsulation."
+simple_terms = "Only this object can see and use its own parts."
+examples = ["private field", "private helper method", "private constructor"]
+accepted_terms = ["Private"]
+difficulty = 1
+related_to = ["Class Design", "Code Structure", "OOP Principles"]
+tof_statement = {
+"false": "Private members can be accessed by any class in the same package or module.", 
+"true": "Private members of a class are only accessible from within that specific class."
+}
+type_of_information = ["definition", "explain", "apply"]
+clues = ["It's hidden from the outside world.", "Think about a locked diary.", "Getters and setters are often used to indirectly interact with these."]
+distractors = ["Accessible by any other class.", "Accessible only by subclasses.", "Accessible by classes in the same package."]
+metadata/_custom_type_script = "uid://dadne10e1geqd"
+
+[sub_resource type="Resource" id="Resource_oop_13"]
+script = ExtResource("1_7hrog")
+id = "OOP_13"
+term = "Protected Access"
+keyword = "Inherited"
+definition = "An access modifier that makes class members accessible within the class itself and by its subclasses (derived classes), but not directly from unrelated external code."
+simple_terms = "Visible to the class and its children, but not outsiders."
+examples = ["protected method", "protected field", "protected constructor"]
+accepted_terms = ["Protected"]
+difficulty = 2
+related_to = ["Class Design", "Code Structure", "OOP Principles"]
+tof_statement = {
+"false": "Protected members are only accessible to other classes in the same package.", 
+"true": "Protected members are accessible within their own class and by any class that inherits from it."
+}
+type_of_information = ["definition", "explain", "apply"]
+clues = ["It's a middle ground visibility.", "Think about family secrets.", "This is often used when designing for inheritance."]
+distractors = ["Accessible only within the class.", "Accessible by any class in the entire program.", "Accessible only by classes in the same file."]
+metadata/_custom_type_script = "uid://dadne10e1geqd"
+
+[sub_resource type="Resource" id="Resource_oop_14"]
+script = ExtResource("1_7hrog")
+id = "OOP_14"
+term = "Interface"
+keyword = "Contract"
+definition = "A contract that defines a set of abstract methods that a class must implement, specifying 'what' an object can do without detailing 'how'."
+simple_terms = "A blueprint for behavior that classes promise to follow."
+examples = ["Runnable", "Comparable", "Drawable"]
+accepted_terms = ["Protocol"]
+difficulty = 2
+related_to = ["OOP Principles", "Class Design", "Code Structure", "Methodology"]
+tof_statement = {
+"false": "An interface is a class that cannot be instantiated and may contain concrete methods.", 
+"true": "An interface defines a contract specifying methods that implementing classes must provide."
+}
+type_of_information = ["definition", "explain", "apply"]
+clues = ["It's a pure declaration of capabilities.", "It has no implementation details.", "Classes 'implement' this to fulfill a contract."]
+distractors = ["A class that cannot be instantiated.", "A class that can contain both abstract and concrete methods.", "A mechanism for inheriting data and behavior from a parent class."]
+metadata/_custom_type_script = "uid://dadne10e1geqd"
+
+[sub_resource type="Resource" id="Resource_oop_15"]
+script = ExtResource("1_7hrog")
+id = "OOP_15"
+term = "Abstract Class"
+keyword = "Partial Blueprint"
+definition = "A class that cannot be instantiated directly and may contain both abstract (unimplemented) and concrete (implemented) methods, serving as a base for subclasses."
+simple_terms = "A partial template that needs to be completed by child cl..."
+examples = ["Shape", "Animal", "Vehicle"]
+accepted_terms = ["Abstract Base Class"]
+difficulty = 2
+related_to = ["OOP Principles", "Class Design", "Code Structure", "Methodology"]
+tof_statement = {
+"false": "An abstract class must only contain abstract methods and no implemented methods.", 
+"true": "An abstract class can contain both abstract and concrete methods, but cannot be instantiated directl"
+}
+type_of_information = ["definition", "explain", "apply"]
+clues = ["It's a half-finished blueprint.", "You can't create an object directly from it.", "It often provides some default behavior while requiring others to be defined."]
+distractors = ["A class that can only contain static methods.", "A class that must be fully implemented and cannot be inherited from.", "A blueprint that only defines method signatures without any implementation."]
+metadata/_custom_type_script = "uid://dadne10e1geqd"
+
+[sub_resource type="Resource" id="Resource_oop_16"]
+script = ExtResource("1_7hrog")
+id = "OOP_16"
+term = "Overloading"
+keyword = "Same Name"
+definition = "Defining multiple methods within the same class that share the same name but have different parameter lists (different number or types of arguments)."
+simple_terms = "Giving multiple functions the same name but different inp..."
+examples = ["add(int, int)", "add(double, double)", "add(int, int, int)"]
+accepted_terms = ["Method Overloading", "Function Overloading"]
+difficulty = 2
+related_to = ["Code Structure", "Class Design", "Methodology"]
+tof_statement = {
+"false": "Method overloading occurs when a subclass provides a specific implementation for a method already de", 
+"true": "Method overloading allows multiple methods with the same name but different parameter signatures in "
+}
+type_of_information = ["definition", "explain", "apply"]
+clues = ["It's about having options for a single action.", "The compiler decides which version to call at compile time.", "It involves changing the signature, not just the return type."]
+distractors = ["Providing a specific implementation for an inherited method.", "Hiding an inherited method with a new one.", "Defining a method in a subclass with the same signature as a superclass method."]
+metadata/_custom_type_script = "uid://dadne10e1geqd"
+
+[sub_resource type="Resource" id="Resource_oop_17"]
+script = ExtResource("1_7hrog")
+id = "OOP_17"
+term = "Overriding"
+keyword = "Redefine"
+definition = "Providing a specific implementation for a method that is already defined in its superclass, allowing subclasses to customize inherited behavior."
+simple_terms = "Child class provides its own version of a parent's method."
+examples = ["Dog.makeSound()", "Cat.makeSound()", "Circle.draw()"]
+accepted_terms = ["Method Overriding"]
+difficulty = 2
+related_to = ["Code Structure", "Class Design", "OOP Principles"]
+tof_statement = {
+"false": "Method overriding involves defining multiple methods with the same name but different parameters in ", 
+"true": "Method overriding allows a subclass to provide its own implementation for a method inherited from it"
+}
+type_of_information = ["definition", "explain", "apply"]
+clues = ["It's about a child class having its own voice.", "The runtime environment determines which method to call.", "The method signature must be identical to the parent's."]
+distractors = ["Defining multiple methods with the same name but different parameters.", "Hiding internal data from external access.", "Creating a new method in a subclass that is unrelated to the parent."]
+metadata/_custom_type_script = "uid://dadne10e1geqd"
+
+[sub_resource type="Resource" id="Resource_oop_18"]
+script = ExtResource("1_7hrog")
+id = "OOP_18"
+term = "Association"
+keyword = "Relationship"
+definition = "A broad relationship where two classes are connected, meaning one object uses or knows about another, without implying ownership."
+simple_terms = "Two classes are related, often one uses the other."
+examples = ["Student and Course", "Person and Address", "Car and Driver"]
+accepted_terms = ["Link"]
+difficulty = 2
+related_to = ["Class Design", "OOP Principles", "Code Structure"]
+tof_statement = {
+"false": "Association implies a strong ownership relationship where one object cannot exist without the other.", 
+"true": "Association describes a general 'uses a' or 'knows about' relationship between two independent objec"
+}
+type_of_information = ["definition", "explain", "apply"]
+clues = ["It's a general connection.", "Objects interact but can exist independently.", "Think about a person using a car."]
+distractors = ["A 'part-of' relationship where the part cannot exist without the whole.", "A 'part-of' relationship where the part can exist independently.", "A relationship where one class inherits from another."]
+metadata/_custom_type_script = "uid://dadne10e1geqd"
+
+[sub_resource type="Resource" id="Resource_oop_19"]
+script = ExtResource("1_7hrog")
+id = "OOP_19"
+term = "Aggregation"
+keyword = "Has-A"
+definition = "A specialized form of association representing a \"has-a\" relationship, where one object (the whole) contains other objects (the parts), but the parts can exist independently."
+simple_terms = "A 'whole' object contains 'part' objects that can live al..."
+examples = ["Department has Students", "Car has Engine", "Library has Books"]
+accepted_terms = ["Weak Composition"]
+difficulty = 2
+related_to = ["Class Design", "OOP Principles", "Code Structure"]
+tof_statement = {
+"false": "Aggregation means the contained objects are entirely dependent on the container and cease to exist w", 
+"true": "Aggregation signifies a 'has-a' relationship where the contained objects can exist independently of "
+}
+type_of_information = ["definition", "explain", "apply"]
+clues = ["It's a 'part-of' relationship, but not a strong one.", "If the 'whole' is destroyed, the 'parts' can survive.", "Think about a car having an engine, which can be removed and used elsewhere."]
+distractors = ["A relationship where one object is entirely dependent on another.", "A general connection between two objects without ownership.", "A relationship where one class inherits from another."]
+metadata/_custom_type_script = "uid://dadne10e1geqd"
+
+[sub_resource type="Resource" id="Resource_oop_20"]
+script = ExtResource("1_7hrog")
+id = "OOP_20"
+term = "Composition"
+keyword = "Strong Has-A"
+definition = "A strong form of aggregation where one object (the whole) is composed of other objects (the parts), and the parts cannot exist independently of the whole."
+simple_terms = "A 'whole' object contains 'part' objects that cannot live..."
+examples = ["House has Rooms", "Car has Wheels", "Order has LineItems"]
+accepted_terms = ["Strong Aggregation"]
+difficulty = 2
+related_to = ["Class Design", "OOP Principles", "Code Structure"]
+tof_statement = {
+"false": "Composition allows contained objects to exist independently even if the container object is destroye", 
+"true": "Composition represents a strong 'has-a' relationship where the contained objects are dependent on th"
+}
+type_of_information = ["definition", "explain", "apply"]
+clues = ["It's a 'part-of' relationship with strong dependency.", "If the 'whole' is destroyed, the 'parts' are also destroyed.", "Think about a human body having a heart \u2013 the heart cannot exist alone."]
+distractors = ["A general relationship where objects interact but are independent.", "A 'has-a' relationship where parts can exist without the whole.", "A relationship where one class extends another."]
+metadata/_custom_type_script = "uid://dadne10e1geqd"
+
+[sub_resource type="Resource" id="Resource_oop_21"]
+script = ExtResource("1_7hrog")
+id = "OOP_21"
+term = "Dependency"
+keyword = "Uses"
+definition = "A relationship where one class uses another class, often as a parameter in a method or a local variable, implying a temporary \"uses-a\" link."
+simple_terms = "One class temporarily needs another class to perform a task."
+examples = ["Logger uses FileWriter", "OrderProcessor uses PaymentGateway", "Main uses Calculator"]
+accepted_terms = ["Uses-a"]
+difficulty = 2
+related_to = ["Class Design", "Code Structure", "Methodology"]
+tof_statement = {
+"false": "Dependency describes a permanent, strong ownership relationship between two classes.", 
+"true": "Dependency indicates that one class requires another class to function, often temporarily."
+}
+type_of_information = ["definition", "explain", "apply"]
+clues = ["It's a temporary need.", "Think about a method needing an argument of another type.", "It's the weakest form of relationship between classes."]
+distractors = ["A permanent 'has-a' relationship where parts cannot exist independently.", "A 'part-of' relationship where parts can exist independently.", "A relationship where one class inherits from another."]
+metadata/_custom_type_script = "uid://dadne10e1geqd"
+
+[sub_resource type="Resource" id="Resource_oop_22"]
+script = ExtResource("1_7hrog")
+id = "OOP_22"
+term = "Static Member"
+keyword = "Class-level"
+definition = "A member (field or method) that belongs to the class itself rather than to any specific instance of the class, shared by all objects."
+simple_terms = "Data or action belonging to the class, not an object."
+examples = ["Math.PI", "System.out", "Utility.add(a,b)"]
+accepted_terms = ["Class Member"]
+difficulty = 2
+related_to = ["Class Design", "Code Structure", "OOP Principles"]
+tof_statement = {
+"false": "A static member is unique to each object instance of a class.", 
+"true": "A static member belongs to the class itself, not to any specific object instance."
+}
+type_of_information = ["definition", "explain", "apply"]
+clues = ["It's shared across all objects of a type.", "You access it using the class name, not an object.", "It exists even if no objects of the class are created."]
+distractors = ["A member that can only be accessed by subclasses.", "A member that is unique to each object.", "A method that is automatically called when an object is created."]
+metadata/_custom_type_script = "uid://dadne10e1geqd"
+
+[sub_resource type="Resource" id="Resource_oop_23"]
+script = ExtResource("1_7hrog")
+id = "OOP_23"
+term = "This Keyword"
+keyword = "Self-reference"
+definition = "A reference variable that refers to the current object within an instance method or constructor, used to disambiguate or pass the current object."
+simple_terms = "Refers to the object that is currently executing the code."
+examples = ["this.name = name", "this()", "return this"]
+accepted_terms = ["Self", "Me"]
+difficulty = 2
+related_to = ["Code Structure", "Methodology", "Class Design"]
+tof_statement = {
+"false": "The 'this' keyword refers to the superclass of the current object.", 
+"true": "The 'this' keyword refers to the current object instance within a class's method or constructor."
+}
+type_of_information = ["definition", "explain", "apply"]
+clues = ["It points to the object currently in focus.", "It helps resolve naming conflicts between fields and parameters.", "It can be used to call another constructor in the same class."]
+distractors = ["Refers to the parent class.", "Used to access static members.", "A global variable accessible everywhere."]
+metadata/_custom_type_script = "uid://dadne10e1geqd"
+
+[sub_resource type="Resource" id="Resource_oop_24"]
+script = ExtResource("1_7hrog")
+id = "OOP_24"
+term = "Super Keyword"
+keyword = "Parent-reference"
+definition = "A reference variable used within a subclass to refer to the superclass's members (methods or constructors), enabling access to overridden or inherited functionality."
+simple_terms = "Refers to the parent class or its members from a child cl..."
+examples = ["super.method()", "super(args)", "super.field"]
+accepted_terms = ["Base"]
+difficulty = 2
+related_to = ["Code Structure", "Methodology", "Class Design"]
+tof_statement = {
+"false": "The 'super' keyword refers to the current object instance within a class.", 
+"true": "The 'super' keyword is used in a subclass to access members or constructors of its direct superclass"
+}
+type_of_information = ["definition", "explain", "apply"]
+clues = ["It points to the immediate ancestor.", "It's often used to call a parent's constructor or method.", "It's essential when a child class overrides a parent's method but still needs to call the parent's version."]
+distractors = ["Refers to the current object.", "Used to access static members of any class.", "A keyword for defining new interfaces."]
+metadata/_custom_type_script = "uid://dadne10e1geqd"
+
+[sub_resource type="Resource" id="Resource_oop_25"]
+script = ExtResource("1_7hrog")
+id = "OOP_25"
+term = "Message Passing"
+keyword = "Interaction"
+definition = "The process where objects communicate by sending and receiving messages (method calls), requesting services or information from other objects."
+simple_terms = "Objects talking to each other by calling methods."
+examples = ["car.startEngine()", "user.authenticate()", "database.save(data)"]
+accepted_terms = ["Method Invocation"]
+difficulty = 2
+related_to = ["OOP Principles", "Code Structure", "Methodology"]
+tof_statement = {
+"false": "Message passing is a mechanism for direct memory access between unrelated objects.", 
+"true": "Message passing is how objects interact and communicate by invoking each other's methods."
+}
+type_of_information = ["definition", "explain", "apply"]
+clues = ["It's how objects 'talk' to each other.", "It involves one object invoking a behavior on another.", "This is fundamental to object interaction in OOP."]
+distractors = ["The process of creating new objects.", "Hiding internal data from external access.", "Defining the structure of an object."]
+metadata/_custom_type_script = "uid://dadne10e1geqd"
+
+[sub_resource type="Resource" id="Resource_oop_26"]
+script = ExtResource("1_7hrog")
+id = "OOP_26"
+term = "Cohesion"
+keyword = "Relatedness"
+definition = "A qualitative measure of how well the elements within a module or class belong together, indicating a single, well-defined purpose."
+simple_terms = "How focused and single-purposed a class or module is."
+examples = ["High Cohesion", "Low Cohesion", "Single Responsibility"]
+accepted_terms = ["Functional Cohesion"]
+difficulty = 3
+related_to = ["Design Patterns", "Methodology", "Code Structure"]
+tof_statement = {
+"false": "High cohesion implies that a class handles many unrelated tasks, making it highly reusable.", 
+"true": "High cohesion means that the elements within a module or class are strongly related and focused on a"
+}
+type_of_information = ["definition", "explain", "apply"]
+clues = ["It's about having a clear, unified job.", "A well-designed class should exhibit a lot of this.", "The Single Responsibility Principle (SRP) promotes this quality."]
+distractors = ["The degree of interdependence between different modules.", "How accessible internal data is to external modules.", "The ability of an object to take on many forms."]
+metadata/_custom_type_script = "uid://dadne10e1geqd"
+
+[sub_resource type="Resource" id="Resource_oop_27"]
+script = ExtResource("1_7hrog")
+id = "OOP_27"
+term = "Coupling"
+keyword = "Interdependence"
+definition = "A qualitative measure of the degree of interdependence between software modules or classes, aiming for loose coupling to improve flexibility and maintainability."
+simple_terms = "How much different parts of the code rely on each other."
+examples = ["Loose Coupling", "Tight Coupling", "Parameter Passing"]
+accepted_terms = ["Interdependence"]
+difficulty = 3
+related_to = ["Design Patterns", "Methodology", "Code Structure"]
+tof_statement = {
+"false": "Tight coupling is preferred in software design because it simplifies development.", 
+"true": "Loose coupling is desirable as it reduces the impact of changes in one module on other modules."
+}
+type_of_information = ["definition", "explain", "apply"]
+clues = ["It's about how much one part 'knows' about another.", "Reducing this makes systems easier to change.", "Dependency injection is a technique to manage this."]
+distractors = ["How well elements within a single module belong together.", "The process of bundling data and methods within a single unit.", "The ability of a class to inherit properties from another class."]
+metadata/_custom_type_script = "uid://dadne10e1geqd"
+
+[sub_resource type="Resource" id="Resource_oop_28"]
+script = ExtResource("1_7hrog")
+id = "OOP_28"
+term = "SOLID Principles"
+keyword = "Design Rules"
+definition = "A set of five fundamental principles (Single Responsibility, Open/Closed, Liskov Substitution, Interface Segregation, Dependency Inversion) for designing understandable, flexible, and maintainable object-oriented software."
+simple_terms = "Key rules for building good, flexible, and maintainable O..."
+examples = ["SRP", "OCP", "LSP"]
+accepted_terms = ["SOLID"]
+difficulty = 3
+related_to = ["OOP Principles", "Design Patterns", "Methodology"]
+tof_statement = {
+"false": "SOLID principles are a set of rules for restricting access to object data.", 
+"true": "SOLID principles are guidelines for creating more maintainable and scalable object-oriented software"
+}
+type_of_information = ["definition", "explain", "apply"]
+clues = ["It's an acronym for good design habits.", "They help manage complexity and change.", "Each letter stands for a different design guideline."]
+distractors = ["A set of access modifiers for classes.", "A framework for graphical user interface development.", "A collection of data structures for efficient storage."]
+metadata/_custom_type_script = "uid://dadne10e1geqd"
+
+[sub_resource type="Resource" id="Resource_oop_29"]
+script = ExtResource("1_7hrog")
+id = "OOP_29"
+term = "Design Pattern"
+keyword = "Pattern"
+definition = "A reusable solution to a commonly occurring problem within a given context in software design, providing a proven approach to structuring code."
+simple_terms = "A well-known, reusable solution to common software design..."
+examples = ["Singleton", "Factory", "Observer"]
+accepted_terms = ["Pattern"]
+difficulty = 3
+related_to = ["Design Patterns", "Methodology", "Code Structure"]
+tof_statement = {
+"false": "A design pattern is a specific piece of code that can be directly copied and pasted into any project", 
+"true": "A design pattern offers a general, reusable solution to a recurring problem in software design."
+}
+type_of_information = ["definition", "explain", "apply"]
+clues = ["It's not code, but a concept.", "Think about architectural blueprints for buildings.", "The Gang of Four popularized many of these."]
+distractors = ["A specific algorithm for sorting data.", "A programming language feature like inheritance.", "A fixed set of rules for naming variables."]
+metadata/_custom_type_script = "uid://dadne10e1geqd"
+
+[sub_resource type="Resource" id="Resource_oop_30"]
+script = ExtResource("1_7hrog")
+id = "OOP_30"
+term = "Encapsulated Data"
+keyword = "Protected State"
+definition = "The internal state or attributes of an object that are hidden from direct external access, typically controlled through public methods (getters/setters)."
+simple_terms = "Object's internal information, kept private and controlled."
+examples = ["private balance", "customerID", "internal state"]
+accepted_terms = ["Private Data"]
+difficulty = 1
+related_to = ["OOP Principles", "Class Design", "Code Structure"]
+tof_statement = {
+"false": "Encapsulated data means the data is publicly available for modification by any part of the program.", 
+"true": "Encapsulated data refers to an object's internal state that is protected from direct external modifi"
+}
+type_of_information = ["definition", "explain", "apply"]
+clues = ["It's the stuff inside an object that's kept secret.", "You usually need special methods to interact with it.", "It's a core aspect of information hiding."]
+distractors = ["Data that is shared globally across all classes.", "Methods that perform actions on an object.", "Data that is only accessible by static methods."]
+metadata/_custom_type_script = "uid://dadne10e1geqd"
+
+[sub_resource type="Resource" id="Resource_oop_31"]
+script = ExtResource("1_7hrog")
+id = "OOP_31"
+term = "Base Class"
+keyword = "Parent"
+definition = "The class from which other classes (derived classes) inherit properties and behaviors, forming the top or higher level in an inheritance hierarchy."
+simple_terms = "The original or parent class that other classes extend."
+examples = ["Animal", "Vehicle", "Person"]
+accepted_terms = ["Parent Class", "Superclass"]
+difficulty = 1
+related_to = ["OOP Principles", "Class Design", "Code Structure"]
+tof_statement = {
+"false": "A base class is always an interface that only defines abstract methods.", 
+"true": "A base class is a class from which other classes inherit, providing common functionality."
+}
+type_of_information = ["definition", "explain", "apply"]
+clues = ["It's the foundation of an inheritance chain.", "Child classes get their initial traits from this.", "It's often referred to as a 'parent'."]
+distractors = ["A class that inherits from another class.", "A class that cannot be instantiated.", "A class that only contains static members."]
+metadata/_custom_type_script = "uid://dadne10e1geqd"
+
+[sub_resource type="Resource" id="Resource_oop_32"]
+script = ExtResource("1_7hrog")
+id = "OOP_32"
+term = "Derived Class"
+keyword = "Child"
+definition = "A class that inherits attributes and methods from another class (its base class), extending or specializing the base class's functionality."
+simple_terms = "A new class that gets features from an existing parent cl..."
+examples = ["Dog", "Car", "Employee"]
+accepted_terms = ["Child Class", "Subclass"]
+difficulty = 1
+related_to = ["OOP Principles", "Class Design", "Code Structure"]
+tof_statement = {
+"false": "A derived class is completely independent and shares no functionality with any other class.", 
+"true": "A derived class inherits properties and behaviors from a base class, often specializing them."
+}
+type_of_information = ["definition", "explain", "apply"]
+clues = ["It's the offspring in an inheritance relationship.", "It can add new features or change existing ones from its parent.", "It often uses the 'extends' keyword."]
+distractors = ["The original class from which others inherit.", "A class that defines only abstract methods.", "A class that serves as a utility collection of static methods."]
+metadata/_custom_type_script = "uid://dadne10e1geqd"
+
+[resource]
+script = ExtResource("2_bkryn")
+lesson_title = "Object Oriented Programming"
+lesson_items = Array[ExtResource("1_7hrog")]([SubResource("Resource_oop_01"), SubResource("Resource_oop_02"), SubResource("Resource_oop_03"), SubResource("Resource_oop_04"), SubResource("Resource_oop_05"), SubResource("Resource_oop_06"), SubResource("Resource_oop_07"), SubResource("Resource_oop_08"), SubResource("Resource_oop_09"), SubResource("Resource_oop_10"), SubResource("Resource_oop_11"), SubResource("Resource_oop_12"), SubResource("Resource_oop_13"), SubResource("Resource_oop_14"), SubResource("Resource_oop_15"), SubResource("Resource_oop_16"), SubResource("Resource_oop_17"), SubResource("Resource_oop_18"), SubResource("Resource_oop_19"), SubResource("Resource_oop_20"), SubResource("Resource_oop_21"), SubResource("Resource_oop_22"), SubResource("Resource_oop_23"), SubResource("Resource_oop_24"), SubResource("Resource_oop_25"), SubResource("Resource_oop_26"), SubResource("Resource_oop_27"), SubResource("Resource_oop_28"), SubResource("Resource_oop_29"), SubResource("Resource_oop_30"), SubResource("Resource_oop_31"), SubResource("Resource_oop_32")])
+metadata/_custom_type_script = "uid://7kxviye2bk4p"

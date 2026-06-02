@@ -19,12 +19,16 @@ const GAME_SCENES := {
 	"game5": "res://Games/game5.tscn"
 }
 
+# Score reference values reflect the new scoring economy per game:
+# Game 1 (Easy)  — low flat+time scores,  Game 2 (Very Hard) — highest Jeopardy rewards,
+# Game 3 (Hard)  — high per-word rewards,  Game 4 (Medium)   — combo-based matching,
+# Game 5 (Med/Easy) — flat × lives-fraction per word.
 const SCORE_REFERENCE := {
-	"game1": 500.0,
-	"game2": 2700.0,
-	"game3": 800.0,
-	"game4": 1200.0,
-	"game5": 1400.0
+	"game1": 200.0,
+	"game2": 3000.0,
+	"game3": 1500.0,
+	"game4": 1000.0,
+	"game5": 600.0
 }
 const TIME_REFERENCE := {
 	"game1": 150.0,
@@ -346,7 +350,17 @@ func record_adaptive_result(
 	return fair_score
 
 
-# Computes a fair cross-game efficiency score (0..100).
+# Per-game difficulty coefficients used to weight the adaptive fair score.
+# Harder games contribute more to the adaptive ranking when the player excels.
+const DIFFICULTY_COEFFICIENT := {
+	"game1": 0.7,  # Easy
+	"game2": 1.5,  # Very Hard
+	"game3": 1.3,  # Hard
+	"game4": 1.0,  # Medium
+	"game5": 0.9   # Medium/Easy
+}
+
+# Computes a fair cross-game efficiency score (0..100), weighted by game difficulty.
 func compute_fair_score(
 	game_id: String,
 	raw_score: float,
@@ -355,20 +369,24 @@ func compute_fair_score(
 	completion_ratio: float
 ) -> float:
 	var ref_score := float(SCORE_REFERENCE.get(game_id, 1000.0))
-	var ref_time := float(TIME_REFERENCE.get(game_id, 150.0))
+	var ref_time  := float(TIME_REFERENCE.get(game_id, 150.0))
+	var diff_coeff := float(DIFFICULTY_COEFFICIENT.get(game_id, 1.0))
 
-	var score_component := clampf(_safe_ratio(raw_score, ref_score), 0.0, 1.0)
-	var accuracy_component := clampf(_safe_ratio(accuracy_percent, 100.0), 0.0, 1.0)
-	var speed_component := clampf(1.0 - _safe_ratio(time_spent_sec, ref_time), 0.0, 1.0)
+	var score_component      := clampf(_safe_ratio(raw_score, ref_score), 0.0, 1.0)
+	var accuracy_component   := clampf(_safe_ratio(accuracy_percent, 100.0), 0.0, 1.0)
+	var speed_component      := clampf(1.0 - _safe_ratio(time_spent_sec, ref_time), 0.0, 1.0)
 	var completion_component := clampf(completion_ratio, 0.0, 1.0)
 
-	# Weighted fairness model: emphasizes accuracy and completion over raw points.
-	return (
-		(accuracy_component * 0.45)
+	# Weighted fairness model: accuracy and completion are primary signals;
+	# score and speed are secondary. The difficulty coefficient scales the
+	# entire result so harder games earn higher adaptive weight when excelled at.
+	var base_score := (
+		(accuracy_component   * 0.40)
 		+ (completion_component * 0.30)
-		+ (speed_component * 0.15)
-		+ (score_component * 0.10)
+		+ (speed_component      * 0.15)
+		+ (score_component      * 0.15)
 	) * 100.0
+	return clampf(base_score * diff_coeff, 0.0, 100.0)
 
 
 # Returns the current top-ranked game by average efficiency.

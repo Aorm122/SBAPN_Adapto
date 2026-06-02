@@ -1,0 +1,650 @@
+[gd_resource type="Resource" script_class="Lesson" load_steps=34 format=3 uid="uid://ylf67fbl1ubu6"]
+
+[ext_resource type="Script" uid="uid://dadne10e1geqd" path="res://Lessons/lesson_item.gd" id="1_7hrog"]
+[ext_resource type="Script" uid="uid://7kxviye2bk4p" path="res://Lessons/lesson.gd" id="2_bkryn"]
+
+[sub_resource type="Resource" id="Resource_lam_01"]
+script = ExtResource("1_7hrog")
+id = "LAM_01"
+term = "Matrix"
+keyword = "Array"
+definition = "A rectangular array of numbers, symbols, or expressions arranged in rows and columns, primarily used to represent and manipulate linear transformations or systems of equations efficiently."
+simple_terms = "Organized grid of values; mathematical table."
+examples = ["[[1,2],[3,4]]", "[5,6]", "[0]"]
+accepted_terms = ["Matrices"]
+difficulty = 1
+related_to = ["Matrix Properties", "Linear Systems", "Transformations"]
+tof_statement = {
+"false": "Matrices are primarily used for displaying data, not for performing complex mathematical operations.", 
+"true": "Matrices provide a structured way to handle large sets of data, simplifying calculations for systems"
+}
+type_of_information = ["definition", "explain", "defined"]
+clues = ["It's a fundamental structure in linear algebra.", "It organizes numbers into rows and columns.", "Think of a spreadsheet for mathematical operations."]
+distractors = ["A single variable representing multiple values.", "A mathematical operation itself, not a structure.", "A graphical representation of data points."]
+metadata/_custom_type_script = "uid://dadne10e1geqd"
+
+[sub_resource type="Resource" id="Resource_lam_02"]
+script = ExtResource("1_7hrog")
+id = "LAM_02"
+term = "Matrix Dimension"
+keyword = "Size"
+definition = "Defines the size of a matrix by specifying the number of rows (m) and columns (n) it contains, always expressed as m x n, which is crucial for determining valid matrix operations."
+simple_terms = "Number of rows by number of columns."
+examples = ["2x3", "4x1", "1x5"]
+accepted_terms = ["Order", "Dimensions"]
+difficulty = 1
+related_to = ["Matrix Properties", "Matrix Operations", "Linear Systems"]
+tof_statement = {
+"false": "Matrix dimensions are only important for aesthetic arrangement and do not impact mathematical validi", 
+"true": "Understanding matrix dimensions is essential because it dictates whether operations like multiplicat"
+}
+type_of_information = ["definition", "explain", "apply"]
+clues = ["It describes the physical extent of a matrix.", "It's expressed as 'rows by columns'.", "You need to know this to determine if two matrices can be multiplied."]
+distractors = ["The number of elements in the matrix.", "The largest value contained within the matrix.", "The rank of the matrix."]
+metadata/_custom_type_script = "uid://dadne10e1geqd"
+
+[sub_resource type="Resource" id="Resource_lam_03"]
+script = ExtResource("1_7hrog")
+id = "LAM_03"
+term = "Square Matrix"
+keyword = "Equal sides"
+definition = "A matrix where the number of rows is equal to the number of columns (m=n), simplifying many operations and allowing for concepts like determinants and inverses to be defined."
+simple_terms = "Same number of rows and columns."
+examples = ["2x2", "3x3", "4x4"]
+accepted_terms = []
+difficulty = 1
+related_to = ["Matrix Properties", "Matrix Operations", "Linear Systems"]
+tof_statement = {
+"false": "Any matrix can have a determinant calculated, regardless of its dimensions, as long as it has at lea", 
+"true": "A square matrix is fundamental for calculating determinants and inverses, operations not defined for"
+}
+type_of_information = ["definition", "explain", "defined"]
+clues = ["Its shape is symmetrical in terms of length and width.", "The number of horizontal lines matches the number of vertical lines.", "You can find a determinant only for this type of matrix."]
+distractors = ["A matrix with all elements being squares of integers.", "A matrix where all elements are positive.", "A matrix with only one row or one column."]
+metadata/_custom_type_script = "uid://dadne10e1geqd"
+
+[sub_resource type="Resource" id="Resource_lam_04"]
+script = ExtResource("1_7hrog")
+id = "LAM_04"
+term = "Identity Matrix"
+keyword = "Neutral element"
+definition = "A square matrix with ones on the main diagonal and zeros elsewhere, which acts as the multiplicative identity in matrix algebra, similar to the number 1 in scalar multiplication."
+simple_terms = "Ones on diagonal, zeros elsewhere; '1' of matrices."
+examples = ["I\u2082", "I\u2083", "I\u2084"]
+accepted_terms = ["Unit Matrix"]
+difficulty = 2
+related_to = ["Matrix Properties", "Matrix Operations", "Linear Systems"]
+tof_statement = {
+"false": "The identity matrix is primarily used to change the values of a matrix during multiplication, acting", 
+"true": "Multiplying any matrix A by the identity matrix I (of compatible dimension) results in the original "
+}
+type_of_information = ["definition", "explain", "apply"]
+clues = ["It's a special type of square matrix.", "It has a unique pattern of ones and zeros.", "When you multiply a matrix by this, the original matrix remains unchanged."]
+distractors = ["A matrix with all elements equal to one.", "A matrix used to invert another matrix.", "A matrix with zeros on the main diagonal and ones elsewhere."]
+metadata/_custom_type_script = "uid://dadne10e1geqd"
+
+[sub_resource type="Resource" id="Resource_lam_05"]
+script = ExtResource("1_7hrog")
+id = "LAM_05"
+term = "Zero Matrix"
+keyword = "Null"
+definition = "A matrix where all elements are zero, acting as the additive identity in matrix algebra, similar to the number 0 in scalar addition."
+simple_terms = "All entries are zero; '0' of matrices."
+examples = ["O\u2082", "O\u2083\u2093\u2082", "[0]"]
+accepted_terms = ["Null Matrix"]
+difficulty = 1
+related_to = ["Matrix Properties", "Matrix Operations", "Linear Systems"]
+tof_statement = {
+"false": "Multiplying any matrix by the zero matrix yields the identity matrix, demonstrating its unique multi", 
+"true": "Adding the zero matrix to any other matrix A results in the original matrix A, showing its role as t"
+}
+type_of_information = ["definition", "explain", "defined"]
+clues = ["It's defined by the values of its entries.", "Every single element within it is the same specific number.", "When you add this matrix to another, the other matrix doesn't change."]
+distractors = ["A matrix with only one row or one column.", "A matrix with no elements.", "A matrix where all rows are identical."]
+metadata/_custom_type_script = "uid://dadne10e1geqd"
+
+[sub_resource type="Resource" id="Resource_lam_06"]
+script = ExtResource("1_7hrog")
+id = "LAM_06"
+term = "Matrix Addition"
+keyword = "Sum"
+definition = "A binary operation where two matrices of the same dimensions are combined by adding their corresponding elements, resulting in a new matrix of the same dimensions."
+simple_terms = "Adding elements in same positions."
+examples = ["A+B", "C+D", "[1]+[2]"]
+accepted_terms = []
+difficulty = 1
+related_to = ["Matrix Operations", "Matrix Properties", "Linear Systems"]
+tof_statement = {
+"false": "Matrices of different dimensions can be added as long as the total number of elements is the same in", 
+"true": "Matrix addition requires both matrices to have identical dimensions, ensuring each element has a uni"
+}
+type_of_information = ["definition", "explain", "apply"]
+clues = ["This operation combines two matrices.", "It works element by element.", "The matrices involved must be the exact same size."]
+distractors = ["Multiplying matrices together.", "Combining matrices by placing them side-by-side.", "Adding all elements of one matrix to a single element of another."]
+metadata/_custom_type_script = "uid://dadne10e1geqd"
+
+[sub_resource type="Resource" id="Resource_lam_07"]
+script = ExtResource("1_7hrog")
+id = "LAM_07"
+term = "Scalar Multiplication"
+keyword = "Scale"
+definition = "An operation where every element of a matrix is multiplied by a single real number (scalar), effectively scaling the entire matrix without changing its dimensions."
+simple_terms = "Multiplying each entry by a number."
+examples = ["2A", "-1B", "0.5C"]
+accepted_terms = []
+difficulty = 1
+related_to = ["Matrix Operations", "Matrix Properties", "Linear Systems"]
+tof_statement = {
+"false": "Scalar multiplication changes the number of rows or columns in a matrix, similar to transposing.", 
+"true": "Scalar multiplication scales the magnitude of a matrix's components, but never alters its fundamenta"
+}
+type_of_information = ["definition", "explain", "apply"]
+clues = ["This involves a single number and a matrix.", "It affects every single entry within the matrix.", "It makes the matrix 'bigger' or 'smaller' in value, but not in shape."]
+distractors = ["Multiplying two matrices together.", "Adding a constant value to every element.", "Only multiplying the diagonal elements of a matrix."]
+metadata/_custom_type_script = "uid://dadne10e1geqd"
+
+[sub_resource type="Resource" id="Resource_lam_08"]
+script = ExtResource("1_7hrog")
+id = "LAM_08"
+term = "Matrix Multiplication"
+keyword = "Product"
+definition = "A complex operation where rows of the first matrix are multiplied by columns of the second, requiring the number of columns in the first to equal the number of rows in the second, producing a new matrix."
+simple_terms = "Row-by-column product."
+examples = ["AB", "CD", "EFG"]
+accepted_terms = []
+difficulty = 2
+related_to = ["Matrix Operations", "Transformations", "Matrix Properties"]
+tof_statement = {
+"false": "Matrix multiplication is commutative (AB = BA) as long as both products are defined, similar to scal", 
+"true": "Matrix multiplication is non-commutative (AB ≠ BA in general) because the order of operations fundam"
+}
+type_of_information = ["definition", "explain", "apply"]
+clues = ["This operation combines two matrices in a specific way.", "It's not simply element-by-element.", "The inner dimensions must match, and the order often matters."]
+distractors = ["Multiplying corresponding elements of two matrices.", "Adding matrices together.", "Only possible for square matrices of the same size."]
+metadata/_custom_type_script = "uid://dadne10e1geqd"
+
+[sub_resource type="Resource" id="Resource_lam_09"]
+script = ExtResource("1_7hrog")
+id = "LAM_09"
+term = "Transpose"
+keyword = "Flip"
+definition = "An operation that flips a matrix over its main diagonal, effectively swapping its rows and columns, such that the element at (i, j) becomes the element at (j, i)."
+simple_terms = "Rows become columns, columns become rows."
+examples = ["A\u1d40", "B'", "C\u02b0"]
+accepted_terms = ["Transposition"]
+difficulty = 2
+related_to = ["Matrix Operations", "Matrix Properties", "Transformations"]
+tof_statement = {
+"false": "Transposing a matrix only changes the sign of its elements, leaving its dimensions unchanged.", 
+"true": "Transposing a matrix changes its dimensions if it's not square, as the number of rows and columns ar"
+}
+type_of_information = ["definition", "explain", "apply"]
+clues = ["This operation reorganizes the elements of a matrix.", "It involves a structural change, not arithmetic.", "Think of rotating the matrix around its main diagonal."]
+distractors = ["Reversing the order of rows and columns.", "Multiplying a matrix by -1.", "Interchanging only the first and last rows."]
+metadata/_custom_type_script = "uid://dadne10e1geqd"
+
+[sub_resource type="Resource" id="Resource_lam_10"]
+script = ExtResource("1_7hrog")
+id = "LAM_10"
+term = "Determinant"
+keyword = "Scalar value"
+definition = "A scalar value computed from the elements of a square matrix, indicating properties like invertibility and the scaling factor of the transformation represented by the matrix."
+simple_terms = "Single number from a square matrix."
+examples = ["det(A)", "|B|", "\u0394"]
+accepted_terms = []
+difficulty = 2
+related_to = ["Matrix Properties", "Linear Systems", "Transformations"]
+tof_statement = {
+"false": "The determinant of a matrix represents the sum of all its elements, regardless of its invertibility.", 
+"true": "A non-zero determinant signifies that a square matrix is invertible and represents a transformation "
+}
+type_of_information = ["definition", "explain", "apply"]
+clues = ["It's a single numerical value derived from a matrix.", "It can tell you if a matrix has an inverse.", "For a 2x2 matrix, it's ad - bc."]
+distractors = ["The largest element in the matrix.", "A measure of the matrix's magnitude in a vector space.", "A matrix operation that rearranges rows."]
+metadata/_custom_type_script = "uid://dadne10e1geqd"
+
+[sub_resource type="Resource" id="Resource_lam_11"]
+script = ExtResource("1_7hrog")
+id = "LAM_11"
+term = "Inverse Matrix"
+keyword = "Reciprocal"
+definition = "For a square matrix A, its inverse A⁻¹ is another square matrix such that their product (AA⁻¹ or A⁻¹A) is the identity matrix, allowing for \"division\" in matrix algebra."
+simple_terms = "Multiplicative opposite; undoes a matrix."
+examples = ["A\u207b\u00b9", "B\u207b\u00b9", "C\u207b\u00b9"]
+accepted_terms = ["Matrix Inverse"]
+difficulty = 3
+related_to = ["Matrix Operations", "Matrix Properties", "Linear Systems"]
+tof_statement = {
+"false": "Every square matrix always has an inverse, regardless of its determinant, which simplifies solving m", 
+"true": "An inverse matrix exists only if the determinant of the original square matrix is non-zero, ensuring"
+}
+type_of_information = ["definition", "explain", "apply"]
+clues = ["It's a special matrix related to another square matrix.", "When multiplied, it results in the identity.", "Its existence depends on the determinant not being zero."]
+distractors = ["The transpose of a matrix.", "A matrix with all elements set to their negative values.", "A matrix that, when added to another, results in the zero matrix."]
+metadata/_custom_type_script = "uid://dadne10e1geqd"
+
+[sub_resource type="Resource" id="Resource_lam_12"]
+script = ExtResource("1_7hrog")
+id = "LAM_12"
+term = "Singular Matrix"
+keyword = "Non-invertible"
+definition = "A square matrix whose determinant is zero, meaning it does not have an inverse and represents a linear transformation that collapses space, losing information."
+simple_terms = "No inverse; determinant is zero."
+examples = ["[ [1,2],[2,4] ]", "[ [0,0],[0,0] ]", "Non-invertible"]
+accepted_terms = []
+difficulty = 2
+related_to = ["Matrix Properties", "Linear Systems", "Transformations"]
+tof_statement = {
+"false": "A singular matrix implies that the corresponding system of linear equations always has a unique solu", 
+"true": "A singular matrix indicates that the system of linear equations it represents either has no solution"
+}
+type_of_information = ["definition", "explain", "apply"]
+clues = ["This type of square matrix has a specific determinant value.", "It cannot be 'undone' by another matrix.", "Its determinant equals zero."]
+distractors = ["A matrix with only one unique element.", "A matrix that is its own inverse.", "A matrix where all elements are positive."]
+metadata/_custom_type_script = "uid://dadne10e1geqd"
+
+[sub_resource type="Resource" id="Resource_lam_13"]
+script = ExtResource("1_7hrog")
+id = "LAM_13"
+term = "Elementary Row Operations"
+keyword = "Manipulations"
+definition = "A set of three fundamental operations (swapping rows, multiplying a row by a non-zero scalar, adding a multiple of one row to another) used to transform matrices without changing the solution set of linear systems."
+simple_terms = "Basic row manipulations to simplify."
+examples = ["R\u2081\u2194R\u2082", "2R\u2083", "R\u2081+3R\u2082"]
+accepted_terms = ["ERO"]
+difficulty = 2
+related_to = ["Matrix Operations", "Linear Systems", "Matrix Properties"]
+tof_statement = {
+"false": "Elementary row operations can alter the solution set of a linear system, so they must be used cautio", 
+"true": "Elementary row operations are crucial for transforming an augmented matrix into row echelon form, si"
+}
+type_of_information = ["definition", "explain", "apply"]
+clues = ["These are specific actions you can perform on matrix rows.", "There are three distinct types of these actions.", "They are used to simplify matrices for solving equations."]
+distractors = ["Operations that change the number of rows or columns.", "Only operations that involve adding or subtracting rows.", "Operations that can be performed on columns only."]
+metadata/_custom_type_script = "uid://dadne10e1geqd"
+
+[sub_resource type="Resource" id="Resource_lam_14"]
+script = ExtResource("1_7hrog")
+id = "LAM_14"
+term = "Row Echelon Form"
+keyword = "Staircase"
+definition = "A specific form of a matrix achieved through elementary row operations, characterized by leading non-zero entries (pivots) moving down and to the right, with all entries below a pivot being zero."
+simple_terms = "Simplified staircase-like matrix."
+examples = ["[[1,2,3],[0,1,4]]", "[[1,0],[0,0]]", "Staircase"]
+accepted_terms = ["REF"]
+difficulty = 2
+related_to = ["Matrix Properties", "Linear Systems", "Matrix Operations"]
+tof_statement = {
+"false": "Row echelon form is primarily used for calculating the determinant of a matrix, not for solving syst", 
+"true": "A matrix in row echelon form allows for straightforward back-substitution to find solutions to a sys"
+}
+type_of_information = ["definition", "explain", "apply"]
+clues = ["It's a specific simplified arrangement of a matrix.", "It has a 'staircase' pattern of leading non-zero entries.", "All entries below a pivot must be zero."]
+distractors = ["A matrix where all elements are zero.", "A matrix where every row is identical.", "A matrix where only the main diagonal has non-zero entries."]
+metadata/_custom_type_script = "uid://dadne10e1geqd"
+
+[sub_resource type="Resource" id="Resource_lam_15"]
+script = ExtResource("1_7hrog")
+id = "LAM_15"
+term = "Reduced Row Echelon Form"
+keyword = "Unique form"
+definition = "A unique and more simplified form than REF, where each leading entry (pivot) is 1, and it is the only non-zero entry in its respective column, providing direct solutions."
+simple_terms = "Fully simplified staircase, pivots are 1."
+examples = ["[[1,0,3],[0,1,4]]", "[[1,0],[0,1]]", "Unique form"]
+accepted_terms = ["RREF"]
+difficulty = 3
+related_to = ["Matrix Properties", "Linear Systems", "Matrix Operations"]
+tof_statement = {
+"false": "RREF is primarily useful for determining if a matrix is invertible, not for directly solving systems", 
+"true": "RREF provides direct solutions to linear systems because it isolates variables, making it easy to re"
+}
+type_of_information = ["definition", "explain", "apply"]
+clues = ["This is an even more refined version of a simplified matrix.", "All leading entries are one, and their columns are otherwise zero.", "This form gives you the most direct solution to a linear system."]
+distractors = ["A matrix where all elements are one.", "A matrix with zeros everywhere except the last column.", "A matrix that has been transposed and then inverted."]
+metadata/_custom_type_script = "uid://dadne10e1geqd"
+
+[sub_resource type="Resource" id="Resource_lam_16"]
+script = ExtResource("1_7hrog")
+id = "LAM_16"
+term = "Rank of a Matrix"
+keyword = "Dimension"
+definition = "The maximum number of linearly independent row vectors (or column vectors) in a matrix, which corresponds to the number of pivots in its row echelon form and indicates the dimension of its column space."
+simple_terms = "Number of independent rows/columns."
+examples = ["Rank(A)=2", "\u03c1(B)=3", "Dimension"]
+accepted_terms = []
+difficulty = 3
+related_to = ["Matrix Properties", "Linear Systems", "Transformations"]
+tof_statement = {
+"false": "The rank of a matrix is simply the total number of elements in the matrix, irrespective of their lin", 
+"true": "The rank of a matrix determines the number of free variables in a homogeneous linear system, influen"
+}
+type_of_information = ["definition", "explain", "apply"]
+clues = ["This value tells you something about the 'effective' size of a matrix.", "It's related to linear independence.", "You can find it by counting the number of pivots in REF."]
+distractors = ["The largest element in the matrix.", "The number of rows in the matrix.", "The number of non-zero rows in the original matrix."]
+metadata/_custom_type_script = "uid://dadne10e1geqd"
+
+[sub_resource type="Resource" id="Resource_lam_17"]
+script = ExtResource("1_7hrog")
+id = "LAM_17"
+term = "Column Space"
+keyword = "Span"
+definition = "The set of all possible linear combinations of the column vectors of a matrix, representing the range of the linear transformation associated with the matrix."
+simple_terms = "All outputs from matrix transformation."
+examples = ["Col(A)", "Range(T)", "Span"]
+accepted_terms = ["Image", "Range"]
+difficulty = 3
+related_to = ["Matrix Properties", "Vector Spaces", "Transformations"]
+tof_statement = {
+"false": "The column space is always equal to the entire Rⁿ space, regardless of the matrix's properties.", 
+"true": "The dimension of the column space is equal to the rank of the matrix, indicating the number of linea"
+}
+type_of_information = ["definition", "explain", "apply"]
+clues = ["This is a collection of all possible results from a matrix operation.", "It's built from the vertical components of the matrix.", "It represents the span of the matrix's columns."]
+distractors = ["The set of all input vectors that map to zero.", "The solution set of Ax=b for a specific b.", "The elements of a single column in the matrix."]
+metadata/_custom_type_script = "uid://dadne10e1geqd"
+
+[sub_resource type="Resource" id="Resource_lam_18"]
+script = ExtResource("1_7hrog")
+id = "LAM_18"
+term = "Null Space"
+keyword = "Kernel"
+definition = "The set of all input vectors that a matrix transforms into the zero vector, representing the kernel of the linear transformation and indicating solutions to the homogeneous equation Ax=0."
+simple_terms = "Inputs that map to zero output."
+examples = ["Nul(A)", "Ker(T)", "Kernel"]
+accepted_terms = ["Kernel"]
+difficulty = 3
+related_to = ["Matrix Properties", "Vector Spaces", "Linear Systems", "Transformations"]
+tof_statement = {
+"false": "The null space only contains the zero vector if the matrix is invertible, otherwise it is empty.", 
+"true": "The dimension of the null space (nullity) plus the rank of the matrix equals the number of columns, "
+}
+type_of_information = ["definition", "explain", "apply"]
+clues = ["This is a specific set of input vectors.", "When a matrix acts on these vectors, the output is always zero.", "It's the solution set for Ax=0."]
+distractors = ["The set of all possible output vectors.", "The elements of the zero matrix.", "The space spanned by the row vectors."]
+metadata/_custom_type_script = "uid://dadne10e1geqd"
+
+[sub_resource type="Resource" id="Resource_lam_19"]
+script = ExtResource("1_7hrog")
+id = "LAM_19"
+term = "Eigenvalue"
+keyword = "Scalar factor"
+definition = "A scalar λ such that for a given square matrix A, Ax = λx for some non-zero vector x, indicating how much an eigenvector is scaled by the transformation."
+simple_terms = "Scaling factor for special vectors."
+examples = ["\u03bb=2", "\u03bb=0", "\u03bb=-1"]
+accepted_terms = ["Characteristic Value"]
+difficulty = 3
+related_to = ["Matrix Properties", "Transformations", "Vector Spaces"]
+tof_statement = {
+"false": "Eigenvalues are only useful for determining if a matrix is invertible, having no direct connection t", 
+"true": "Eigenvalues reveal the scaling behavior of a linear transformation along specific directions (eigenv"
+}
+type_of_information = ["definition", "explain", "apply"]
+clues = ["It's a specific scalar number.", "It's associated with a special type of vector for a given matrix.", "When you multiply a matrix by its corresponding special vector, the output is just a scaled version of that vector, with this number as the scale factor."]
+distractors = ["A specific element within the matrix.", "The determinant of the matrix.", "A vector that remains unchanged by a transformation."]
+metadata/_custom_type_script = "uid://dadne10e1geqd"
+
+[sub_resource type="Resource" id="Resource_lam_20"]
+script = ExtResource("1_7hrog")
+id = "LAM_20"
+term = "Eigenvector"
+keyword = "Invariant direction"
+definition = "A non-zero vector x that, when a linear transformation (represented by a matrix A) is applied to it, only changes by a scalar factor (eigenvalue λ), thus preserving its direction."
+simple_terms = "Vector whose direction doesn't change."
+examples = ["v\u2081", "v\u2082", "x"]
+accepted_terms = ["Characteristic Vector"]
+difficulty = 3
+related_to = ["Matrix Properties", "Transformations", "Vector Spaces"]
+tof_statement = {
+"false": "Eigenvectors are any vectors that are orthogonal to the columns of a given matrix, regardless of sca", 
+"true": "Eigenvectors identify the stable directions or axes of stretching/compression within a linear transf"
+}
+type_of_information = ["definition", "explain", "apply"]
+clues = ["This is a special type of vector.", "It's associated with a specific scalar for a given matrix.", "When a matrix multiplies it, its direction doesn't change, only its length."]
+distractors = ["A vector that is always the zero vector.", "A vector composed of all ones.", "The column vector of a matrix that has the largest sum of elements."]
+metadata/_custom_type_script = "uid://dadne10e1geqd"
+
+[sub_resource type="Resource" id="Resource_lam_21"]
+script = ExtResource("1_7hrog")
+id = "LAM_21"
+term = "Linear Transformation"
+keyword = "Mapping"
+definition = "A function that maps vectors from one vector space to another, preserving vector addition and scalar multiplication, and can often be represented by matrix multiplication."
+simple_terms = "Function that moves/scales vectors."
+examples = ["Rotation", "Scaling", "Projection"]
+accepted_terms = ["Linear Map", "Linear Operator"]
+difficulty = 2
+related_to = ["Transformations", "Vector Spaces", "Matrix Operations"]
+tof_statement = {
+"false": "A linear transformation must always map the zero vector to a non-zero vector, indicating a shift in ", 
+"true": "A linear transformation maps the zero vector to the zero vector, a property that stems directly from"
+}
+type_of_information = ["definition", "explain", "apply"]
+clues = ["This is a specific type of function for vectors.", "It follows two main rules: addition and scalar scaling.", "It can be represented by multiplying a matrix by a vector."]
+distractors = ["Any function that takes a vector as input.", "A process that converts a matrix into a scalar.", "An operation that only changes the length of a vector."]
+metadata/_custom_type_script = "uid://dadne10e1geqd"
+
+[sub_resource type="Resource" id="Resource_lam_22"]
+script = ExtResource("1_7hrog")
+id = "LAM_22"
+term = "Augmented Matrix"
+keyword = "Combined"
+definition = "A matrix formed by appending the constant vector of a system of linear equations to the coefficient matrix, useful for solving systems using Gaussian elimination."
+simple_terms = "Coefficients and constants combined."
+examples = ["[A|b]", "[C|d]", "Combined"]
+accepted_terms = []
+difficulty = 2
+related_to = ["Linear Systems", "Matrix Operations", "Matrix Properties"]
+tof_statement = {
+"false": "An augmented matrix is only used for calculating determinants, not for solving systems of equations.", 
+"true": "Using an augmented matrix allows for simultaneous manipulation of both coefficients and constants of"
+}
+type_of_information = ["definition", "explain", "apply"]
+clues = ["This matrix combines two parts of a linear system.", "It's often written with a vertical line.", "It's used when performing Gaussian elimination to solve equations."]
+distractors = ["A matrix that has had a row or column added to it randomly.", "A matrix formed by multiplying two matrices together.", "A matrix with all its elements increased by a constant value."]
+metadata/_custom_type_script = "uid://dadne10e1geqd"
+
+[sub_resource type="Resource" id="Resource_lam_23"]
+script = ExtResource("1_7hrog")
+id = "LAM_23"
+term = "Homogeneous System"
+keyword = "Zero right-hand"
+definition = "A system of linear equations where all constant terms are zero (Ax=0), always having at least the trivial solution (x=0) and potentially non-trivial solutions if the coefficient matrix is singular."
+simple_terms = "System where all equations equal zero."
+examples = ["x+y=0", "2x-z=0", "Zero right-hand"]
+accepted_terms = []
+difficulty = 2
+related_to = ["Linear Systems", "Matrix Properties", "Matrix Operations"]
+tof_statement = {
+"false": "A homogeneous system only has solutions if its coefficient matrix is invertible, otherwise it has no", 
+"true": "A homogeneous system always possesses at least the trivial solution (all variables are zero), as plu"
+}
+type_of_information = ["definition", "explain", "apply"]
+clues = ["This is a specific type of linear equation system.", "All the equations are set to a particular constant value.", "The right-hand side of every equation is zero."]
+distractors = ["A system where all coefficients are one.", "A system with only one variable.", "A system that has no solutions."]
+metadata/_custom_type_script = "uid://dadne10e1geqd"
+
+[sub_resource type="Resource" id="Resource_lam_24"]
+script = ExtResource("1_7hrog")
+id = "LAM_24"
+term = "Non-Homogeneous System"
+keyword = "Non-zero right"
+definition = "A system of linear equations where at least one constant term is non-zero (Ax=b, where b≠0), which may have a unique solution, infinitely many solutions, or no solution."
+simple_terms = "System where not all equations equal zero."
+examples = ["x+y=5", "2x-z=1", "Non-zero right"]
+accepted_terms = []
+difficulty = 2
+related_to = ["Linear Systems", "Matrix Properties", "Matrix Operations"]
+tof_statement = {
+"false": "A non-homogeneous system can only have a unique solution; it never has infinitely many or no solutio", 
+"true": "The solution set of a non-homogeneous system is often a translation of the solution set of its assoc"
+}
+type_of_information = ["definition", "explain", "apply"]
+clues = ["This is a type of linear equation system.", "At least one equation doesn't equal zero.", "The right-hand side vector 'b' is not entirely composed of zeros."]
+distractors = ["A system where all variables are distinct.", "A system that can only be solved using graphical methods.", "A system where all coefficients are different."]
+metadata/_custom_type_script = "uid://dadne10e1geqd"
+
+[sub_resource type="Resource" id="Resource_lam_25"]
+script = ExtResource("1_7hrog")
+id = "LAM_25"
+term = "Diagonal Matrix"
+keyword = "Main diagonal"
+definition = "A square matrix where all entries outside the main diagonal are zero, simplifying calculations like powers and determinants, as its eigenvalues are the diagonal entries."
+simple_terms = "Non-zero only on main diagonal."
+examples = ["diag(1,2,3)", "[[1,0],[0,2]]", "Main diagonal"]
+accepted_terms = []
+difficulty = 2
+related_to = ["Matrix Properties", "Matrix Operations", "Transformations"]
+tof_statement = {
+"false": "The determinant of a diagonal matrix is always zero, regardless of the values on its main diagonal.", 
+"true": "The determinant of a diagonal matrix is simply the product of its diagonal elements, greatly simplif"
+}
+type_of_information = ["definition", "explain", "defined"]
+clues = ["It's a special kind of square matrix.", "Only entries along a specific line can be non-zero.", "All elements not on the main diagonal are zero."]
+distractors = ["A matrix where all elements are the same.", "A matrix with only one row or one column.", "A matrix where every element is a positive number."]
+metadata/_custom_type_script = "uid://dadne10e1geqd"
+
+[sub_resource type="Resource" id="Resource_lam_26"]
+script = ExtResource("1_7hrog")
+id = "LAM_26"
+term = "Symmetric Matrix"
+keyword = "Self-transpose"
+definition = "A square matrix that is equal to its own transpose (A = Aᵀ), meaning elements across the main diagonal are identical (aᵢⱼ = aⱼᵢ), often arising in real-world applications like covariance matrices."
+simple_terms = "Equal to its own transpose."
+examples = ["[[1,2],[2,3]]", "[[4,5,6],[5,7,8],[6,8,9]]", "Self-transpose"]
+accepted_terms = []
+difficulty = 2
+related_to = ["Matrix Properties", "Matrix Operations", "Transformations"]
+tof_statement = {
+"false": "A symmetric matrix always has a determinant of zero, making it non-invertible by definition.", 
+"true": "All eigenvalues of a real symmetric matrix are real, a property fundamental in spectral decompositio"
+}
+type_of_information = ["definition", "explain", "defined"]
+clues = ["It's a type of square matrix.", "It has a specific relationship with its transposed version.", "If you flip it across its main diagonal, it remains unchanged."]
+distractors = ["A matrix where all elements are integers.", "A matrix where all rows are identical.", "A matrix where the sum of each row is zero."]
+metadata/_custom_type_script = "uid://dadne10e1geqd"
+
+[sub_resource type="Resource" id="Resource_lam_27"]
+script = ExtResource("1_7hrog")
+id = "LAM_27"
+term = "Trace of a Matrix"
+keyword = "Sum diagonal"
+definition = "The sum of the elements on the main diagonal of a square matrix, which is invariant under similarity transformations and equals the sum of its eigenvalues."
+simple_terms = "Sum of main diagonal entries."
+examples = ["tr(A)", "Tr(B)", "Sum diagonal"]
+accepted_terms = ["Trace"]
+difficulty = 2
+related_to = ["Matrix Properties", "Transformations", "Matrix Operations"]
+tof_statement = {
+"false": "The trace of a matrix is equal to its determinant, providing a quick way to check invertibility.", 
+"true": "The trace of a matrix is invariant under cyclic permutations of matrix products, meaning tr(ABC) = t"
+}
+type_of_information = ["definition", "explain", "apply"]
+clues = ["This is a scalar value derived from a square matrix.", "It involves a specific set of elements within the matrix.", "You calculate it by adding up the entries from the top-left to the bottom-right."]
+distractors = ["The product of the diagonal elements.", "The sum of all elements in the matrix.", "The largest element in the matrix."]
+metadata/_custom_type_script = "uid://dadne10e1geqd"
+
+[sub_resource type="Resource" id="Resource_lam_28"]
+script = ExtResource("1_7hrog")
+id = "LAM_28"
+term = "Matrix Invertibility"
+keyword = "Solvable"
+definition = "The property of a square matrix indicating whether an inverse matrix exists, which is true if and only if its determinant is non-zero, allowing for unique solutions to Ax=b."
+simple_terms = "Can it be 'undone'?"
+examples = ["det(A)\u22600", "A\u207b\u00b9 exists", "Solvable"]
+accepted_terms = []
+difficulty = 2
+related_to = ["Matrix Properties", "Linear Systems", "Matrix Operations"]
+tof_statement = {
+"false": "A matrix is invertible if all its elements are non-zero, irrespective of its determinant or linear i", 
+"true": "A matrix is invertible if and only if its null space contains only the zero vector, meaning Ax=0 has"
+}
+type_of_information = ["definition", "explain", "apply"]
+clues = ["This is a crucial property for square matrices.", "It tells you if you can 'divide' by the matrix.", "It's directly linked to whether the determinant is zero or not."]
+distractors = ["The ability of a matrix to be added to another.", "The property of a matrix having all positive entries.", "The capacity of a matrix to represent a rotation."]
+metadata/_custom_type_script = "uid://dadne10e1geqd"
+
+[sub_resource type="Resource" id="Resource_lam_29"]
+script = ExtResource("1_7hrog")
+id = "LAM_29"
+term = "Orthogonal Matrix"
+keyword = "Rotation"
+definition = "A square matrix whose inverse is equal to its transpose (A⁻¹ = Aᵀ), implying that its columns (and rows) form an orthonormal basis, preserving lengths and angles in transformations."
+simple_terms = "Inverse is its transpose."
+examples = ["Rotation matrix", "Reflection matrix", "Rotation"]
+accepted_terms = []
+difficulty = 3
+related_to = ["Matrix Properties", "Transformations", "Vector Spaces"]
+tof_statement = {
+"false": "Orthogonal matrices are primarily used for scaling vectors, significantly changing their lengths and", 
+"true": "Orthogonal matrices represent rigid transformations like rotations and reflections, preserving geome"
+}
+type_of_information = ["definition", "explain", "apply"]
+clues = ["This is a special square matrix with a unique inverse.", "Its columns are all unit vectors and are perpendicular to each other.", "Its inverse is simply its transpose."]
+distractors = ["A matrix with only zeros on its main diagonal.", "A matrix whose determinant is always one.", "A matrix composed only of positive entries."]
+metadata/_custom_type_script = "uid://dadne10e1geqd"
+
+[sub_resource type="Resource" id="Resource_lam_30"]
+script = ExtResource("1_7hrog")
+id = "LAM_30"
+term = "Vector Space"
+keyword = "Set of vectors"
+definition = "A set of vectors equipped with two operations (vector addition and scalar multiplication) that satisfy a specific list of axioms, allowing for linear combinations and transformations within the space."
+simple_terms = "Collection of vectors with rules."
+examples = ["R\u00b2", "R\u00b3", "P\u2083 (polynomials)"]
+accepted_terms = ["Linear Space"]
+difficulty = 2
+related_to = ["Vector Spaces", "Transformations", "Matrix Properties"]
+tof_statement = {
+"false": "A vector space can exist without containing the zero vector, as long as it satisfies the other axiom", 
+"true": "A vector space must contain the zero vector, as it is a consequence of the closure under scalar mult"
+}
+type_of_information = ["definition", "explain", "defined"]
+clues = ["This is a fundamental concept in linear algebra.", "It's a collection of mathematical objects.", "It defines rules for adding and scaling its elements."]
+distractors = ["Any set of numbers.", "A single vector with multiple components.", "A matrix that can be inverted."]
+metadata/_custom_type_script = "uid://dadne10e1geqd"
+
+[sub_resource type="Resource" id="Resource_lam_31"]
+script = ExtResource("1_7hrog")
+id = "LAM_31"
+term = "Subspace"
+keyword = "Subset"
+definition = "A subset of a vector space that is itself a vector space under the same operations, requiring it to contain the zero vector and be closed under vector addition and scalar multiplication."
+simple_terms = "Smaller vector space within a larger one."
+examples = ["Line through origin", "Plane through origin", "Subset"]
+accepted_terms = ["Linear Subspace"]
+difficulty = 2
+related_to = ["Vector Spaces", "Matrix Properties", "Transformations"]
+tof_statement = {
+"false": "A subspace does not need to contain the zero vector, as long as it is closed under addition and scal", 
+"true": "For a subset to be a subspace, it must pass through the origin (contain the zero vector), as this en"
+}
+type_of_information = ["definition", "explain", "apply"]
+clues = ["This is a part of a larger mathematical collection.", "It must satisfy the same fundamental properties as its parent.", "It must contain the zero vector and be closed under the two basic operations."]
+distractors = ["Any collection of vectors that are linearly independent.", "A matrix with fewer rows than columns.", "A set of vectors that are all orthogonal to each other."]
+metadata/_custom_type_script = "uid://dadne10e1geqd"
+
+[sub_resource type="Resource" id="Resource_lam_32"]
+script = ExtResource("1_7hrog")
+id = "LAM_32"
+term = "Basis of a Vector Space"
+keyword = "Spanning set"
+definition = "A set of linearly independent vectors within a vector space that can span the entire space, meaning every vector in the space can be uniquely expressed as a linear combination of these basis vectors."
+simple_terms = "Minimal set of vectors to build space."
+examples = ["{e\u2081, e\u2082}", "{1, x, x\u00b2}", "Spanning set"]
+accepted_terms = ["Basis"]
+difficulty = 3
+related_to = ["Vector Spaces", "Matrix Properties", "Transformations"]
+tof_statement = {
+"false": "A basis can have linearly dependent vectors, as long as they collectively span the entire vector spa", 
+"true": "Every vector in a given vector space can be uniquely represented as a linear combination of its basi"
+}
+type_of_information = ["definition", "explain", "apply"]
+clues = ["This is a special collection of vectors for a space.", "Its elements must be independent of each other.", "Any vector in the space can be formed by combining these specific elements."]
+distractors = ["Any set of vectors that includes the zero vector.", "A set of vectors that are all orthogonal.", "A single vector that can be scaled to reach any point in the space."]
+metadata/_custom_type_script = "uid://dadne10e1geqd"
+
+[resource]
+script = ExtResource("2_bkryn")
+lesson_title = "Linear Algebra Matrices"
+lesson_items = Array[ExtResource("1_7hrog")]([SubResource("Resource_lam_01"), SubResource("Resource_lam_02"), SubResource("Resource_lam_03"), SubResource("Resource_lam_04"), SubResource("Resource_lam_05"), SubResource("Resource_lam_06"), SubResource("Resource_lam_07"), SubResource("Resource_lam_08"), SubResource("Resource_lam_09"), SubResource("Resource_lam_10"), SubResource("Resource_lam_11"), SubResource("Resource_lam_12"), SubResource("Resource_lam_13"), SubResource("Resource_lam_14"), SubResource("Resource_lam_15"), SubResource("Resource_lam_16"), SubResource("Resource_lam_17"), SubResource("Resource_lam_18"), SubResource("Resource_lam_19"), SubResource("Resource_lam_20"), SubResource("Resource_lam_21"), SubResource("Resource_lam_22"), SubResource("Resource_lam_23"), SubResource("Resource_lam_24"), SubResource("Resource_lam_25"), SubResource("Resource_lam_26"), SubResource("Resource_lam_27"), SubResource("Resource_lam_28"), SubResource("Resource_lam_29"), SubResource("Resource_lam_30"), SubResource("Resource_lam_31"), SubResource("Resource_lam_32")])
+metadata/_custom_type_script = "uid://7kxviye2bk4p"

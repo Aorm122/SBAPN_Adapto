@@ -20,8 +20,8 @@ API_KEY = os.environ.get("GEMINI_API_KEY", "")
 if not API_KEY:
     print("Error: GEMINI_API_KEY is not set. Add it to adapto/.env or set it as an environment variable.")
     sys.exit(1)
-MODEL = "gemini-2.5-flash-lite"
-PDF_MODEL = "gemini-2.5-flash-lite"  # same model used for prompt-based generation
+MODEL = "gemini-2.5-flash"
+PDF_MODEL = "gemini-2.5-flash"  # same model used for prompt-based generation
 OUTPUT_DIR = "Lessons/lesson_files"
 PREFERRED_DEFINITION_LEN = 120
 MAX_DEFINITION_LEN = 240
@@ -39,9 +39,15 @@ SEED_EXAMPLES = [
 ]
 
 
-GEMINI_PROMPT_TEMPLATE = """Create exactly {count} x 2 lesson items about "{topic}" using this strict JSON schema and constraints.
+GEMINI_PROMPT_TEMPLATE = """You are an expert educator. Create exactly {count} x 2 lesson items about "{topic}" using this strict JSON schema.
 
 Return ONLY valid JSON that matches the schema exactly. Do NOT include markdown, commentary, or extra fields.
+
+BLOOM'S TAXONOMY REQUIREMENT:
+- Target "Application" and "Analysis" levels, NOT just "Knowledge" (recall).
+- Definitions must explain HOW or WHY, not just WHAT.
+- Distractors must reflect COMMON MISCONCEPTIONS, not random wrong terms.
+- Clues must guide thinking without giving the answer away.
 
 SCHEMA (JSON):
 {{
@@ -50,28 +56,40 @@ SCHEMA (JSON):
             "id": "string (format: ABC_01 where ABC = first 3 letters of topic uppercase)",
             "term": "string (3-34 chars max, no acronyms, alphanumeric+space+hyphen only)",
             "keyword": "string (3-15 chars, single concept)",
-            "definition": "string (prefer 60-120 chars, single-line, plain text; allowed up to 240 chars)",
-            "simple_terms": "string (20-60 chars, plain text)",
+            "definition": "string (prefer 60-120 chars, single-line, plain text; allowed up to 240 chars; explain HOW/WHY not just WHAT)",
+            "simple_terms": "string (20-60 chars, plain text, do not use the term itself)",
             "examples": ["string", "string", "string"],
-            "accepted_terms": ["string (0-3 items; acronyms or synonyms only)"] ,
+            "accepted_terms": ["string (0-3 items; acronyms or synonyms only)"],
             "difficulty": 1,
-            "related_to": ["string (reuse 3-5 same category tags across ALL items)"] ,
-            "type_of_information": ["definition","explain","apply"],
-            "tof_statement": {{"true": "string", "false": "string"}}
+            "related_to": ["string (reuse 3-5 same category tags across ALL items)"],
+            "type_of_information": ["definition", "explain", "apply"],
+            "tof_statement": {{"true": "string", "false": "string"}},
+            "clues": [
+                "string (vague/conceptual clue — does NOT name the term or give the answer)",
+                "string (medium clue — narrower hint, still no direct answer)",
+                "string (highly specific clue — strong hint but still requires thinking)"
+            ],
+            "distractors": [
+                "string (plausible wrong answer targeting a COMMON MISCONCEPTION about this term)",
+                "string (another plausible distractor based on a different misconception)",
+                "string (a third distractor; superficially similar but incorrect)"
+            ]
         }}
     ]
 }}
 
 STRICT RULES:
-1. `term` MUST be between 3 and 34 characters. No all-uppercase acronyms in `term` (if a concept is commonly an acronym, place it in `accepted_terms` instead), do not append any form of acronym in the term.
-2. `definition` should be concise (aim 60-120 characters). Longer definitions are allowed up to 240 characters when necessary; avoid newlines or markdown.
-3. `simple_terms` 20-60 characters. do not use the term itself.
+1. `term` MUST be between 3 and 34 characters. No all-uppercase acronyms in `term`; place acronyms in `accepted_terms`.
+2. `definition` should explain HOW or WHY (aim 60-120 chars, max 240 chars); avoid newlines or markdown.
+3. `simple_terms` 20-60 characters. Do NOT use the term itself.
 4. `examples` MUST contain exactly 3 items, each 5-25 chars.
-5. `accepted_terms` OPTIONAL, max 5 items; use only for acronyms/variants/synonyms/plurals/with or withour hyphen and the like.
+5. `accepted_terms` OPTIONAL, max 5 items; use only for acronyms/variants/synonyms/plurals.
 6. `type_of_information` MUST contain 3-5 items from: definition, explain, apply, list, defined.
-7. `related_to` should reuse the same 3-5 category tags across all items in this response.
-8. `id` should follow the ABC_01 numbering pattern (ABC = first 3 letters of the topic, uppercase).
-9. 'keyword' does not use the term itself.
+7. `related_to` should reuse the same 3-5 category tags across all items.
+8. `id` should follow the ABC_01 numbering pattern.
+9. `keyword` must NOT be the term itself.
+10. `clues` MUST contain exactly 3 strings, ordered from vague to specific. NEVER reveal the term directly.
+11. `distractors` MUST contain exactly 3 strings. Each must be a plausible wrong answer, NOT a random term.
 SEED STYLE EXAMPLES (follow tone/format):
 {seed_json}
 
@@ -280,6 +298,27 @@ def normalize_items(topic: str, items: list) -> list:
             tof_false = f"{item['term']} does not relate to {', '.join(item.get('related_to', []))}."
         item["tof_statement"] = {"true": tof_true[:100], "false": tof_false[:100]}
 
+        # clues: ensure exactly 3 progressive strings
+        raw_clues = item.get("clues", []) or []
+        clues = [str(c).replace("\n", " ").strip() for c in raw_clues if str(c).strip() != ""]
+        # Pad if fewer than 3
+        while len(clues) < 3:
+            level = len(clues)
+            if level == 0:
+                clues.append(f"It is a concept related to {', '.join(item.get('related_to', [topic])[:2])}.")
+            elif level == 1:
+                clues.append(f"Think about {item.get('keyword', 'the keyword')} and how it applies to {topic}.")
+            else:
+                clues.append(f"The term starts with '{item['term'][0]}' and has {len(item['term'])} letters.")
+        item["clues"] = clues[:3]
+
+        # distractors: ensure 2-3 plausible wrong answers
+        raw_dist = item.get("distractors", []) or []
+        distractors = [str(d).replace("\n", " ").strip() for d in raw_dist if str(d).strip() != ""]
+        # Remove any distractor that exactly matches the term (case-insensitive)
+        distractors = [d for d in distractors if d.lower() != item["term"].lower()]
+        item["distractors"] = distractors[:4]  # max 4
+
         # id generation: ABC_01 style
         item_id = item.get("id", "")
         if not item_id or not isinstance(item_id, str):
@@ -288,18 +327,30 @@ def normalize_items(topic: str, items: list) -> list:
 
     return items
 
-def call_gemini(topic: str, count: int) -> list:
+def call_gemini(topic: str, count: int, max_retries: int = 5) -> list:
+    import time
     prompt = GEMINI_PROMPT_TEMPLATE.format(count=count, topic=topic, seed_json=json.dumps(SEED_EXAMPLES, indent=2))
     body = {
         "contents": [{"parts": [{"text": prompt}]}],
         "generationConfig": {"temperature": 0.7, "response_mime_type": "application/json"}
     }
     url = f"https://generativelanguage.googleapis.com/v1beta/models/{MODEL}:generateContent?key={API_KEY}"
-    resp = requests.post(url, json=body)
-    if resp.status_code != 200:
-        print(f"HTTP {resp.status_code} error. Response body:")
+
+    # Retry with exponential backoff for transient server errors (503, 429, 500).
+    retry_codes = {429, 500, 503}
+    wait = 10  # seconds; doubles each retry
+    for attempt in range(1, max_retries + 1):
+        resp = requests.post(url, json=body)
+        if resp.status_code == 200:
+            break
+        print(f"HTTP {resp.status_code} error (attempt {attempt}/{max_retries}). Response body:")
         print(resp.text)
-    resp.raise_for_status()
+        if resp.status_code not in retry_codes or attempt == max_retries:
+            resp.raise_for_status()
+        print(f"Retrying in {wait}s...")
+        time.sleep(wait)
+        wait = min(wait * 2, 120)  # cap at 2 minutes
+
     root = resp.json()
     text_part = root["candidates"][0]["content"]["parts"][0]["text"]
     items = json.loads(text_part)["items"]
@@ -308,6 +359,7 @@ def call_gemini(topic: str, count: int) -> list:
     items = normalize_items(topic, items)
 
     return items
+
 
 def sanitize_id(s: str) -> str:
     return s.replace(" ", "_").replace(":", "").replace("/", "_").lower()
@@ -349,6 +401,11 @@ def write_tres(topic: str, items: list, out_path: str):
         lines.append('}')
         toi = item.get("type_of_information", ["definition"])
         lines.append(f'type_of_information = {json.dumps(toi)}')
+        # New fields: clues and distractors
+        clues = item.get("clues", [])
+        lines.append(f'clues = {json.dumps(clues)}')
+        distractors = item.get("distractors", [])
+        lines.append(f'distractors = {json.dumps(distractors)}')
         lines.append('metadata/_custom_type_script = "uid://dadne10e1geqd"')
         lines.append('')
 
@@ -388,7 +445,14 @@ if __name__ == "__main__":
         folder = folder_arg if folder_arg else pdf_name
 
         # Fixed type_of_information in prompt to request 3 distinct categories
-        pdf_prompt = f"""Analyze this PDF document and create 60 or more lesson items (depending on how much possible content there is to create, create as much as possible, covering all bases) based on its content.
+        pdf_prompt = f"""You are an expert educator. Analyze this PDF document and create 60 or more lesson items based on its content (cover as much content as possible).
+
+BLOOM'S TAXONOMY REQUIREMENT:
+- Target "Application" and "Analysis" levels, NOT just "Knowledge" (recall).
+- Definitions must explain HOW or WHY, not just WHAT.
+- Distractors must reflect COMMON MISCONCEPTIONS, not random wrong terms.
+- Clues must guide thinking without giving the answer away directly.
+
 Return ONLY valid JSON, no markdown fences.
 Schema:
 {{
@@ -398,8 +462,8 @@ Schema:
             "id": "string",
             "term": "string (3-34 chars max, no acronyms, alphanumeric+space+hyphen only)",
             "keyword": "string",
-            "definition": "string",
-            "simple_terms": "string",
+            "definition": "string (explain HOW or WHY, not just WHAT)",
+            "simple_terms": "string (do not use the term itself)",
             "examples": ["string", "string", "string"],
             "accepted_terms": ["string", "string"],
             "difficulty": 1,
@@ -408,15 +472,27 @@ Schema:
             "tof_statement": {{
                 "true": "string",
                 "false": "string"
-            }}
+            }},
+            "clues": [
+                "string (vague/conceptual clue, does NOT reveal the term)",
+                "string (medium clue, narrower hint)",
+                "string (highly specific clue, still requires thinking)"
+            ],
+            "distractors": [
+                "string (plausible wrong answer targeting a common misconception)",
+                "string (another plausible distractor)",
+                "string (third distractor, superficially similar but incorrect)"
+            ]
         }}
     ]
 }}
 
 Rules:
 - `term` must be 3-34 chars and use only letters, numbers, spaces, and hyphens.
+- Acronyms go in `accepted_terms`, NOT in `term`.
+- `clues` must have exactly 3 items, ordered vague to specific. NEVER reveal the term directly.
+- `distractors` must have exactly 3 plausible wrong answers (NOT random terms).
 - Return a JSON object only.
-- terms must not have acronyms accompanying them or with parenthesis (acronyms), instead acronyms, plurals and other similar will be at accepted terms
 """
 
         body = {

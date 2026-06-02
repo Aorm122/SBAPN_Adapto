@@ -33,6 +33,8 @@ var adaptive_recorded := false
 var stats_recorded := false
 var current_streak := 0
 var max_streak := 0
+## Accumulated score for this session; computed per-question with time bonus.
+var session_score: float = 0.0
 
 func _ready() -> void:
 	# Load the selected lesson, fall back to OOP if none chosen
@@ -138,24 +140,25 @@ func _on_option2_pressed() -> void:
 	answer_check()
 
 func find_related_or_random_term() -> String:
-	# Try to find a term with shared related_to values
+	# Prefer AI-generated plausible distractors if available.
+	var distractors = current_item.get("distractors") if current_item.has_method("get") else null
+	if typeof(distractors) == TYPE_ARRAY and not distractors.is_empty():
+		return str(distractors[randi() % distractors.size()])
+
+	# Fallback 1: find a term with shared related_to values
 	var candidates = []
-	
 	for item in lesson.lesson_items:
 		if item.id == current_item.id:
 			continue  # Skip the current item
-		
-		# Check if they share any related_to values
 		for related in current_item.related_to:
 			if related in item.related_to:
 				candidates.append(item.term)
 				break
-	
-	#random related term
+
+	# Fallback 2: random term
 	if not candidates.is_empty():
 		return candidates[randi() % candidates.size()]
-	
-	#random term
+
 	var random_item = lesson.get_random_lesson_item()
 	while random_item.id == current_item.id:
 		random_item = lesson.get_random_lesson_item()
@@ -177,6 +180,10 @@ func answer_check() -> void:
 	if is_correct:
 		UserStats.game_stats["game1"]["correct"][question_type] += 1
 		correct_items += 1
+		# Time-bonus multiplier: fast answers earn full points; slow/guessed answers earn little.
+		# Base reward is 30 pts (low, since Game 1 is Easy difficulty).
+		var time_bonus_mult := clampf(float(time_remaining) / float(max_time), 0.1, 1.0)
+		session_score += 30.0 * time_bonus_mult
 		player_sprite.play("attack")
 		enemy_sprite.modulate = Color(1, 0, 0, 0.75)
 		await get_tree().create_timer(0.1).timeout
@@ -309,14 +316,8 @@ func _calculate_accuracy() -> float:
 
 
 func _calculate_score() -> float:
-	var total_correct := 0
-	var total_incorrect := 0
-	var total_timeout := 0
-	for i in range(4):
-		total_correct += int(UserStats.game_stats["game1"]["correct"][i])
-		total_incorrect += int(UserStats.game_stats["game1"]["incorrect"][i])
-		total_timeout += int(UserStats.game_stats["game1"]["timeout"][i])
-	return (float(total_correct) * 100.0) - (float(total_incorrect) * 25.0) - (float(total_timeout) * 20.0)
+	# Score is accumulated per-question via time-bonus; retrieve session total.
+	return float(UserStats.game_stats["game1"].get("total_score", 0))
 
 
 func _calculate_average_time() -> float:
@@ -366,7 +367,7 @@ func _record_user_stats() -> void:
 	var avg_time_per_item = float(total_time) / float(total_questions) if total_questions > 0 else 0.0
 	UserStats.game_stats["game1"]["questions_answered"] = total_questions
 	UserStats.game_stats["game1"]["questions_correct"] = correct_items
-	UserStats.game_stats["game1"]["total_score"] = correct_items * 100
+	UserStats.game_stats["game1"]["total_score"] = int(session_score)
 	UserStats.game_stats["game1"]["time_taken"] = int(total_time)
 	UserStats.game_stats["game1"]["item_times"] = [avg_time_per_item]
 
@@ -395,5 +396,5 @@ func _record_adaptive_performance() -> void:
 		accuracy = (float(total_correct) / float(total_questions)) * 100.0
 
 	var completion_ratio := clampf(float(correct_items) / 5.0, 0.0, 1.0)
-	var raw_score := (float(total_correct) * 100.0) - (float(total_incorrect) * 25.0) - (float(total_timeout) * 20.0)
+	var raw_score := session_score
 	UserStats.record_adaptive_result("game1", raw_score, accuracy, total_time, completion_ratio)

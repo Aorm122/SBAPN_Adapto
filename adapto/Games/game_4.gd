@@ -33,6 +33,10 @@ var matched_pairs := 0
 var total_pairs := 0
 var wrong_attempts := 0
 var hints_used := 0
+## Combo multiplier: increases with each consecutive correct match; resets on any wrong match.
+var combo_multiplier: float = 1.0
+const COMBO_INCREMENT := 0.5
+const BASE_PAIR_SCORE := 120
 var input_locked := false
 var game_finished := false
 var adaptive_recorded := false
@@ -209,21 +213,21 @@ func _check_selected_pair() -> void:
 		current_streak += 1
 		max_streak = maxi(max_streak, current_streak)
 
-		var time_bonus := maxi(0, 20 - int((ROUND_TIME - time_remaining) / 6.0))
-		score += 100 + time_bonus
-		if current_streak > 0 and current_streak % 3 == 0:
-			score += 75
+		# Combo multiplier: grows with each consecutive correct match.
+		combo_multiplier = 1.0 + (current_streak - 1) * COMBO_INCREMENT
+		var pair_score := int(round(float(BASE_PAIR_SCORE) * combo_multiplier))
+		score += pair_score
 
-		feedback_label.text = "✅ Match!"
+		feedback_label.text = "✅ Match! x%.1f combo (+%d)" % [combo_multiplier, pair_score]
 		# Play success sound, pass current streak to scale pitch
 		if SFXManager != null:
 			SFXManager.play_success(current_streak)
 	else:
 		wrong_attempts += 1
 		current_streak = 0
-		score -= 35
-		feedback_label.text = "❌ Not a match."
-		# Play fail sound
+		# Reset combo multiplier on any wrong match
+		combo_multiplier = 1.0
+		feedback_label.text = "❌ Not a match. Combo reset!"
 		if SFXManager != null:
 			SFXManager.play_fail()
 		await get_tree().create_timer(0.4).timeout
@@ -380,10 +384,10 @@ func _end_game(won: bool) -> void:
 	
 	if won:
 		dialog_title = "Round Complete"
-		dialog_text = "Great job!\nScore: %d\nMatched all %d pairs." % [score, total_pairs]
+		dialog_text = "Great job!\nScore: %d\nMatched all %d pairs.\nMax Streak: %d" % [score, total_pairs, max_streak]
 	else:
 		dialog_title = "Time Up"
-		dialog_text = "Time's up!\nScore: %d\nMatched %d/%d pairs." % [score, matched_pairs, total_pairs]
+		dialog_text = "Time's up!\nScore: %d\nMatched %d/%d pairs.\nMax Streak: %d" % [score, matched_pairs, total_pairs, max_streak]
 		
 	var end_modal = preload("res://Games/game_end_modal.tscn").instantiate()
 	add_child(end_modal)

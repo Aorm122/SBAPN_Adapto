@@ -6,11 +6,12 @@ extends Control
 
 const ROUND_TIME := 150
 const TARGET_WORDS := 6
-const PENALTY_MISS := 20
 const PENALTY_HINT := 50
 const PENALTY_SKIP := 100
-const REWARD_LETTER := 15
-const REWARD_WORD := 150
+## Flat reward per word completed; multiplied by lives fraction (see WORD_MAX_LIVES).
+const WORD_FLAT_REWARD := 200
+## Max lives (wrong guesses allowed) per word before it is auto-failed.
+const WORD_MAX_LIVES := 6
 
 @onready var game_timer: Timer = $GameTimer
 @onready var score_label: Label = $MainVBox/TopBar/TopBarHBox/ScoreLabel
@@ -31,6 +32,9 @@ const REWARD_WORD := 150
 @onready var hint_btn: Button = $MainVBox/BottomBar/BottomHBox/HintBtn
 @onready var skip_btn: Button = $MainVBox/BottomBar/BottomHBox/SkipBtn
 @onready var end_dialog: AcceptDialog = $EndDialog
+
+## Heart display label — created dynamically in _ready() to show remaining lives as heart symbols.
+var lives_label: Label = null
 
 @onready var dialogasset = $Dialog
 @onready var letterused = $LetterUsed
@@ -55,6 +59,8 @@ var game_finished := false
 var adaptive_recorded := false
 var stats_recorded := false
 var hint_used_on_current_word := false
+## Per-word lives remaining (resets each new word).
+var word_lives_remaining: int = WORD_MAX_LIVES
 
 var keyboard_buttons: Dictionary = {}
 
@@ -78,6 +84,15 @@ func _ready() -> void:
 		return
 
 	_build_keyboard()
+	# Dynamically create the lives display label if not in scene tree.
+	var top_bar_hbox = $MainVBox/TopBar/TopBarHBox
+	lives_label = Label.new()
+	lives_label.name = "LivesLabel"
+	var lbl_font = preload("res://Assets/Fonts/Silkscreen-Regular.ttf")
+	lives_label.add_theme_font_override("font", lbl_font)
+	lives_label.add_theme_font_size_override("font_size", 18)
+	top_bar_hbox.add_child(lives_label)
+	_update_lives_display()
 	_start_word(0)
 	_update_hud()
 
@@ -155,6 +170,9 @@ func _start_word(idx: int) -> void:
 	current_definition = game_data[idx]["def"]
 	guessed_letters.clear()
 	hint_used_on_current_word = false
+	# Reset per-word lives
+	word_lives_remaining = WORD_MAX_LIVES
+	_update_lives_display()
 	
 	input_locked = false
 	feedback_label.text = ""
@@ -207,8 +225,6 @@ func _on_key_pressed(letter: String, from_hint := false) -> void:
 	if is_correct:
 		letterused.modulate = Color(0, 0, 0) # black
 		btn.modulate = Color(0.4, 1.0, 0.4) # Greenish for correct
-		if not from_hint:
-			score += REWARD_LETTER
 		current_streak += 1
 		max_streak = maxi(max_streak, current_streak)
 		feedback_label.text = "Hint revealed a letter." if from_hint else "Correct!"
@@ -221,14 +237,22 @@ func _on_key_pressed(letter: String, from_hint := false) -> void:
 	else:
 		letterused.modulate = Color(1, 0, 0) # red
 		btn.modulate = Color(1.0, 0.4, 0.4) # Reddish for incorrect
-		score = maxi(0, score - PENALTY_MISS)
 		current_streak = 0
 		mistakes_total += 1
-		feedback_label.text = "Miss!"
+		word_lives_remaining = maxi(0, word_lives_remaining - 1)
+		_update_lives_display()
+		feedback_label.text = "Miss! (%d lives left)" % word_lives_remaining
 		# reset streak and play fail SFX
 		current_streak = 0
 		if SFXManager != null:
 			SFXManager.play_fail()
+		# Auto-fail the word when all lives are exhausted
+		if word_lives_remaining <= 0 and not input_locked:
+			input_locked = true
+			feedback_label.text = "Out of lives! Word was: %s" % current_term
+			await get_tree().create_timer(1.5).timeout
+			_word_completed(false)
+			return
 		
 	_update_word_display()
 	_update_hud()
@@ -268,13 +292,18 @@ func _on_skip_pressed() -> void:
 	_word_completed(false)
 
 func _word_completed(success: bool) -> void:
-	
-	if success and not hint_used_on_current_word:
-		score += REWARD_WORD
-		feedback_label.text = "Excellent! +%d" % REWARD_WORD
-	elif success:
-		feedback_label.text = "Word completed with a hint. No completion bonus."
-		
+	if success:
+		# Flat reward × (lives remaining / max lives) — flawless = 100%
+		var lives_fraction := clampf(float(word_lives_remaining) / float(WORD_MAX_LIVES), 0.0, 1.0)
+		var word_reward := int(round(float(WORD_FLAT_REWARD) * lives_fraction))
+		if word_reward > 0:
+			score += word_reward
+			if word_lives_remaining == WORD_MAX_LIVES:
+				feedback_label.text = "Flawless! +%d" % word_reward
+			else:
+				feedback_label.text = "Word completed! +%d (%d/%d lives)" % [word_reward, word_lives_remaining, WORD_MAX_LIVES]
+		else:
+			feedback_label.text = "Word completed (no lives left, no bonus)."
 	_update_hud()
 	await get_tree().create_timer(1.5).timeout
 	dialogasset.visible = false
@@ -296,6 +325,15 @@ func _update_hud() -> void:
 	var d_size = game_data.size() if game_data != null else 0
 	progress_label.text = "Words: %d/%d" % [current_word_index, d_size]
 	mistakes_label.text = "Misses: %d" % mistakes_total
+	_update_lives_display()
+
+func _update_lives_display() -> void:
+	if lives_label == null:
+		return
+	var hearts := ""
+	for i in range(WORD_MAX_LIVES):
+		hearts += "❤️" if i < word_lives_remaining else "🖤"
+	lives_label.text = hearts
 
 func _disable_gameplay() -> void:
 	input_locked = true

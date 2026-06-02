@@ -1,0 +1,650 @@
+[gd_resource type="Resource" script_class="Lesson" load_steps=34 format=3 uid="uid://ypdtd7s5ls5cy"]
+
+[ext_resource type="Script" uid="uid://dadne10e1geqd" path="res://Lessons/lesson_item.gd" id="1_7hrog"]
+[ext_resource type="Script" uid="uid://7kxviye2bk4p" path="res://Lessons/lesson.gd" id="2_bkryn"]
+
+[sub_resource type="Resource" id="Resource_uml_01"]
+script = ExtResource("1_7hrog")
+id = "UML_01"
+term = "UML Standard"
+keyword = "Language"
+definition = "A standardized visual language used to specify, visualize, construct, and document the artifacts of a software-intensive system, providing a common blueprint for development teams."
+simple_terms = "Visual blueprint for building software systems."
+examples = ["System architecture", "Requirements doc", "Design model"]
+accepted_terms = ["Unified Modeling Language"]
+difficulty = 1
+related_to = ["UML Diagrams", "Software Design", "Modeling Concepts"]
+tof_statement = {
+"false": "UML primarily generates executable code directly from diagrams.", 
+"true": "UML helps teams understand complex systems by providing a common visual language."
+}
+type_of_information = ["definition", "explain", "apply"]
+clues = ["It's a common language for system blueprints.", "It helps teams communicate complex software ideas visually.", "Think of it as the agreed-upon way to draw software designs."]
+distractors = ["A programming language for system implementation.", "A project management methodology for software teams.", "A testing framework for validating software functionality."]
+metadata/_custom_type_script = "uid://dadne10e1geqd"
+
+[sub_resource type="Resource" id="Resource_uml_02"]
+script = ExtResource("1_7hrog")
+id = "UML_02"
+term = "Software Model"
+keyword = "Abstraction"
+definition = "An abstraction of a software system that represents its structure, behavior, and architecture, allowing developers to understand and reason about complex systems before implementation."
+simple_terms = "Simplified representation of a complex system."
+examples = ["Class relationships", "User flows", "Deployment map"]
+accepted_terms = ["System Model", "Design Model"]
+difficulty = 1
+related_to = ["UML Diagrams", "Software Design", "Modeling Concepts"]
+tof_statement = {
+"false": "A software model is primarily used to directly debug running code.", 
+"true": "Creating a software model helps identify potential design flaws early in the development cycle."
+}
+type_of_information = ["definition", "explain", "apply"]
+clues = ["It simplifies reality to focus on key aspects.", "Developers use it to plan and understand systems before building.", "It's a conceptual representation, not the actual code."]
+distractors = ["The final executable code of a system.", "A database containing all system requirements.", "A document outlining project management tasks."]
+metadata/_custom_type_script = "uid://dadne10e1geqd"
+
+[sub_resource type="Resource" id="Resource_uml_03"]
+script = ExtResource("1_7hrog")
+id = "UML_03"
+term = "UML Diagram"
+keyword = "Visualization"
+definition = "A visual representation within a UML model that illustrates specific aspects of a system, enabling stakeholders to grasp complex relationships and behaviors quickly."
+simple_terms = "Picture showing part of a software design."
+examples = ["Class", "Sequence", "Use Case"]
+accepted_terms = ["UML Chart"]
+difficulty = 1
+related_to = ["UML Diagrams", "Software Design", "Modeling Concepts"]
+tof_statement = {
+"false": "UML diagrams are primarily for generating user interface mockups.", 
+"true": "UML diagrams help clarify how different parts of a system interact by showing relationships visually"
+}
+type_of_information = ["definition", "explain", "apply"]
+clues = ["It's a graphical view of a system's structure or behavior.", "You draw these to communicate design ideas.", "Think of it as a specific drawing type within the overall blueprint."]
+distractors = ["A written specification of system requirements.", "A project timeline showing task dependencies.", "A spreadsheet tracking software bugs."]
+metadata/_custom_type_script = "uid://dadne10e1geqd"
+
+[sub_resource type="Resource" id="Resource_uml_04"]
+script = ExtResource("1_7hrog")
+id = "UML_04"
+term = "Model Element"
+keyword = "Building Block"
+definition = "A fundamental constituent of a UML model, representing a specific concept such as a class, object, or interaction, used to construct meaningful diagrams."
+simple_terms = "Basic piece used to build a UML diagram."
+examples = ["Class", "Actor", "Message"]
+accepted_terms = []
+difficulty = 1
+related_to = ["UML Diagrams", "Software Design", "Modeling Concepts"]
+tof_statement = {
+"false": "Model elements are only relevant for coding, not for design.", 
+"true": "Identifying key model elements is the first step in constructing any UML diagram."
+}
+type_of_information = ["definition", "explain", "apply"]
+clues = ["These are the distinct parts you place on a diagram.", "Each one represents a specific idea or component.", "If you're drawing a class diagram, 'Class' itself is one of these."]
+distractors = ["The lines connecting different parts of a diagram.", "The overall structure of a complete software system.", "A comment or note added to a diagram for clarification."]
+metadata/_custom_type_script = "uid://dadne10e1geqd"
+
+[sub_resource type="Resource" id="Resource_uml_05"]
+script = ExtResource("1_7hrog")
+id = "UML_05"
+term = "UML Relationship"
+keyword = "Connection"
+definition = "A connection between two or more model elements that specifies how they relate to each other, such as association, generalization, or dependency, to define system structure or behavior."
+simple_terms = "How different parts of a system are linked."
+examples = ["Association", "Generalization", "Dependency"]
+accepted_terms = []
+difficulty = 1
+related_to = ["UML Diagrams", "Software Design", "Modeling Concepts"]
+tof_statement = {
+"false": "UML relationships are primarily used to define the user interface layout.", 
+"true": "UML relationships are crucial for understanding how changes in one part of a system might affect ano"
+}
+type_of_information = ["definition", "explain", "apply"]
+clues = ["It shows how one part interacts with or depends on another.", "These are often represented by lines or arrows on a diagram.", "Think about how objects or classes 'know about' or 'use' each other."]
+distractors = ["A description of an element's internal properties.", "A specific type of diagram for showing system architecture.", "A textual annotation explaining a diagram's purpose."]
+metadata/_custom_type_script = "uid://dadne10e1geqd"
+
+[sub_resource type="Resource" id="Resource_uml_06"]
+script = ExtResource("1_7hrog")
+id = "UML_06"
+term = "Stereotype"
+keyword = "Extension"
+definition = "A mechanism in UML that allows you to extend the vocabulary of UML by defining new types of model elements, relationships, or properties, enabling domain-specific modeling."
+simple_terms = "Customizing UML for specific needs."
+examples = ["<<interface>>", "<<controller>>", "<<entity>>"]
+accepted_terms = []
+difficulty = 2
+related_to = ["UML Diagrams", "Software Design", "Modeling Concepts"]
+tof_statement = {
+"false": "Stereotypes replace standard UML elements with entirely new graphical symbols.", 
+"true": "Stereotypes help make a UML diagram more expressive by adding domain-specific meanings to standard e"
+}
+type_of_information = ["definition", "explain", "apply"]
+clues = ["It's a way to add special meaning to a standard UML item.", "You often see these enclosed in guillemets (<< >>).", "If you need a 'Service' class, but UML only has 'Class', you might use this."]
+distractors = ["A type of diagram used for showing user interactions.", "A predefined set of rules for drawing UML diagrams.", "A comment block used to explain complex parts of a diagram."]
+metadata/_custom_type_script = "uid://dadne10e1geqd"
+
+[sub_resource type="Resource" id="Resource_uml_07"]
+script = ExtResource("1_7hrog")
+id = "UML_07"
+term = "Class Diagram"
+keyword = "Structure"
+definition = "A structural diagram that describes the static structure of a system by showing its classes, their attributes, operations, and the relationships among them, like inheritance or association."
+simple_terms = "Blueprint of system classes and their connections."
+examples = ["User", "Order", "Product"]
+accepted_terms = []
+difficulty = 1
+related_to = ["UML Diagrams", "Software Design", "Structural Views"]
+tof_statement = {
+"false": "A Class Diagram primarily depicts the flow of control within a system.", 
+"true": "A Class Diagram is essential for designing the object-oriented architecture of a system."
+}
+type_of_information = ["definition", "explain", "apply"]
+clues = ["It shows the building blocks of an object-oriented system.", "You'd use this to define types of data and functions.", "Think about how different conceptual entities in your system relate statically."]
+distractors = ["A diagram showing how users interact with a system's features.", "A diagram illustrating the sequence of messages between objects.", "A diagram detailing the physical deployment of software components."]
+metadata/_custom_type_script = "uid://dadne10e1geqd"
+
+[sub_resource type="Resource" id="Resource_uml_08"]
+script = ExtResource("1_7hrog")
+id = "UML_08"
+term = "Association"
+keyword = "Link"
+definition = "A general relationship between two classes that indicates a structural connection, where instances of one class are connected to instances of another, often with multiplicity."
+simple_terms = "A general link between two class types."
+examples = ["Customer-Order", "Student-Course", "Car-Driver"]
+accepted_terms = []
+difficulty = 1
+related_to = ["UML Diagrams", "Software Design", "Structural Views"]
+tof_statement = {
+"false": "An association indicates that one class directly inherits from another.", 
+"true": "An association helps define how objects of different classes can interact or refer to each other."
+}
+type_of_information = ["definition", "explain", "apply"]
+clues = ["It's a basic connection, showing that two things are related.", "Often represented by a solid line between classes.", "If a 'Person' has a 'Car', this relationship exists."]
+distractors = ["A relationship where one class is a specialized version of another.", "A relationship indicating a whole-part connection with shared lifetime.", "A relationship showing that one class uses another temporarily."]
+metadata/_custom_type_script = "uid://dadne10e1geqd"
+
+[sub_resource type="Resource" id="Resource_uml_09"]
+script = ExtResource("1_7hrog")
+id = "UML_09"
+term = "Aggregation"
+keyword = "Weak Whole-Part"
+definition = "A specialized form of association representing a 'whole-part' relationship where the parts can exist independently of the whole, implying a weaker ownership."
+simple_terms = "\"Has a\" relationship where parts can be shared."
+examples = ["Department-Professor", "Car-Wheel", "Team-Player"]
+accepted_terms = []
+difficulty = 2
+related_to = ["UML Diagrams", "Software Design", "Structural Views"]
+tof_statement = {
+"false": "Aggregation means that if the 'whole' object is destroyed, its 'part' objects are also automatically", 
+"true": "If a university department is deleted, its professors can still exist, which is an example of aggreg"
+}
+type_of_information = ["definition", "explain", "apply"]
+clues = ["It's a 'has-a' relationship, but the parts aren't strictly owned.", "Represented by a hollow diamond on the 'whole' side.", "Think of a car and its wheels; the wheels can be used on another car."]
+distractors = ["A strong 'whole-part' relationship where parts cannot exist alone.", "A relationship where one class inherits behavior from another.", "A simple directional link indicating one-way communication."]
+metadata/_custom_type_script = "uid://dadne10e1geqd"
+
+[sub_resource type="Resource" id="Resource_uml_10"]
+script = ExtResource("1_7hrog")
+id = "UML_10"
+term = "Composition"
+keyword = "Strong Whole-Part"
+definition = "A strong form of aggregation where the part objects' lifecycle is dependent on the whole; if the whole is destroyed, its parts are also destroyed, implying exclusive ownership."
+simple_terms = "\"Has a\" relationship with strict ownership."
+examples = ["House-Room", "Order-LineItem", "Polygon-Point"]
+accepted_terms = []
+difficulty = 2
+related_to = ["UML Diagrams", "Software Design", "Structural Views"]
+tof_statement = {
+"false": "Composition allows a 'part' object to be independently created and then attached to multiple 'whole'", 
+"true": "If a 'House' object is deleted, its 'Room' objects are also implicitly removed, demonstrating compos"
+}
+type_of_information = ["definition", "explain", "apply"]
+clues = ["It's a 'has-a' relationship where the parts cannot exist without the whole.", "Represented by a filled diamond on the 'whole' side.", "Consider an 'Order' and its 'Line Items'; an item cannot exist without an order."]
+distractors = ["A relationship indicating that one class is a subtype of another.", "A weak 'whole-part' relationship where parts can exist independently.", "A simple association between two unrelated classes."]
+metadata/_custom_type_script = "uid://dadne10e1geqd"
+
+[sub_resource type="Resource" id="Resource_uml_11"]
+script = ExtResource("1_7hrog")
+id = "UML_11"
+term = "Generalization"
+keyword = "Inheritance"
+definition = "A relationship between a more general classifier (superclass) and a more specific classifier (subclass), where the subclass inherits attributes and operations from the superclass."
+simple_terms = "\"Is a\" relationship, where one type is more specific."
+examples = ["Animal-Dog", "Shape-Circle", "Vehicle-Car"]
+accepted_terms = ["Inheritance"]
+difficulty = 1
+related_to = ["UML Diagrams", "Software Design", "Structural Views"]
+tof_statement = {
+"false": "Generalization describes how two distinct classes collaborate to perform a task.", 
+"true": "Generalization helps reuse common behavior and attributes by defining them once in a superclass."
+}
+type_of_information = ["definition", "explain", "apply"]
+clues = ["It's an 'is-a' kind of connection between classes.", "Represented by a solid line with an unfilled arrowhead pointing to the general class.", "If a 'Dog' is a type of 'Animal', this relationship applies."]
+distractors = ["A relationship showing a 'whole-part' structure.", "A relationship indicating one class uses another's services.", "A connection between objects that send messages to each other."]
+metadata/_custom_type_script = "uid://dadne10e1geqd"
+
+[sub_resource type="Resource" id="Resource_uml_12"]
+script = ExtResource("1_7hrog")
+id = "UML_12"
+term = "Realization"
+keyword = "Implementation"
+definition = "A relationship between a classifier (e.g., a class) and an interface, where the classifier agrees to implement the operations specified by the interface, fulfilling a contract."
+simple_terms = "Class promises to implement an interface."
+examples = ["Class-Interface", "Component-Port", "Actor-UseCase"]
+accepted_terms = ["Implements"]
+difficulty = 2
+related_to = ["UML Diagrams", "Software Design", "Structural Views"]
+tof_statement = {
+"false": "Realization means that one class contains instances of another class.", 
+"true": "Realization ensures that a class provides the specific methods defined in an interface."
+}
+type_of_information = ["definition", "explain", "apply"]
+clues = ["It signifies that one entity fulfills the contract of another.", "Often used with interfaces, showing a class provides its methods.", "Represented by a dashed line with an unfilled arrowhead."]
+distractors = ["A type of inheritance where one class extends another.", "A relationship indicating a strong 'whole-part' dependency.", "A simple association between two independent classes."]
+metadata/_custom_type_script = "uid://dadne10e1geqd"
+
+[sub_resource type="Resource" id="Resource_uml_13"]
+script = ExtResource("1_7hrog")
+id = "UML_13"
+term = "Object Diagram"
+keyword = "Instances"
+definition = "A structural diagram that shows a snapshot of the system at a particular moment, illustrating specific instances of classes and their current relationships and attribute values."
+simple_terms = "A concrete example of classes interacting."
+examples = ["user1:User", "order3:Order", "myCar:Car"]
+accepted_terms = []
+difficulty = 2
+related_to = ["UML Diagrams", "Software Design", "Structural Views"]
+tof_statement = {
+"false": "An Object Diagram is used to define the general structure and behavior of classes.", 
+"true": "An Object Diagram helps verify that the static structure defined in a Class Diagram works for specif"
+}
+type_of_information = ["definition", "explain", "apply"]
+clues = ["It shows actual examples of data and their connections.", "You'd use this to see how specific instances relate at runtime.", "Think of it as a populated class diagram at a single point in time."]
+distractors = ["A diagram showing the flow of activities in a process.", "A diagram defining the general types of entities in a system.", "A diagram illustrating the sequence of messages exchanged between components."]
+metadata/_custom_type_script = "uid://dadne10e1geqd"
+
+[sub_resource type="Resource" id="Resource_uml_14"]
+script = ExtResource("1_7hrog")
+id = "UML_14"
+term = "Component Diagram"
+keyword = "Modularization"
+definition = "A structural diagram that depicts the high-level organization of a system into modular, replaceable units (components) and their interfaces, showing how they connect."
+simple_terms = "How a system is broken into reusable parts."
+examples = ["Database", "WebServer", "AuthService"]
+accepted_terms = []
+difficulty = 2
+related_to = ["UML Diagrams", "Software Design", "Structural Views"]
+tof_statement = {
+"false": "A Component Diagram is primarily used to model the internal logic of a single method.", 
+"true": "A Component Diagram helps architects understand the modularity and dependencies between major system"
+}
+type_of_information = ["definition", "explain", "apply"]
+clues = ["It focuses on the larger, reusable blocks of a system.", "These blocks often provide or require specific services.", "Think about services like 'User Management' or 'Payment Gateway' and how they link."]
+distractors = ["A diagram showing the physical location of hardware nodes.", "A diagram illustrating the sequence of events in a user interaction.", "A diagram defining the inheritance hierarchy of classes."]
+metadata/_custom_type_script = "uid://dadne10e1geqd"
+
+[sub_resource type="Resource" id="Resource_uml_15"]
+script = ExtResource("1_7hrog")
+id = "UML_15"
+term = "Deployment Diagram"
+keyword = "Physical"
+definition = "A structural diagram that visualizes the physical deployment of software artifacts on hardware nodes, showing how software components are distributed and executed across a system's infrastructure."
+simple_terms = "Where software runs on physical hardware."
+examples = ["Server", "Database", "ClientPC"]
+accepted_terms = []
+difficulty = 2
+related_to = ["UML Diagrams", "Software Design", "Structural Views"]
+tof_statement = {
+"false": "A Deployment Diagram details the internal logical structure of an application's classes.", 
+"true": "A Deployment Diagram is crucial for planning infrastructure and understanding resource allocation fo"
+}
+type_of_information = ["definition", "explain", "apply"]
+clues = ["It shows the actual machines and devices involved.", "You'd use this to map software to physical hardware.", "Think about servers, databases, and client devices, and what software runs on each."]
+distractors = ["A diagram showing the logical structure of software modules.", "A diagram illustrating the sequence of messages between objects.", "A diagram depicting the overall user interactions with a system."]
+metadata/_custom_type_script = "uid://dadne10e1geqd"
+
+[sub_resource type="Resource" id="Resource_uml_16"]
+script = ExtResource("1_7hrog")
+id = "UML_16"
+term = "Package Diagram"
+keyword = "Organization"
+definition = "A structural diagram that organizes model elements into logical groups (packages) to manage complexity and define dependencies between these high-level groupings."
+simple_terms = "Grouping related elements for better organization."
+examples = ["Presentation", "BusinessLogic", "DataAccess"]
+accepted_terms = []
+difficulty = 2
+related_to = ["UML Diagrams", "Software Design", "Structural Views"]
+tof_statement = {
+"false": "Package Diagrams define the exact sequence of method calls between objects.", 
+"true": "Package Diagrams help manage the complexity of large systems by providing a high-level view of logic"
+}
+type_of_information = ["definition", "explain", "apply"]
+clues = ["It's like folders for your UML elements.", "Used to break down a huge system into manageable, related parts.", "Think about how Java or C# namespaces or modules group code."]
+distractors = ["A diagram showing the runtime instances of classes.", "A diagram illustrating the physical hardware components.", "A diagram depicting the flow of activities in a process."]
+metadata/_custom_type_script = "uid://dadne10e1geqd"
+
+[sub_resource type="Resource" id="Resource_uml_17"]
+script = ExtResource("1_7hrog")
+id = "UML_17"
+term = "Use Case Diagram"
+keyword = "Requirements"
+definition = "A behavioral diagram that describes the functional requirements of a system from the user's perspective, showing actors, use cases, and their relationships within the system boundary."
+simple_terms = "What a user does with the system."
+examples = ["Login", "MakePayment", "PlaceOrder"]
+accepted_terms = []
+difficulty = 1
+related_to = ["UML Diagrams", "Software Design", "Behavioral Views"]
+tof_statement = {
+"false": "A Use Case Diagram details the internal implementation logic of a specific feature.", 
+"true": "A Use Case Diagram helps stakeholders understand the system's external behavior and scope."
+}
+type_of_information = ["definition", "explain", "apply"]
+clues = ["It shows who interacts with the system and what they do.", "Often the starting point for gathering system requirements.", "Think about user goals and how the system helps achieve them."]
+distractors = ["A diagram showing the flow of data between internal components.", "A diagram illustrating the physical deployment of software.", "A diagram defining the static structure of classes."]
+metadata/_custom_type_script = "uid://dadne10e1geqd"
+
+[sub_resource type="Resource" id="Resource_uml_18"]
+script = ExtResource("1_7hrog")
+id = "UML_18"
+term = "Actor"
+keyword = "User Role"
+definition = "An entity external to the system that interacts with it to perform a use case, representing a role that a human user, another system, or an external device plays."
+simple_terms = "Someone or something interacting with the system."
+examples = ["Customer", "Admin", "PaymentGateway"]
+accepted_terms = []
+difficulty = 1
+related_to = ["UML Diagrams", "System Behavior", "Behavioral Views"]
+tof_statement = {
+"false": "An Actor is an internal component of the system that performs background tasks.", 
+"true": "An Actor represents a role, not necessarily a specific person, allowing multiple users to fit the sa"
+}
+type_of_information = ["definition", "explain", "apply"]
+clues = ["It's always outside the system boundary.", "It initiates or participates in a system's functions.", "Think of the stick figure symbol on a requirements diagram."]
+distractors = ["An internal class within the software system.", "A specific operation or method performed by the system.", "A type of data stored within the system's database."]
+metadata/_custom_type_script = "uid://dadne10e1geqd"
+
+[sub_resource type="Resource" id="Resource_uml_19"]
+script = ExtResource("1_7hrog")
+id = "UML_19"
+term = "Use Case"
+keyword = "Functionality"
+definition = "A sequence of actions performed by a system, often in collaboration with actors, to yield an observable result of value to a particular actor, representing a system's functional requirement."
+simple_terms = "A specific goal an actor achieves with the system."
+examples = ["RegisterAccount", "WithdrawFunds", "BrowseProducts"]
+accepted_terms = []
+difficulty = 1
+related_to = ["UML Diagrams", "System Behavior", "Behavioral Views"]
+tof_statement = {
+"false": "A Use Case provides a detailed step-by-step algorithm for a specific function.", 
+"true": "A Use Case describes what the system does, not how it does it, focusing on user goals."
+}
+type_of_information = ["definition", "explain", "apply"]
+clues = ["It describes a high-level system function from a user's view.", "Represented by an oval shape in a requirements diagram.", "If a user wants to 'checkout', that's one of these."]
+distractors = ["A detailed step-by-step algorithm for a specific task.", "A class that encapsulates data and behavior.", "A physical device where software is deployed."]
+metadata/_custom_type_script = "uid://dadne10e1geqd"
+
+[sub_resource type="Resource" id="Resource_uml_20"]
+script = ExtResource("1_7hrog")
+id = "UML_20"
+term = "Include Relationship"
+keyword = "Mandatory"
+definition = "A relationship in a Use Case Diagram indicating that the behavior of the included use case is a mandatory part of the base use case, always executed as part of it."
+simple_terms = "One use case always needs another."
+examples = ["Login-Authenticate", "PlaceOrder-CalculateTax", "Checkout-ProcessPayment"]
+accepted_terms = ["<<include>>"]
+difficulty = 2
+related_to = ["UML Diagrams", "System Behavior", "Behavioral Views"]
+tof_statement = {
+"false": "An 'include' relationship means a use case can optionally extend another's behavior.", 
+"true": "If 'Process Payment' is included in 'Place Order', then 'Process Payment' must always occur during '"
+}
+type_of_information = ["definition", "explain", "apply"]
+clues = ["It signifies a required common function.", "Represented by a dashed arrow with the '<<include>>' stereotype.", "If 'Login' always involves 'Authenticate User', this link applies."]
+distractors = ["An optional extension of a base use case's behavior.", "A relationship showing one use case inherits from another.", "A simple association between two independent use cases."]
+metadata/_custom_type_script = "uid://dadne10e1geqd"
+
+[sub_resource type="Resource" id="Resource_uml_21"]
+script = ExtResource("1_7hrog")
+id = "UML_21"
+term = "Extend Relationship"
+keyword = "Optional"
+definition = "A relationship in a Use Case Diagram where the extending use case adds optional or conditional behavior to a base use case at a specific extension point."
+simple_terms = "One use case might add optional steps."
+examples = ["PlaceOrder-ApplyCoupon", "WithdrawFunds-NotifySMS", "Login-ForgotPassword"]
+accepted_terms = ["<<extend>>"]
+difficulty = 2
+related_to = ["UML Diagrams", "System Behavior", "Behavioral Views"]
+tof_statement = {
+"false": "An 'extend' relationship indicates that one use case is always a necessary part of another.", 
+"true": "An 'extend' relationship means the extending use case only executes under certain conditions or user"
+}
+type_of_information = ["definition", "explain", "apply"]
+clues = ["It adds extra, non-essential functionality.", "Represented by a dashed arrow with the '<<extend>>' stereotype.", "If 'Login' *might* lead to 'Forgot Password', this link applies."]
+distractors = ["A mandatory sub-process that is always part of a base use case.", "A relationship indicating one use case is composed of others.", "A simple association between two use cases without specific conditions."]
+metadata/_custom_type_script = "uid://dadne10e1geqd"
+
+[sub_resource type="Resource" id="Resource_uml_22"]
+script = ExtResource("1_7hrog")
+id = "UML_22"
+term = "Activity Diagram"
+keyword = "Workflow"
+definition = "A behavioral diagram that models the dynamic aspects of a system by showing the flow of control and data between activities, representing business processes or operational workflows."
+simple_terms = "Steps and decisions in a process flow."
+examples = ["OrderProcessing", "UserRegistration", "DataMigration"]
+accepted_terms = []
+difficulty = 1
+related_to = ["UML Diagrams", "System Behavior", "Behavioral Views"]
+tof_statement = {
+"false": "An Activity Diagram describes the static structure of classes and their attributes.", 
+"true": "An Activity Diagram is useful for visualizing complex business processes and identifying potential b"
+}
+type_of_information = ["definition", "explain", "apply"]
+clues = ["It shows a sequence of steps, decisions, and parallel paths.", "You'd use this to map out a workflow or algorithm.", "Think about a flowchart for a process, including forks and joins."]
+distractors = ["A diagram showing how objects interact over time.", "A diagram illustrating the possible states of an object.", "A diagram depicting the physical deployment of software components."]
+metadata/_custom_type_script = "uid://dadne10e1geqd"
+
+[sub_resource type="Resource" id="Resource_uml_23"]
+script = ExtResource("1_7hrog")
+id = "UML_23"
+term = "Action Node"
+keyword = "Step"
+definition = "A fundamental element in an Activity Diagram representing a single, indivisible step or operation performed within a workflow, such as 'Save Data' or 'Send Email'."
+simple_terms = "A single task performed in a process."
+examples = ["CalculateTotal", "UpdateStatus", "VerifyInput"]
+accepted_terms = []
+difficulty = 1
+related_to = ["UML Diagrams", "System Behavior", "Behavioral Views"]
+tof_statement = {
+"false": "An Action Node is used to represent a decision point in a workflow.", 
+"true": "An Action Node represents a specific, atomic task that contributes to the overall activity."
+}
+type_of_information = ["definition", "explain", "apply"]
+clues = ["It's a discrete task or operation in a process.", "Represented by a rounded rectangle in a workflow diagram.", "If you're processing an order, 'Charge Card' would be one of these."]
+distractors = ["A point where a decision is made in a process.", "A point where multiple parallel flows merge.", "A condition that must be met before an action can occur."]
+metadata/_custom_type_script = "uid://dadne10e1geqd"
+
+[sub_resource type="Resource" id="Resource_uml_24"]
+script = ExtResource("1_7hrog")
+id = "UML_24"
+term = "Decision Node"
+keyword = "Choice"
+definition = "An element in an Activity Diagram that represents a point where the flow of control can branch based on a condition, leading to different subsequent activities."
+simple_terms = "Where a process can go one of several ways."
+examples = ["IsValid?", "HasStock?", "IsApproved?"]
+accepted_terms = []
+difficulty = 1
+related_to = ["UML Diagrams", "System Behavior", "Behavioral Views"]
+tof_statement = {
+"false": "A Decision Node is used to start multiple parallel activities simultaneously.", 
+"true": "A Decision Node allows an activity flow to diverge based on boolean conditions, like 'approved' or '"
+}
+type_of_information = ["definition", "explain", "apply"]
+clues = ["It's where a choice is made in a workflow.", "Represented by a diamond shape in an activity diagram.", "If the system needs to check 'if (condition is true)', this is used."]
+distractors = ["A point where a single action is performed.", "A point where parallel flows begin.", "A point where parallel flows synchronize and merge."]
+metadata/_custom_type_script = "uid://dadne10e1geqd"
+
+[sub_resource type="Resource" id="Resource_uml_25"]
+script = ExtResource("1_7hrog")
+id = "UML_25"
+term = "Fork Node"
+keyword = "Parallel Start"
+definition = "An element in an Activity Diagram that represents the splitting of a single incoming flow into multiple concurrent (parallel) outgoing flows of control, enabling parallel execution."
+simple_terms = "Starting multiple tasks at the same time."
+examples = ["ProcessOrder", "PrepareShipping", "SendConfirmation"]
+accepted_terms = []
+difficulty = 2
+related_to = ["UML Diagrams", "System Behavior", "Behavioral Views"]
+tof_statement = {
+"false": "A Fork Node represents a conditional choice between different paths in a workflow.", 
+"true": "A Fork Node is used when several independent tasks can be executed simultaneously after a certain po"
+}
+type_of_information = ["definition", "explain", "apply"]
+clues = ["It allows multiple activities to happen at once.", "Represented by a thick horizontal or vertical bar.", "If you 'process payment' AND 'update inventory' at the same time, this starts it."]
+distractors = ["A node that merges multiple parallel flows back into one.", "A node that makes a conditional choice between paths.", "A node that represents a single, atomic action."]
+metadata/_custom_type_script = "uid://dadne10e1geqd"
+
+[sub_resource type="Resource" id="Resource_uml_26"]
+script = ExtResource("1_7hrog")
+id = "UML_26"
+term = "Join Node"
+keyword = "Parallel End"
+definition = "An element in an Activity Diagram that represents the synchronization of multiple incoming concurrent flows into a single outgoing flow, requiring all incoming flows to complete before proceeding."
+simple_terms = "Waiting for all parallel tasks to finish."
+examples = ["AllPartsReady", "DeliveryComplete", "ReportGenerated"]
+accepted_terms = []
+difficulty = 2
+related_to = ["UML Diagrams", "System Behavior", "Behavioral Views"]
+tof_statement = {
+"false": "A Join Node allows the process to continue as soon as any one of the incoming parallel flows complet", 
+"true": "A Join Node ensures that all parallel activities have finished before the process can continue to th"
+}
+type_of_information = ["definition", "explain", "apply"]
+clues = ["It brings together multiple parallel activities.", "Represented by a thick horizontal or vertical bar.", "If 'payment processed' AND 'inventory updated' must both finish before 'order confirmed', this ends it."]
+distractors = ["A node that splits a single flow into multiple parallel ones.", "A node that makes a conditional choice between paths.", "A node that represents a single, atomic action."]
+metadata/_custom_type_script = "uid://dadne10e1geqd"
+
+[sub_resource type="Resource" id="Resource_uml_27"]
+script = ExtResource("1_7hrog")
+id = "UML_27"
+term = "Sequence Diagram"
+keyword = "Interaction"
+definition = "A behavioral diagram that illustrates how objects interact with each other over time, showing the order of messages exchanged between them to achieve a specific functionality."
+simple_terms = "How objects talk to each other, step-by-step."
+examples = ["UserLogin", "ItemAddToCart", "ProcessRefund"]
+accepted_terms = []
+difficulty = 1
+related_to = ["UML Diagrams", "System Behavior", "Behavioral Views"]
+tof_statement = {
+"false": "A Sequence Diagram defines the static relationships between classes in a system.", 
+"true": "A Sequence Diagram is excellent for visualizing the detailed flow of control and messages in a speci"
+}
+type_of_information = ["definition", "explain", "apply"]
+clues = ["It focuses on the timing and order of communications.", "You'd use this to trace an execution path through multiple objects.", "Think of vertical lifelines and horizontal arrows representing calls."]
+distractors = ["A diagram showing the different states an object can be in.", "A diagram depicting the overall workflow of a business process.", "A diagram illustrating the physical deployment of software components."]
+metadata/_custom_type_script = "uid://dadne10e1geqd"
+
+[sub_resource type="Resource" id="Resource_uml_28"]
+script = ExtResource("1_7hrog")
+id = "UML_28"
+term = "Lifeline"
+keyword = "Participant"
+definition = "An element in a Sequence Diagram that represents an individual participant (an object or an actor) in the interaction, showing its existence over a period of time."
+simple_terms = "An object or actor involved in a sequence."
+examples = ["user:User", "orderMgr:Order", "db:Database"]
+accepted_terms = []
+difficulty = 1
+related_to = ["UML Diagrams", "System Behavior", "Behavioral Views"]
+tof_statement = {
+"false": "A Lifeline defines the conditions under which a message is sent between objects.", 
+"true": "A Lifeline visually represents the active existence of an object during an interaction scenario."
+}
+type_of_information = ["definition", "explain", "apply"]
+clues = ["It's a vertical dashed line representing an object's existence.", "Messages are sent to and from these participants.", "If you have a 'Customer' and an 'Order Processor' in an interaction, each has one."]
+distractors = ["A message sent between objects.", "A condition that controls the flow of messages.", "A block representing a segment of interaction logic."]
+metadata/_custom_type_script = "uid://dadne10e1geqd"
+
+[sub_resource type="Resource" id="Resource_uml_29"]
+script = ExtResource("1_7hrog")
+id = "UML_29"
+term = "Message"
+keyword = "Communication"
+definition = "An element in a Sequence Diagram that represents communication between two lifelines, indicating an operation call, a signal, or the creation/destruction of an object."
+simple_terms = "How objects talk to each other."
+examples = ["createUser()", "saveOrder()", "returnResult()"]
+accepted_terms = []
+difficulty = 1
+related_to = ["UML Diagrams", "System Behavior", "Behavioral Views"]
+tof_statement = {
+"false": "Messages are used to define the static attributes of an object.", 
+"true": "Messages on a Sequence Diagram illustrate the dynamic method calls or data exchanges between objects"
+}
+type_of_information = ["definition", "explain", "apply"]
+clues = ["It's the actual call or signal exchanged between objects.", "Represented by horizontal arrows between vertical lines.", "When a 'Controller' asks a 'Service' to 'doSomething()', that's one of these."]
+distractors = ["A condition that must be met for an action to occur.", "A container for a group of related interactions.", "A participant in the interaction scenario."]
+metadata/_custom_type_script = "uid://dadne10e1geqd"
+
+[sub_resource type="Resource" id="Resource_uml_30"]
+script = ExtResource("1_7hrog")
+id = "UML_30"
+term = "State Machine Diagram"
+keyword = "Lifecycle"
+definition = "A behavioral diagram that models the dynamic behavior of an object by showing the sequences of states it goes through, the events that trigger transitions, and the actions performed in response."
+simple_terms = "How an object changes its status over time."
+examples = ["OrderStatus", "TrafficLight", "ATMState"]
+accepted_terms = ["Statechart Diagram"]
+difficulty = 2
+related_to = ["UML Diagrams", "System Behavior", "Behavioral Views"]
+tof_statement = {
+"false": "A State Machine Diagram describes the data flow between different components of a system.", 
+"true": "A State Machine Diagram helps analyze the complete lifecycle of an object and predict its behavior u"
+}
+type_of_information = ["definition", "explain", "apply"]
+clues = ["It shows how an object's condition changes over time.", "You'd use this to model complex lifecycles of entities.", "Think about an 'Order' going from 'New' to 'Processing' to 'Shipped'."]
+distractors = ["A diagram illustrating the sequence of messages between objects.", "A diagram showing the static structure of classes and their relationships.", "A diagram depicting the physical deployment of software components."]
+metadata/_custom_type_script = "uid://dadne10e1geqd"
+
+[sub_resource type="Resource" id="Resource_uml_31"]
+script = ExtResource("1_7hrog")
+id = "UML_31"
+term = "State"
+keyword = "Condition"
+definition = "A condition or situation during the lifetime of an object in which it satisfies some condition, performs some activity, or waits for some event, represented in a State Machine Diagram."
+simple_terms = "A specific status an object is in."
+examples = ["Idle", "Active", "Suspended"]
+accepted_terms = []
+difficulty = 1
+related_to = ["UML Diagrams", "System Behavior", "Behavioral Views"]
+tof_statement = {
+"false": "A State represents a specific action performed by an object, rather than its condition.", 
+"true": "An object's behavior can differ significantly depending on the state it is currently in."
+}
+type_of_information = ["definition", "explain", "apply"]
+clues = ["It's a particular status or mode an object can be in.", "Represented by a rounded rectangle in a state diagram.", "An 'Order' can be in 'Pending', 'Confirmed', or 'Delivered' status."]
+distractors = ["An event that causes an object to change its condition.", "An action performed by an object when it enters a state.", "A transition path between two different conditions."]
+metadata/_custom_type_script = "uid://dadne10e1geqd"
+
+[sub_resource type="Resource" id="Resource_uml_32"]
+script = ExtResource("1_7hrog")
+id = "UML_32"
+term = "Transition"
+keyword = "Change"
+definition = "A change from one state to another state, triggered by an event, and potentially guarded by a condition, with an optional action performed during the state change in a State Machine Diagram."
+simple_terms = "Moving from one status to another."
+examples = ["OrderPlaced", "ItemShipped", "PaymentFailed"]
+accepted_terms = []
+difficulty = 2
+related_to = ["UML Diagrams", "System Behavior", "Behavioral Views"]
+tof_statement = {
+"false": "A Transition represents a period during which an object remains in a stable condition.", 
+"true": "A Transition defines the rules and events under which an object moves from one state to another."
+}
+type_of_information = ["definition", "explain", "apply"]
+clues = ["It's what causes an object to move from one condition to another.", "Represented by an arrow connecting two states.", "When an 'Order' is 'Confirmed', it might move from 'Pending' to 'Processing' via this."]
+distractors = ["A stable condition that an object can be in.", "An action performed while an object is in a particular state.", "A specific event that occurs but does not necessarily change state."]
+metadata/_custom_type_script = "uid://dadne10e1geqd"
+
+[resource]
+script = ExtResource("2_bkryn")
+lesson_title = "Software Modelling UML"
+lesson_items = Array[ExtResource("1_7hrog")]([SubResource("Resource_uml_01"), SubResource("Resource_uml_02"), SubResource("Resource_uml_03"), SubResource("Resource_uml_04"), SubResource("Resource_uml_05"), SubResource("Resource_uml_06"), SubResource("Resource_uml_07"), SubResource("Resource_uml_08"), SubResource("Resource_uml_09"), SubResource("Resource_uml_10"), SubResource("Resource_uml_11"), SubResource("Resource_uml_12"), SubResource("Resource_uml_13"), SubResource("Resource_uml_14"), SubResource("Resource_uml_15"), SubResource("Resource_uml_16"), SubResource("Resource_uml_17"), SubResource("Resource_uml_18"), SubResource("Resource_uml_19"), SubResource("Resource_uml_20"), SubResource("Resource_uml_21"), SubResource("Resource_uml_22"), SubResource("Resource_uml_23"), SubResource("Resource_uml_24"), SubResource("Resource_uml_25"), SubResource("Resource_uml_26"), SubResource("Resource_uml_27"), SubResource("Resource_uml_28"), SubResource("Resource_uml_29"), SubResource("Resource_uml_30"), SubResource("Resource_uml_31"), SubResource("Resource_uml_32")])
+metadata/_custom_type_script = "uid://7kxviye2bk4p"

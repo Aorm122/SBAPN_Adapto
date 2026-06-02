@@ -10,8 +10,10 @@ const MAX_CELL_SIZE  := 50
 const MIN_GRID_SIZE  := 13
 const MAX_GRID_SIZE  := 34
 const TIME_LIMIT     := 180
-# Score cost applied each time a hint is used.
-const HINT_PENALTY := 30
+# Score penalty per 2-letter hint reveal.
+const HINT_PENALTY := 50
+# Bonus multiplier for completing a word with zero hints.
+const FLAWLESS_BONUS_MULT := 1.5
 const TIMEOUT_REVEAL_DELAY := 10.0
 const WIN_TRANSITION_DELAY := 3.5
 
@@ -54,6 +56,8 @@ var selected_idx: int = -1
 var solved: Array = []      # bool per placement index
 var wrong_attempts := 0
 var hints_used := 0
+## Tracks hint count per placement index for Flawless Bonus tracking.
+var word_hints: Dictionary = {}
 var adaptive_recorded := false
 var stats_recorded := false
 var current_streak := 0
@@ -459,8 +463,15 @@ func _on_submit() -> void:
 
 	if ans == p["word"]:
 		solved[selected_idx] = true
-		score += 100
-		feedback_label.text = "✅  Correct!  \"%s\"" % p["word"].to_lower().capitalize()
+		# Base reward per solved word; Flawless bonus if no hints were used on this word.
+		var word_hint_count: int = word_hints.get(selected_idx, 0)
+		var word_reward := 200
+		if word_hint_count == 0:
+			word_reward = int(round(word_reward * FLAWLESS_BONUS_MULT))
+			feedback_label.text = "✅ Flawless! \"%s\" +%d" % [p["word"].to_lower().capitalize(), word_reward]
+		else:
+			feedback_label.text = "✅  Correct!  \"%s\" +%d" % [p["word"].to_lower().capitalize(), word_reward]
+		score += word_reward
 		_mark_clue_solved(selected_idx)
 		grid_node.queue_redraw()
 		_update_hud()
@@ -502,11 +513,23 @@ func _on_hint_pressed() -> void:
 		answer_input.call_deferred("grab_focus")
 		return
 
-	# Pass the index instead of the string so we can check the grid
-	var hint_text := _build_hint(selected_idx)
+	# Track per-word hint usage
+	word_hints[selected_idx] = word_hints.get(selected_idx, 0) + 1
 	hints_used += 1
 	score = maxi(0, score - HINT_PENALTY)
-	feedback_label.text = "💡  Hint: %s" % hint_text
+	# Try to use the lesson item's progressive clue array first
+	var clue_text := ""
+	if selected_idx < items.size():
+		var lesson_item = items[selected_idx]
+		var clue_level: int = word_hints[selected_idx] - 1  # 0-indexed
+		var item_clues = lesson_item.get("clues") if lesson_item.has_method("get") else null
+		if typeof(item_clues) == TYPE_ARRAY and item_clues.size() > clue_level:
+			clue_text = str(item_clues[clue_level])
+	if clue_text != "":
+		feedback_label.text = "💡 Clue %d: %s" % [word_hints[selected_idx], clue_text]
+	else:
+		var hint_text := _build_hint(selected_idx)
+		feedback_label.text = "💡  Hint: %s" % hint_text
 	_update_hud()
 	answer_input.call_deferred("grab_focus")
 
